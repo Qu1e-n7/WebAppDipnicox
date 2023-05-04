@@ -11,7 +11,7 @@ namespace WebAppDipnicox.Datos
         SqlConnection conexion = null;
         public SqlConnection mtdConexion()
         {
-            conexion = new SqlConnection("Data Source=SOGAPRRBCFSD546\\MSSQLSERVERR;Initial Catalog=dbDipnicox;Integrated Security=True");
+            conexion = new SqlConnection("Data Source=SOGAPRRBCFSD544\\SQLEXPRESS;Initial Catalog=dbDipnicox;Integrated Security=True");
             conexion.Open();
             return conexion;
         }
