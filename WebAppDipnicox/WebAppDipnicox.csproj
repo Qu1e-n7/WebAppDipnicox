@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClTipoPersonalD.cs" />
@@ -110,8 +111,7 @@
     </Compile>
     <Compile Include="Vista\RegTrabajadores.aspx.designer.cs">
       <DependentUpon>RegTrabajadores.aspx</DependentUpon>
-    </Compile>
-   </Compile>  
+    </Compile> 
   </ItemGroup>
     
   <ItemGroup>
