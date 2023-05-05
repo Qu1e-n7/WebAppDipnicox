@@ -9,6 +9,12 @@ namespace WebAppDipnicox.Logica
 {
     public class ClPersonalL
     {
+        public ClPersonalE mtdLogin(string usu, string clave)
+        {
+            ClPersonalD obClienteD = new ClPersonalD();
+            ClPersonalE obClienteE = obClienteD.mtdLogin(usu, clave);
+            return obClienteE;
+        }
         public int mtdRegistrar(ClPersonalE objDatos)
         {
             ClPersonalD objPersonalD = new ClPersonalD();
