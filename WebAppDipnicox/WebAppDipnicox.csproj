@@ -111,7 +111,9 @@
     <Compile Include="Vista\RegTrabajadores.aspx.designer.cs">
       <DependentUpon>RegTrabajadores.aspx</DependentUpon>
     </Compile>
+      </Compile>
   </ItemGroup>
+    
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
