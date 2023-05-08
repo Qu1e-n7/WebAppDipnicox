@@ -31,5 +31,14 @@ namespace WebAppDipnicox.Datos
             return registro;
         }
 
+        public SqlDataReader mtdListar()
+        {
+            string ProceAlmacenado = "ListarPersonal";
+            ClConexion objConexion = new ClConexion();
+            SqlCommand comando = new SqlCommand(ProceAlmacenado, objConexion.mtdConexion());
+            comando.CommandType= CommandType.StoredProcedure;
+            SqlDataReader reader=comando.ExecuteReader();
+            return reader;
+        }
     }
 }

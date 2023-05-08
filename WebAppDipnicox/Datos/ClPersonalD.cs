@@ -43,5 +43,27 @@ namespace WebAppDipnicox.Datos
             return canReg;
 
         }
+        public List<ClPersonalE> mtdListaPersonal(ClPersonalE obDatos)
+        {
+            ClProcesarSQL SQL= new ClProcesarSQL();
+            SqlDataReader reader = SQL.mtdListar();
+            List<ClPersonalE> listPersonal=new List<ClPersonalE>();
+            while (reader.Read())
+            {
+                obDatos = new ClPersonalE();
+                obDatos.idPersonal = reader.GetInt32(0);
+                obDatos.Documento = reader.GetString(1);
+                obDatos.Nombre = reader.GetString(2);
+                obDatos.Apellido = reader.GetString(3);
+                obDatos.Telefono = reader.GetString(4);
+                obDatos.Estado = reader.GetString(5);
+                obDatos.Email = reader.GetString(6);
+                obDatos.Contraseña = reader.GetString(7);
+                obDatos.idTipoPersonal = reader.GetInt32(8);
+                obDatos.idCiudad = reader.GetInt32(9);
+                listPersonal.Add(obDatos);
+            }
+            return listPersonal;
+        }
     }
 }
