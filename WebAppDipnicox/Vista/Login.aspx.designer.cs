@@ -11,7 +11,7 @@ namespace WebAppDipnicox.Vista
 {
 
 
-    public partial class Login
+    public partial class Login1
     {
 
         /// <summary>

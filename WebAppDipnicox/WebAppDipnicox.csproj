@@ -71,11 +71,10 @@
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Imagenes\Login.png" />
     <Content Include="Vista\ListarPersonal.aspx" />
-    <Content Include="Vista\Login.aspx" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Styles\sweetalert.css" />
-    <Content Include="Vista\Css\Style.css" />
+    <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\RegTrabajadores.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -111,6 +110,12 @@
     <Compile Include="Vista\ListarPersonal.aspx.designer.cs">
       <DependentUpon>ListarPersonal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Datos\ClTipoPersonalD.cs" />
+    <Compile Include="Entidades\ClCiudadE.cs" />
+    <Compile Include="Entidades\ClTipoPersonalE.cs" />
+    <Compile Include="Logica\ClCiudadL.cs" />
+    <Compile Include="Logica\ClTipoPersonalL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -118,12 +123,6 @@
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Datos\ClTipoPersonalD.cs" />
-    <Compile Include="Entidades\ClCiudadE.cs" />
-    <Compile Include="Entidades\ClTipoPersonalE.cs" />
-    <Compile Include="Logica\ClCiudadL.cs" />
-    <Compile Include="Logica\ClTipoPersonalL.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\RegTrabajadores.aspx.cs">
       <DependentUpon>RegTrabajadores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -11,7 +11,7 @@ namespace WebAppDipnicox.Vista
 {
 
 
-    public partial class RegTrabajadores
+    public partial class RegTrabajadores1
     {
 
         /// <summary>
