@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebAppDipnicox.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container">
+            <div class="menu">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse p-2" id="collapsibleNavbar">
+                    <div class="navbar-nav ac">
+                        <div class=" nav-item nav-">
+                            <a class="nav-link pr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hogar</font></font></a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Categoría</font></font></a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso</font></font></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
