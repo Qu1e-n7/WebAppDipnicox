@@ -46,7 +46,9 @@ namespace WebAppDipnicox.Datos
         public List<ClPersonalE> mtdListaPersonal(ClPersonalE obDatos)
         {
             ClProcesarSQL SQL= new ClProcesarSQL();
-            SqlDataReader reader = SQL.mtdListar();
+            string Proceso = "ListarPersonal";
+            SqlDataReader reader = SQL.mtdListar(Proceso);
+
             List<ClPersonalE> listPersonal=new List<ClPersonalE>();
             while (reader.Read())
             {
@@ -65,5 +67,6 @@ namespace WebAppDipnicox.Datos
             }
             return listPersonal;
         }
+        
     }
 }
