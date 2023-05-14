@@ -9,7 +9,7 @@ using WebAppDipnicox.Logica;
 
 namespace WebAppDipnicox.Vista
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
