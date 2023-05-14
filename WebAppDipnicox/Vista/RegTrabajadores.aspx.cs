@@ -9,7 +9,7 @@ using WebAppDipnicox.Logica;
 
 namespace WebAppDipnicox.Vista
 {
-    public partial class RegTrabajadores : System.Web.UI.Page
+    public partial class RegTrabajadores1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,6 +37,7 @@ namespace WebAppDipnicox.Vista
                 ddlCiudad.DataBind();
                 ddlCiudad.Items.Insert(0, new ListItem("Ciudad:", "0"));
             }
+
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
