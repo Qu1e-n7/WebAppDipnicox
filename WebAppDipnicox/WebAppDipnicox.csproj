@@ -71,11 +71,17 @@
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Imagenes\Login.png" />
     <Content Include="Vista\ListarPersonal.aspx" />
+
+    <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\RegProductos.aspx" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Styles\sweetalert.css" />
     <Content Include="Vista\Login.aspx" />
-    <Content Include="Vista\RegTrabajadores.aspx" />
+   <Content Include="Vista\RegTrabajadores.aspx" />
+    <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
+    <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
+    <Content Include="Vista\SweetAlert\Styles\sweetalert.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,8 +90,10 @@
     <Compile Include="Datos\ClClienteD.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
+    <Compile Include="Datos\ClProductosD.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
+    <Compile Include="Entidades\ClProductosE.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -95,6 +103,7 @@
     </Compile>
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
+    <Compile Include="Logica\ClProductosL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -122,6 +131,19 @@
     </Compile>
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\ClTipoPersonalD.cs" />
+    <Compile Include="Entidades\ClCiudadE.cs" />
+    <Compile Include="Entidades\ClTipoPersonalE.cs" />
+    <Compile Include="Logica\ClCiudadL.cs" />
+    <Compile Include="Logica\ClTipoPersonalL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\RegProductos.aspx.cs">
+      <DependentUpon>RegProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegProductos.aspx.designer.cs">
+      <DependentUpon>RegProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\RegTrabajadores.aspx.cs">
       <DependentUpon>RegTrabajadores.aspx</DependentUpon>

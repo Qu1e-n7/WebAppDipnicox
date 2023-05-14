@@ -30,15 +30,24 @@ namespace WebAppDipnicox.Datos
             objConexion.mtdConexion().Close();
             return registro;
         }
-
-        public SqlDataReader mtdListar()
+        //Lista con Procesos Almacenados
+        public SqlDataReader mtdListar(string ProceAlmacenado)
         {
-            string ProceAlmacenado = "ListarPersonal";
+            
             ClConexion objConexion = new ClConexion();
             SqlCommand comando = new SqlCommand(ProceAlmacenado, objConexion.mtdConexion());
-            comando.CommandType= CommandType.StoredProcedure;
-            SqlDataReader reader=comando.ExecuteReader();
-            return reader;
+            comando.CommandType = CommandType.StoredProcedure;
+            SqlDataReader leer=comando.ExecuteReader();
+            return leer;
+        }
+        //Insert de Productos con proceso almacenado que retorna un registro
+        public SqlCommand mtdAgregar (string Proceso)
+        {
+            ClConexion objConexion = new ClConexion();
+            SqlCommand comando = new SqlCommand(Proceso, objConexion.mtdConexion());
+            comando.CommandType = CommandType.StoredProcedure;
+            
+            return comando;
         }
     }
 }
