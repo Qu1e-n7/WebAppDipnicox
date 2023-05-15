@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Home.aspx" />
     <Content Include="Vista\Css\Style.css" />
+    <Content Include="Vista\Css\StyleHome.css" />
     <Content Include="Vista\Imagenes\Login.png" />
     <Content Include="Vista\ListarPersonal.aspx" />
 
