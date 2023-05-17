@@ -5,6 +5,9 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using WebAppDipnicox.Entidades;
+using System.Web.Helpers;
+using Newtonsoft.JsonResult;
+using WebAppDipnicox.Vista;
 
 namespace WebAppDipnicox.Datos
 {
@@ -53,16 +56,31 @@ namespace WebAppDipnicox.Datos
             while (reader.Read())
             {
                 obDatos = new ClPersonalE();
-                obDatos.idPersonal = reader.GetInt32(0);
-                obDatos.Documento = reader.GetString(1);
-                obDatos.Nombre = reader.GetString(2);
-                obDatos.Apellido = reader.GetString(3);
-                obDatos.Telefono = reader.GetString(4);
-                obDatos.Estado = reader.GetString(5);
-                obDatos.Email = reader.GetString(6);
-                obDatos.Contraseña = reader.GetString(7);
-                obDatos.idTipoPersonal = reader.GetInt32(8);
-                obDatos.idCiudad = reader.GetInt32(9);
+                obDatos.idPersonal = Convert.ToInt32(reader["idPersonal"]); 
+                obDatos.Documento = reader["Documento"].ToString();
+                obDatos.Nombre = reader["Nombre"].ToString();
+                obDatos.Apellido = reader["Apellido"].ToString();
+                obDatos.Telefono = reader["Telefono"].ToString();
+                obDatos.Estado = reader["Estado"].ToString();
+                obDatos.Email = reader["Email"].ToString();
+                obDatos.Contraseña = reader["Contraseña"].ToString();
+                obDatos.idTipoPersonal = Convert.ToInt32(reader["idTipoPersonal"]);
+                obDatos.idCiudad = Convert.ToInt32(reader["idCiudad"]);
+
+
+
+
+
+                //obDatos.idPersonal = reader.GetInt32(0);
+                //obDatos.Documento = reader.GetString(1);
+                //obDatos.Nombre = reader.GetString(2);
+                //obDatos.Apellido = reader.GetString(3);
+                //obDatos.Telefono = reader.GetString(4);
+                //obDatos.Estado = reader.GetString(5);
+                //obDatos.Email = reader.GetString(6);
+                //obDatos.Contraseña = reader.GetString(7);
+                //obDatos.idTipoPersonal = reader.GetInt32(8);
+                //obDatos.idCiudad = reader.GetInt32(9);
                 listPersonal.Add(obDatos);
             }
             return listPersonal;
