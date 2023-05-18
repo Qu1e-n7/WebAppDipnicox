@@ -9,7 +9,7 @@ using WebAppDipnicox.Logica;
 
 namespace WebAppDipnicox.Vista
 {
-    public partial class Login1 : System.Web.UI.Page
+    public partial class Login11 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +27,7 @@ namespace WebAppDipnicox.Vista
                 if (obDatosP.idTipoPersonal == 1)
                 {
                     Session["Administrador"] = obDatosP.idPersonal + " " + obDatosP.Nombre + " " + obDatosP.Apellido + " " + obDatosP.Telefono;
-                    Response.Redirect("");
+                    Response.Redirect("../HomeAdmi.aspx");
                 }
                 else if (obDatosP.idTipoPersonal == 2)
                 {
