@@ -94,14 +94,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Home.aspx" />
+    <Content Include="Vista\ActProductos.aspx" />
+    <Content Include="Vista\Css\Actualiza.css" />
     <Content Include="HomeAdmi.aspx" />
     <Content Include="Scripts\Enviar.js" />
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Css\StyleHome.css" />
     <Content Include="Vista\Imagenes\Login.png" />
+    <Content Include="Vista\ListaProductos.aspx" />
     <Content Include="Vista\ListarPersonal.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\RegProductos.aspx" />
+    <Content Include="Vista\Login.aspx" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Styles\sweetalert.css" />
@@ -140,6 +145,19 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ActProductos.aspx.cs">
+      <DependentUpon>ActProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ActProductos.aspx.designer.cs">
+      <DependentUpon>ActProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListaProductos.aspx.cs">
+      <DependentUpon>ListaProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListaProductos.aspx.designer.cs">
+      <DependentUpon>ListaProductos.aspx</DependentUpon>
     <Compile Include="Site2.Master.cs">
       <DependentUpon>Site2.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,6 +191,10 @@
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Datos\ClTipoPersonalD.cs" />
+    <Compile Include="Entidades\ClCiudadE.cs" />
+    <Compile Include="Logica\ClCiudadL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\RegProductos.aspx.cs">
       <DependentUpon>RegProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
