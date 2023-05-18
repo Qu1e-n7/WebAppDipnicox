@@ -16,5 +16,17 @@ namespace WebAppDipnicox.Logica
             int Registro= obProducto.mtdRegistrar(obDatos);
             return Registro;
         }
+        public List<ClProductosE> mtdListaXDato(int id)
+        {
+            ClProductosD obProducto = new ClProductosD();
+            List<ClProductosE> Lista = obProducto.mtdListaPorProducto(id);
+            return Lista;
+        }
+        public List<ClProductosE> mtdListaProductos()
+        {
+            ClProductosD obProducto = new ClProductosD();
+            List<ClProductosE> Lista = obProducto.mtdListarProductos();
+            return Lista;
+        }
     }
 }

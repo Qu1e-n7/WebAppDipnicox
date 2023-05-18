@@ -11,7 +11,7 @@ namespace WebAppDipnicox.Datos
         SqlConnection conexion = null;
         public SqlConnection mtdConexion()
         {
-            conexion = new SqlConnection("Data Source=SOGAPRRBCFSD546\\MSSQLSERVERR;Initial Catalog=dbDipnicox;User ID=Sizin;Password=123");
+            conexion = new SqlConnection("Data Source=.;Initial Catalog=dbDipnicox;User ID=Quien1; Password=q123");
             conexion.Open();
             return conexion;
         }

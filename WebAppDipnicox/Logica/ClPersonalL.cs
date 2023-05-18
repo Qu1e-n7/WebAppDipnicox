@@ -22,10 +22,10 @@ namespace WebAppDipnicox.Logica
             return reg;
 
         }
-        public List<ClPersonalE> mtdListarPersonal(ClPersonalE obDatos)
+        public List<ClPersonalE> mtdListarPersonal()
         {
             ClPersonalD obPersonalD = new ClPersonalD();
-            List<ClPersonalE> ListaPersonal= obPersonalD.mtdListaPersonal(obDatos);
+            List<ClPersonalE> ListaPersonal= obPersonalD.mtdListaPersonal();
             return ListaPersonal;
         }
     }

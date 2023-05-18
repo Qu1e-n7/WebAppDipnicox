@@ -10,6 +10,8 @@ namespace WebAppDipnicox.Datos
 {
     public class ClPersonalD
     {
+        ClProcesarSQL SQL = new ClProcesarSQL();
+        ClPersonalE obDatos = null;
         public ClPersonalE mtdLogin(string Usua, string Clave)
         {
 
@@ -43,26 +45,25 @@ namespace WebAppDipnicox.Datos
             return canReg;
 
         }
-        public List<ClPersonalE> mtdListaPersonal(ClPersonalE obDatos)
+        public List<ClPersonalE> mtdListaPersonal()
         {
-            ClProcesarSQL SQL= new ClProcesarSQL();
             string Proceso = "ListarPersonal";
-            SqlDataReader reader = SQL.mtdListar(Proceso);
-
+            SqlCommand ComanList = SQL.mtdProcesoAlmacenado(Proceso);
+            SqlDataReader ProcRead = ComanList.ExecuteReader();
             List<ClPersonalE> listPersonal=new List<ClPersonalE>();
-            while (reader.Read())
+            while (ProcRead.Read())
             {
                 obDatos = new ClPersonalE();
-                obDatos.idPersonal = reader.GetInt32(0);
-                obDatos.Documento = reader.GetString(1);
-                obDatos.Nombre = reader.GetString(2);
-                obDatos.Apellido = reader.GetString(3);
-                obDatos.Telefono = reader.GetString(4);
-                obDatos.Estado = reader.GetString(5);
-                obDatos.Email = reader.GetString(6);
-                obDatos.Contraseña = reader.GetString(7);
-                obDatos.idTipoPersonal = reader.GetInt32(8);
-                obDatos.idCiudad = reader.GetInt32(9);
+                obDatos.idPersonal = ProcRead.GetInt32(0);
+                obDatos.Documento = ProcRead.GetString(1);
+                obDatos.Nombre = ProcRead.GetString(2);
+                obDatos.Apellido = ProcRead.GetString(3);
+                obDatos.Telefono = ProcRead.GetString(4);
+                obDatos.Estado = ProcRead.GetString(5);
+                obDatos.Email = ProcRead.GetString(6);
+                obDatos.Contraseña = ProcRead.GetString(7);
+                obDatos.idTipoPersonal = ProcRead.GetInt32(8);
+                obDatos.idCiudad = ProcRead.GetInt32(9);
                 listPersonal.Add(obDatos);
             }
             return listPersonal;
