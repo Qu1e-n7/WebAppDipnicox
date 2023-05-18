@@ -158,7 +158,7 @@
     </Compile>
     <Compile Include="Vista\ListaProductos.aspx.designer.cs">
       <DependentUpon>ListaProductos.aspx</DependentUpon>
-      </Compile>
+    </Compile>
     <Compile Include="Site2.Master.cs">
       <DependentUpon>Site2.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
