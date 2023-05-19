@@ -69,15 +69,6 @@ namespace WebAppDipnicox.Vista
         protected global::System.Web.UI.WebControls.TextBox txtMedidad;
 
         /// <summary>
-        /// Control txtContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseña;
-
-        /// <summary>
         /// Control ddlTipoPersonal.
         /// </summary>
         /// <remarks>

@@ -54,7 +54,9 @@ namespace WebAppDipnicox.Datos
             string Proceso = "ListarPersonal";
             SqlCommand ComanList = SQL.mtdProcesoAlmacenado(Proceso);
             SqlDataReader reader = ComanList.ExecuteReader();
+
             List<ClPersonalE> listPersonal = new List<ClPersonalE>();
+
             while (reader.Read())
             {
                 obDatos = new ClPersonalE();

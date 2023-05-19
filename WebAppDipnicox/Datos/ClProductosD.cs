@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace WebAppDipnicox.Datos
     public class ClProductosD
     {
         ClProcesarSQL obSQL = new ClProcesarSQL();
-        ClProductosE obDatos = null;
+        ClProductosE obDatos = new ClProductosE();
+        ClConexion obconexion=new ClConexion();
         public int mtdRegistrar(ClProductosE objDatos)
         {
             string Proceso="AgregarProductos";
@@ -29,6 +31,26 @@ namespace WebAppDipnicox.Datos
             int Registar=Registro.ExecuteNonQuery();
             return Registar;
         }
+
+        public int mtdActualizar(ClProductosE objDatos)
+        {
+            string Proceso = "ActualizarProductos";
+            SqlCommand Actualizar = obSQL.mtdProcesoAlmacenado(Proceso);
+            Actualizar.Parameters.AddWithValue("@idProduc", 1);
+            Actualizar.Parameters.AddWithValue("@Codigo", objDatos.Codigo);
+            Actualizar.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
+            Actualizar.Parameters.AddWithValue("@Descripcion", objDatos.Descripcion);
+            Actualizar.Parameters.AddWithValue("@Valor", objDatos.Valor);
+            Actualizar.Parameters.AddWithValue("@Cantidad", objDatos.Cantidad);
+            Actualizar.Parameters.AddWithValue("@Medida", objDatos.UnidadMed);
+            Actualizar.Parameters.AddWithValue("@idTipProd", objDatos.idTipoProducto);
+            int Actu = Actualizar.ExecuteNonQuery();
+            return Actu;
+        }
+
+
+
+
 
         public List<ClProductosE> mtdListaPorProducto(int id)
         {
@@ -61,13 +83,14 @@ namespace WebAppDipnicox.Datos
             while (datosread.Read())
             {
                 obDatos = new ClProductosE();
-                obDatos.Codigo = datosread.GetString(0);
-                obDatos.Nombre = datosread.GetString(1);
-                obDatos.Descripcion = datosread.GetString(2);
-                obDatos.Valor = datosread.GetInt32(3);
-                obDatos.Cantidad = datosread.GetInt32(4);
-                obDatos.UnidadMed = datosread.GetString(5);
-                obDatos.idTipoProducto = datosread.GetInt32(6);
+                obDatos.idProducto = Convert.ToInt32(datosread["idProducto"].ToString());
+                obDatos.Codigo = datosread["Codigo"].ToString();
+                obDatos.Nombre = datosread["Nombre"].ToString();
+                obDatos.Descripcion = datosread["Descripcion"].ToString();
+                obDatos.Valor = Convert.ToInt32(datosread["ValorUni"]);
+                obDatos.Cantidad = Convert.ToInt32(datosread["Cantidad"]);
+                obDatos.UnidadMed = datosread["UnidadMedida"].ToString();
+                obDatos.idTipoProducto = Convert.ToInt32(datosread["idTipoProduc"]);
                 ListProduc.Add(obDatos);
             }
             return ListProduc;

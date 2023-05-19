@@ -16,8 +16,7 @@ namespace WebAppDipnicox.Vista
 
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
+        {   
         }
         [WebMethod]
         public static List<ClProductosE> mtdLista()
@@ -26,5 +25,6 @@ namespace WebAppDipnicox.Vista
             List<ClProductosE> ListaProductos = obProductos.mtdListaProductos();
             return ListaProductos;
         }
+
     }
 }

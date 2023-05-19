@@ -16,6 +16,12 @@ namespace WebAppDipnicox.Logica
             int Registro= obProducto.mtdRegistrar(obDatos);
             return Registro;
         }
+        public int mtdActualizar(ClProductosE obDatos)
+        {
+            ClProductosD obProducto = new ClProductosD();
+            int Registro = obProducto.mtdActualizar(obDatos);
+            return Registro;
+        }
         public List<ClProductosE> mtdListaXDato(int id)
         {
             ClProductosD obProducto = new ClProductosD();

@@ -79,7 +79,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <asp:Button ID="btnActualizar" Cssclass="mt-5 mx-5 btn btn-primary" runat="server" Text="Actualizar" />
+                                            <asp:Button ID="btnActualizar" Cssclass="mt-5 mx-5 btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
                                             <asp:Button ID="btnEliminar" Cssclass="mt-5 mx-5 btn btn-primary" runat="server" Text="Eliminar" />
                                         </div>
                                     </div>
@@ -91,4 +91,26 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+<div class="modal fade" id="ModalActua" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dato</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Aquí va tu dato</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+    function AbrirModal() {
+        $('#ModalActua').modal('show'); // Reemplaza "miModal" con el ID de tu ventana modal
+    }
+    </script>
 </asp:Content>
