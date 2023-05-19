@@ -32,7 +32,7 @@ namespace WebAppDipnicox.Vista
         {
             ClPersonalL obPersonalL = new ClPersonalL();
             ClPersonalE obdatos = new ClPersonalE();
-            List<ClPersonalE> ListaPersonal = obPersonalL.mtdListarPersonal(obdatos);
+            List<ClPersonalE> ListaPersonal = obPersonalL.mtdListarPersonal();
 
             
             return ListaPersonal;

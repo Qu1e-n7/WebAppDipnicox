@@ -43,9 +43,6 @@
                                             <asp:TextBox ID="txtMedidad" runat="server" CssClass="form-style" placeholder="Medida"></asp:TextBox>
                                             <i class="input-icon uil uil-at"></i>
                                         </div>
-                                        <div class="form-group mt-2">
-                                            <asp:TextBox ID="txtContraseña" runat="server" TextMode="Password" CssClass="form-style" placeholder="Password"></asp:TextBox>
-                                            <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
 
                                         <div class="form-group mt-2">
@@ -53,7 +50,6 @@
                                             <i class="input-icon uil uil-users-alt"></i>
                                         </div>
                                         <asp:Button ID="btnRegistrar" runat="server" Text="Register" CssClass="btn mt-4" OnClick="btnRegistrar_Click" />
-                                    </div>
                                 </div>
                             </div>
 
