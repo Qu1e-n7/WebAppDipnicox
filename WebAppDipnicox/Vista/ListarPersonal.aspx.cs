@@ -22,21 +22,37 @@ namespace WebAppDipnicox.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            //GridView1.DataSource= ListaPersonal;
-            //GridView1.DataBind();
+            ClPersonalL objPersonal = new ClPersonalL();
+            int id = 1;
+            List<ClPersonalE> list = objPersonal.mtdListaPersonalXDato(id);
+            if (list.Count > 0)
+            {
+                ClPersonalE obDatos = list[0];
+                txtDocumento.Text = obDatos.Documento;
+                txtNombre.Text = obDatos.Nombre;
+                txtApellido.Text = obDatos.Apellido;
+                txtTelefono.Text = obDatos.Telefono;
+                txtEstado.Text = obDatos.Estado;
+                txtEmail.Text = obDatos.Email;
+                txtContraseña.Text = obDatos.Contraseña;
+                ddlTipoPersonal.DataValueField = obDatos.idTipoPersonal.ToString();
+                ddlCiudad.DataValueField = obDatos.idCiudad.ToString();
+            }
+
         }
 
         [WebMethod]
         public static List<ClPersonalE> mtdObtenerDatos()
         {
             ClPersonalL obPersonalL = new ClPersonalL();
-            ClPersonalE obdatos = new ClPersonalE();
             List<ClPersonalE> ListaPersonal = obPersonalL.mtdListarPersonal();
-
-            
             return ListaPersonal;
-            
+
+        }
+
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

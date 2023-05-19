@@ -111,7 +111,6 @@
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
     <Content Include="Vista\SweetAlert\Styles\sweetalert.css" />
     <Content Include="Web.config" />
-    <Content Include="Home.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\ClCiudadD.cs" />
@@ -170,12 +169,10 @@
       <DependentUpon>ListarPersonal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Datos\ClTipoPersonalD.cs" />
-    <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClTipoPersonalE.cs" />
     <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Logica\ClTipoPersonalL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Datos\ClTipoPersonalD.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClTipoPersonalE.cs" />
     <Compile Include="Logica\ClCiudadL.cs" />
@@ -187,9 +184,6 @@
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Datos\ClTipoPersonalD.cs" />
-    <Compile Include="Entidades\ClCiudadE.cs" />
-    <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\RegProductos.aspx.cs">
       <DependentUpon>RegProductos.aspx</DependentUpon>
