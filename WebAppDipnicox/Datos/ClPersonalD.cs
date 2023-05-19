@@ -8,6 +8,7 @@ using WebAppDipnicox.Entidades;
 using System.Web.Helpers;
 using Newtonsoft.JsonResult;
 using WebAppDipnicox.Vista;
+using System.Security.Policy;
 
 namespace WebAppDipnicox.Datos
 {
@@ -37,7 +38,7 @@ namespace WebAppDipnicox.Datos
             }
 
             return obPersonalE;
-}
+        }
         public int mtdRegistrar(ClPersonalE objDatos)
         {
             string consulta = "INSERT INTO Personal(Documento,Nombre,Apellido,Telefono,Estado,Email,Contraseña,idTipoPersonal,idCiudad) " +
@@ -52,12 +53,12 @@ namespace WebAppDipnicox.Datos
         {
             string Proceso = "ListarPersonal";
             SqlCommand ComanList = SQL.mtdProcesoAlmacenado(Proceso);
-            SqlDataReader ProcRead = ComanList.ExecuteReader();
-            List<ClPersonalE> listPersonal=new List<ClPersonalE>();
-            while (ProcRead.Read())
+            SqlDataReader reader = ComanList.ExecuteReader();
+            List<ClPersonalE> listPersonal = new List<ClPersonalE>();
+            while (reader.Read())
             {
                 obDatos = new ClPersonalE();
-                obDatos.idPersonal = Convert.ToInt32(reader["idPersonal"]); 
+                obDatos.idPersonal = Convert.ToInt32(reader["idPersonal"]);
                 obDatos.Documento = reader["Documento"].ToString();
                 obDatos.Nombre = reader["Nombre"].ToString();
                 obDatos.Apellido = reader["Apellido"].ToString();
@@ -86,6 +87,53 @@ namespace WebAppDipnicox.Datos
             }
             return listPersonal;
         }
-        
+
+        public int mtdActualizar(ClPersonalE objDatos)
+        {
+            ClProcesarSQL obSQL = new ClProcesarSQL();
+
+            string Proceso = "ActualizarDatos";
+            SqlCommand Registro = obSQL.mtdProcesoAlmacenado(Proceso);
+            Registro.Parameters.AddWithValue("@Documento", objDatos.Documento);
+            Registro.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
+            Registro.Parameters.AddWithValue("@Apellido", objDatos.Apellido);
+            Registro.Parameters.AddWithValue("@Telefono", objDatos.Telefono);
+            Registro.Parameters.AddWithValue("@Estado", objDatos.Estado);
+            Registro.Parameters.AddWithValue("@Email", objDatos.Email);
+            Registro.Parameters.AddWithValue("@Contraseña", objDatos.Contraseña);
+            Registro.Parameters.AddWithValue("@idTipoPersonal", objDatos.idTipoPersonal);
+            Registro.Parameters.AddWithValue("@idCiudad", objDatos.idCiudad);
+            int Registar = Registro.ExecuteNonQuery();
+            return Registar;
+
+        }
+        public List<ClPersonalE> mtdListarPersonalXDato(int id)
+        {
+            ClProcesarSQL obSQL = new ClProcesarSQL();
+            string Proceso = "ListarPersonalXDato";
+
+            SqlCommand ComPersonal = obSQL.mtdProcesoAlmacenado(Proceso);
+            List<ClPersonalE> listPer = new List<ClPersonalE>();
+            ComPersonal.Parameters.AddWithValue("@idPersonal", id);
+            SqlDataReader reader = ComPersonal.ExecuteReader();
+            while (reader.Read())
+            {
+                obDatos = new ClPersonalE();
+                obDatos.Documento = reader.GetString(1);
+                obDatos.Nombre = reader.GetString(2);
+                obDatos.Apellido = reader.GetString(3);
+                obDatos.Telefono = reader.GetString(4);
+                obDatos.Estado = reader.GetString(5);
+                obDatos.Email = reader.GetString(6);
+                obDatos.Contraseña = reader.GetString(7);
+                obDatos.idTipoPersonal = reader.GetInt32(8);
+                obDatos.idCiudad = reader.GetInt32(9);
+                listPer.Add(obDatos);
+            }
+            return listPer;
+        }
+
+
+
     }
 }
