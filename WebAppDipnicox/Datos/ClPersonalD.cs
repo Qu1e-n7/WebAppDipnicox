@@ -52,9 +52,9 @@ namespace WebAppDipnicox.Datos
         {
             string Proceso = "ListarPersonal";
             SqlCommand ComanList = SQL.mtdProcesoAlmacenado(Proceso);
-            SqlDataReader ProcRead = ComanList.ExecuteReader();
+            SqlDataReader reader = ComanList.ExecuteReader();
             List<ClPersonalE> listPersonal=new List<ClPersonalE>();
-            while (ProcRead.Read())
+            while (reader.Read())
             {
                 obDatos = new ClPersonalE();
                 obDatos.idPersonal = Convert.ToInt32(reader["idPersonal"]); 
