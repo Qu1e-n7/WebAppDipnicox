@@ -13,6 +13,15 @@ namespace WebAppDipnicox.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClTipoProducL obTipProd = new ClTipoProducL();
+            List<ClTipoProducE> listaTipProd = obTipProd.mtdLisTipProd();
+
+            ddlTipoProduc.DataSource = listaTipProd;
+            ddlTipoProduc.DataTextField = "Nombre";
+            ddlTipoProduc.DataValueField = "idTipoProduc";
+            ddlTipoProduc.DataBind();
+            ddlTipoProduc.Items.Insert(0, new ListItem("Tipo Producto:", "0"));
+
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
@@ -25,7 +34,7 @@ namespace WebAppDipnicox.Vista
             obDatos.Valor = int.Parse(txtValor.Text);
             obDatos.Cantidad = int.Parse(txtCantidad.Text);
             obDatos.UnidadMed = txtMedidad.Text;
-            obDatos.idTipoProducto = 1;
+            obDatos.idTipoProducto = int.Parse(ddlTipoProduc.SelectedValue.ToString());
             int Registrar = obProd.mtdRegistar(obDatos);
             if (Registrar == 1)
             {

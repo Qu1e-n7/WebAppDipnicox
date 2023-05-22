@@ -27,7 +27,7 @@ namespace WebAppDipnicox.Datos
             Registro.Parameters.AddWithValue("@Valor", objDatos.Valor);
             Registro.Parameters.AddWithValue("@Cantidad", objDatos.Cantidad);
             Registro.Parameters.AddWithValue("@Medida", objDatos.UnidadMed);
-            Registro.Parameters.AddWithValue("@idtpProd", objDatos.idTipoProducto);
+            Registro.Parameters.AddWithValue("@idTpProd", objDatos.idTipoProducto);
             int Registar=Registro.ExecuteNonQuery();
             return Registar;
         }
@@ -36,7 +36,7 @@ namespace WebAppDipnicox.Datos
         {
             string Proceso = "ActualizarProductos";
             SqlCommand Actualizar = obSQL.mtdProcesoAlmacenado(Proceso);
-            Actualizar.Parameters.AddWithValue("@idProduc", 1);
+            Actualizar.Parameters.AddWithValue("@idProduc", objDatos.idProducto);
             Actualizar.Parameters.AddWithValue("@Codigo", objDatos.Codigo);
             Actualizar.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
             Actualizar.Parameters.AddWithValue("@Descripcion", objDatos.Descripcion);
@@ -47,10 +47,14 @@ namespace WebAppDipnicox.Datos
             int Actu = Actualizar.ExecuteNonQuery();
             return Actu;
         }
-
-
-
-
+        public int mtdEliminar(int idPro)
+        {
+            string Proceso = "EliminarProducto";
+            SqlCommand Borrar = obSQL.mtdProcesoAlmacenado(Proceso);
+            Borrar.Parameters.AddWithValue("@idProd", idPro);
+            int Eliminar =Borrar.ExecuteNonQuery();
+            return Eliminar;
+        }
 
         public List<ClProductosE> mtdListaPorProducto(int id)
         {

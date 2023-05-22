@@ -18,23 +18,20 @@ namespace WebAppDipnicox.Vista
         {
             if (!IsPostBack)
             {
-                int id= int.Parse(obDatos.idProducto.ToString());
-                if (id==0)
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "AbrirModal", "AbrirModal()", true);
-                }
-                else
-                {
-                    lis(id);
-                }
-
-                
+                    lis(1);
                 
             }
         }
         public void lis(int id)
         {
             List<ClProductosE> list = obProductos.mtdListaXDato(id);
+            ClTipoProducL obTipProduc = new ClTipoProducL();
+            List<ClTipoProducE> listaTipoPersonal = obTipProduc.mtdLisTipProd();
+            ddlTipProductos.DataSource = listaTipoPersonal;
+            ddlTipProductos.DataTextField = "Nombre";
+            ddlTipProductos.DataValueField = "idTipoProduc";
+            
+            
             if (list.Count > 0)
             {
                 obDatos = list[0];
@@ -44,7 +41,12 @@ namespace WebAppDipnicox.Vista
                 txtValor.Text = obDatos.Valor.ToString();
                 txtCantidad.Text = obDatos.Cantidad.ToString();
                 txtMedida.Text = obDatos.UnidadMed;
-                ddlTipProductos.DataValueField = obDatos.idProducto.ToString();
+                if (ddlTipProductos.Items.FindByValue(obDatos.idTipoProducto.ToString()) == null)
+                {
+                    ddlTipProductos.SelectedValue = obDatos.idTipoProducto.ToString();
+                    ddlTipProductos.DataBind();
+
+                }
             }
         }
         protected void btnActualizar_Click(object sender, EventArgs e)
