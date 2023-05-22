@@ -25,6 +25,12 @@
     <link href="Css/Actualiza.css" rel="stylesheet" />
     <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />--%>
+    <link href="Css/Actualizar.css" rel="stylesheet" />
+    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <link href="Css/input.css" rel="stylesheet" />
+    <link href="Css/Datatable.css" rel="stylesheet" />
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,42 +49,45 @@
                 <SortedDescendingHeaderStyle BackColor="#15524A" />
             </asp:GridView>--%>
 
-            <table id="tblTrabajador" class="table table-striped table-bordered dt-responsive nowrap " style="width: 100%">
-                <thead>
-                    <tr>
-                        <th>idPersonal</th>
-                        <th>Documento</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Telefono</th>
-                        <th>Estado</th>
-                        <th>Email</th>
-                        <th>Contraseña</th>
-                        <th>idTipoPersonal</th>
-                        <th>idCiudad</th>
-                        <th>Detalles</th>
+            <div id="dataTableContainer" class="table-responsive">
+                <table id="tblTrabajador" class="table table-striped table-bordered dt-responsive nowrap " style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>idPersonal</th>
+                            <th>Documento</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Estado</th>
+                            <th>Email</th>
+                            <th>Contraseña</th>
+                            <th>idTipoPersonal</th>
+                            <th>idCiudad</th>
+                            <th>Detalles</th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>idPersonal</th>
-                        <th>Documento</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Telefono</th>
-                        <th>Estado</th>
-                        <th>Email</th>
-                        <th>Contraseña</th>
-                        <th>idTipoPersonal</th>
-                        <th>idCiudad</th>
-                        <th>Detalles</th>
-                    </tr>
-                </tfoot>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>idPersonal</th>
+                            <th>Documento</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Estado</th>
+                            <th>Email</th>
+                            <th>Contraseña</th>
+                            <th>idTipoPersonal</th>
+                            <th>idCiudad</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
+
 
 
         <!-- Modal -->
@@ -86,122 +95,74 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Actualizacion de Datos</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="section">
-                            <h2 class="py-3">Actualizacion de Productos</h2>
+                            <%--<h2 class="py-3">Actualizacion de Datos</h2>--%>
                             <div class="container">
-                                <div class="row full-height justify-content-center">
-                                    <div class="col-12 text-center align-self-center py-5">
-                                        <div class="card-3d-wrap mx-auto">
-                                            <div class="card-3d-wrapper">
-                                                <div class="card-front">
-                                                    <h2 class="py-3 mt-3 mr-2 ">Datos del producto</h2>
-                                                    <div class="center-wrap">
-                                                        <div class="text-center mt-2 py-4 px-2" style="background: #2b2e38">
-                                                            <div class="section text-center">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <div class="mt-2 form-group">
-                                                                            <label for="Documento">Documento</label>
-                                                                            <asp:TextBox ID="txtDocumento" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-asterisk"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="mt-2 px-2 form-group">
-                                                                            <label for="Nombre">Nombre</label>
-                                                                            <asp:TextBox ID="txtNombre" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-briefcase"></i>
-                                                                        </div>
+                                <div class="card">
+                                    <div class="card__image-container">
+                                        <img class="card__image" src="Imagenes/Halo.PNG" alt="" />
+                                    </div>
 
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="mt-2 px-2 form-group">
-                                                                            <label for="Apellido">Apellido</label>
-                                                                            <asp:TextBox ID="txtApellido" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-briefcase"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                        <filter id="blur">
+                                            <feGaussianBlur stdDeviation="15" />
+                                        </filter>
+                                    </svg>
 
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <div class="mt-3 form-group">
-                                                                            <label for="Telefono">Telefono</label>
-                                                                            <asp:TextBox ID="txtTelefono" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-dollar-alt"></i>
-                                                                        </div>
+                                    <svg class="card__svg" viewBox="0 0 800 500">
 
-                                                                    </div>
-                                                                    <div class="col-md-5">
-                                                                        <div class="mt-3 form-group">
-                                                                            <label for="Estado">Estado</label>
-                                                                            <asp:TextBox ID="txtEstado" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-object-group"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                        <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
+                                        <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
+                                    </svg>
 
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <div class="mt-3 form-group">
-                                                                            <label for="Email">Email</label>
-                                                                            <asp:TextBox ID="txtEmail" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-dollar-alt"></i>
-                                                                        </div>
+                                    <div class="card__content">
+                                        <h1 class="card__title">Datos Personales</h1>
 
-                                                                    </div>
-                                                                    <div class="col-md-5">
-                                                                        <div class="mt-3 form-group">
-                                                                            <label for="Contraseña">Contraseña</label>
-                                                                            <asp:TextBox ID="txtContraseña" CssClass="form-style" runat="server"></asp:TextBox>
-                                                                            <i class="input-icon uil uil-object-group"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                        <asp:Label ID="Label1" runat="server" Text="Label">Documento</asp:Label>
+                                        <asp:TextBox ID="txtDocumento" CssClass="miTextBox" runat="server"></asp:TextBox><br />
 
+                                        <asp:Label ID="Label2" runat="server" Text="Label">Nombre</asp:Label>
+                                        <asp:TextBox ID="txtNombre" CssClass="miTextBox" runat="server"></asp:TextBox><br />
 
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <div class="mt-3 form-group">
-                                                                            <label for="TipoPersonal">Tipo Personal</label>
-                                                                            <asp:DropDownList ID="ddlTipoPersonal" runat="server"></asp:DropDownList>
-                                                                            <i class="input-icon uil uil-dollar-alt"></i>
-                                                                        </div>
+                                        <asp:Label ID="Label3" runat="server" Text="Label">Apellido</asp:Label>
+                                        <asp:TextBox ID="txtApellido" CssClass="miTextBox" runat="server"></asp:TextBox><br />
 
-                                                                    </div>
-                                                                    <div class="col-md-5">
-                                                                        <div class="mt-3 form-group">
-                                                                            <label for="Ciudad">Ciudad</label>
-                                                                            <asp:DropDownList ID="ddlCiudad" runat="server"></asp:DropDownList>
-                                                                            <i class="input-icon uil uil-object-group"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                        <asp:Label ID="Label4" runat="server" Text="Label">Telefono</asp:Label>
+                                        <asp:TextBox ID="txtTelefono" CssClass="miTextBox" runat="server"></asp:TextBox><br />
 
-                                                                <asp:Button ID="btnActualizar" CssClass="mt-5 mx-5 btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
-                                                                <asp:Button ID="btnEliminar" CssClass="mt-5 mx-5 btn btn-primary" runat="server" Text="Eliminar" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <asp:Label ID="Label5" runat="server" Text="Label">Estado</asp:Label>
+                                        <asp:TextBox ID="txtEstado" CssClass="miTextBox" runat="server"></asp:TextBox><br />
+
+                                        <asp:Label ID="Label6" runat="server" Text="Label">Email</asp:Label>
+                                        <asp:TextBox ID="txtEmail" CssClass="miTextBox" runat="server"></asp:TextBox><br />
+
+                                        <asp:Label ID="Label7" runat="server" Text="Label">Contraseña</asp:Label>
+                                        <asp:TextBox ID="txtContraseña" CssClass="miTextBox" runat="server"></asp:TextBox><br />
+
+                                        <asp:Label ID="Label8" runat="server" Text="Label">Tipo Personal</asp:Label>
+                                        <asp:DropDownList ID="ddlTipoPersonal" CssClass="miTextBox" runat="server"></asp:DropDownList><br />
+
+                                        <asp:Label ID="Label9" runat="server" Text="Label">Ciudad</asp:Label>
+                                        <asp:DropDownList ID="ddlCiudad" CssClass="miTextBox" runat="server"></asp:DropDownList><br />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                            <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+                            <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <asp:TextBox ID="txtId" runat="server"></asp:TextBox>
     </form>
 
     <script>
@@ -216,6 +177,7 @@
                     var data = response.d;
 
                     $('#tblTrabajador').DataTable({
+                        responsive: true,
                         data: data,
                         columns: [
                             { data: "idPersonal" },
@@ -231,8 +193,7 @@
                             {
                                 data: null,
                                 render: function (data, type, row) {
-                                    return '<button class="btn btn-danger btn-delete" data-id="' + data.idPersonal + '">Eliminar</button>' + ' ' +
-                                        '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Actualizar </button> ';
+                                    return '<button type="button" class="btn btn-update btn-primary" data-id-personal="' + data.idPersonal + '" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Editar </button > ';
                                 }
                             }
 
@@ -240,16 +201,16 @@
                     });
 
                     $('#tblTrabajador').on('click', '.btn-delete', function () {
-                        var id = $(this).data('id');
+                        var id = $(this).data('idPersonal');
+                        GuardarIdPersonal(id)
 
 
                     });
 
                     $('#tblTrabajador').on('click', '.btn-update', function () {
-                        var id = $(this).data('id');
-
-
-
+                        var id = $(this).data('idPersonal');
+                        GuardarIdPersonal(id)
+                        MostrarIdPersonal(id)
                     });
 
 
@@ -260,8 +221,75 @@
             });
         });
 
+        function GuardarIdPersonal(id) {
+            $.ajax({
+                type: "POST",
+                url: "ListarPersonal.aspx/GuardarIdPersonal",
+                data: JSON.stringify({ idPersonal: id }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    // Lógica adicional si es necesario
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+
+        }
+
+        function MostrarIdPersonal(id) {
+            $.ajax({
+                type: "POST",
+                url: "ListarPersonal.aspx/mtdMostarPersonal",
+                data: JSON.stringify({ idPersonal: id }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    // Actualiza los campos de la ventana modal con los datos recibidos en la respuesta
+                    var data = response.d;
+
+                    document.getElementById('<%= txtId.ClientID %>').value = id;
+                    $('#txtDocumento').val(data.Documento);
+                    $('#txtNombre').val(data.Nombre);
+                    $('#txtApellido').val(data.Apellido);
+                    $('#txtTelefono').val(data.Telefono);
+                    $('#txtEstado').val(data.Estado);
+                    $('#txtEmail').val(data.Email);
+                    $('#txtContraseña').val(data.Contraseña);
+                    $('#ddlTipoPersonal').val(data.idTipoPersonal);
+                    $('#ddlCiudad').val(data.idCiudad);
+                    CargarIdCombo(data.idTipoPersonal);
+                    CargarIdComboCiudad();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+        function CargarIdCombo(idTipoPersonal) {
+            var ddl = document.getElementById('<%= ddlTipoPersonal.ClientID%>')
+            for (var i = 0; i < ddl.options.length; i++) {
+                if (ddl.options[i].value === idTipoPersonal.toString()) {
+                    ddl.seletedIndex = i;
+                    break;
+                } 
+            }
+        }
+        function CargarIdComboCiudad(idCiudad) {
+            var ddl1 = document.getElementById('<%= ddlCiudad.ClientID%>')
+            for (var i = 0; i < ddl1.options.length; i++) {
+                if (ddl1.options[i].value === idCiudad.toString()) {
+                    ddl1.seletedIndex = i;
+                    break;
+                }
+            }
+        }
+
 
 
     </script>
+
 </body>
 </html>
