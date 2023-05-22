@@ -98,6 +98,10 @@
     <Content Include="Vista\ActProductos.aspx" />
     <Content Include="Vista\Css\Actualiza.css" />
     <Content Include="HomeAdmi.aspx" />
+    <Content Include="Vista\Css\Actualizar.css" />
+    <Content Include="Vista\Css\Datatable.css" />
+    <Content Include="Vista\Css\input.css" />
+    <Content Include="Vista\Imagenes\Halo.PNG" />
     <Content Include="Vista\JavaScript\Enviar.js" />
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Css\StyleHome.css" />

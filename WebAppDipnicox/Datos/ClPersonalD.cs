@@ -94,8 +94,10 @@ namespace WebAppDipnicox.Datos
         {
             ClProcesarSQL obSQL = new ClProcesarSQL();
 
-            string Proceso = "ActualizarDatos";
+            string Proceso = "ActualizarPersonal";
             SqlCommand Registro = obSQL.mtdProcesoAlmacenado(Proceso);
+
+            Registro.Parameters.AddWithValue("@idPersonal", objDatos.idPersonal);
             Registro.Parameters.AddWithValue("@Documento", objDatos.Documento);
             Registro.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
             Registro.Parameters.AddWithValue("@Apellido", objDatos.Apellido);
@@ -135,7 +137,36 @@ namespace WebAppDipnicox.Datos
             return listPer;
         }
 
+        public int mtdActualizarPersonal(ClPersonalE objDatos)
+        {
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            string Proceso = "ActualizarPersonal";
+            SqlCommand Actualizar = objSQL.mtdProcesoAlmacenado(Proceso);
+            Actualizar.Parameters.AddWithValue("@idPersonal", objDatos.idPersonal);
+            Actualizar.Parameters.AddWithValue("@Documento", objDatos.Documento);
+            Actualizar.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
+            Actualizar.Parameters.AddWithValue("@Apellido", objDatos.Apellido);
+            Actualizar.Parameters.AddWithValue("@Telefono", objDatos.Telefono);
+            Actualizar.Parameters.AddWithValue("@Estado", objDatos.Estado);
+            Actualizar.Parameters.AddWithValue("@Email", objDatos.Email);
+            Actualizar.Parameters.AddWithValue("@Contraseña", objDatos.Contraseña);
+            Actualizar.Parameters.AddWithValue("@idTipoPersonal", objDatos.idTipoPersonal);
+            Actualizar.Parameters.AddWithValue("@idCiudad", objDatos.idCiudad);
+            int ActualizarDatos = Actualizar.ExecuteNonQuery();
+            return ActualizarDatos;
+        }
+        public int mtdEliminarDato(ClPersonalE objDatos)
+        {
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            string Proceso = "EliminarDatoPorID";
+            SqlCommand Eliminar = objSQL.mtdProcesoAlmacenado(Proceso);
 
+            Eliminar.Parameters.AddWithValue("@idPersonal", objDatos.idPersonal);
+
+            int EliminarDatos = Eliminar.ExecuteNonQuery();
+            return EliminarDatos;
+
+        }
 
     }
 }
