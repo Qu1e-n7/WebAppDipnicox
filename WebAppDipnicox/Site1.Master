@@ -48,7 +48,7 @@
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Personal</span> </a>
-                            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
                                     <a href="../Vista/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
                                 </li>

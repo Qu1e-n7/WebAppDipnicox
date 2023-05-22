@@ -46,7 +46,7 @@
                                         </div>
 
                                         <div class="form-group mt-2">
-                                            <asp:DropDownList ID="ddlTipoPersonal" runat="server" CssClass="form-style"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlTipoProduc" runat="server" CssClass="form-style"></asp:DropDownList>
                                             <i class="input-icon uil uil-users-alt"></i>
                                         </div>
                                         <asp:Button ID="btnRegistrar" runat="server" Text="Register" CssClass="btn mt-4" OnClick="btnRegistrar_Click" />
