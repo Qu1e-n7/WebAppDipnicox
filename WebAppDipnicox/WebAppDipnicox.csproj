@@ -98,6 +98,10 @@
     <Content Include="Vista\ActProductos.aspx" />
     <Content Include="Vista\Css\Actualiza.css" />
     <Content Include="HomeAdmi.aspx" />
+    <Content Include="Vista\Css\Actualizar.css" />
+    <Content Include="Vista\Css\Datatable.css" />
+    <Content Include="Vista\Css\input.css" />
+    <Content Include="Vista\Imagenes\Halo.PNG" />
     <Content Include="Vista\JavaScript\Enviar.js" />
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Css\StyleHome.css" />
@@ -171,10 +175,19 @@
     <Compile Include="Vista\ListarPersonal.aspx.designer.cs">
       <DependentUpon>ListarPersonal.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Logica\ClTipoPersonalL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Datos\ClTipoPersonalD.cs" />
+
+    <Compile Include="Datos\ClTipoPersonalD.cs" />
+    <Compile Include="Entidades\ClTipoPersonalE.cs" />
+    <Compile Include="Logica\ClCiudadL.cs" />
+    <Compile Include="Logica\ClTipoPersonalL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entidades\ClCiudadE.cs" />
+
     <Compile Include="Entidades\ClTipoPersonalE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\Login.aspx.cs">
@@ -184,7 +197,9 @@
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="Logica\ClCiudadL.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\RegProductos.aspx.cs">
       <DependentUpon>RegProductos.aspx</DependentUpon>

@@ -28,5 +28,31 @@ namespace WebAppDipnicox.Logica
             List<ClPersonalE> ListaPersonal= obPersonalD.mtdListaPersonal();
             return ListaPersonal;
         }
+        public int mtdActualizarPersonal(ClPersonalE objDatos)
+        {
+            ClPersonalD objPersonal = new ClPersonalD();
+            int Regsitro = objPersonal.mtdActualizar(objDatos);
+            return Regsitro;
+        }
+
+        public List<ClPersonalE> mtdListaPersonalXDato(int id)
+        {
+            ClPersonalD obPersonal = new ClPersonalD();
+            List<ClPersonalE> ListaPersonal = obPersonal.mtdListarPersonalXDato(id);
+            return ListaPersonal;
+        }
+        public int mtdActualizarDatos(ClPersonalE objDatos)
+        {
+            ClPersonalD objPersonalD = new ClPersonalD();
+            int Actualizar = objPersonalD.mtdActualizarPersonal(objDatos);
+            return Actualizar;
+
+        }
+        public int mtdEliminarDatos(ClPersonalE objDatos)
+        {
+            ClPersonalD objPersonalD = new ClPersonalD();
+            int Eliminar = objPersonalD.mtdEliminarDato(objDatos);
+            return Eliminar;
+        }
     }
 }
