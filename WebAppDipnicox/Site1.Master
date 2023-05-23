@@ -62,15 +62,18 @@
                                 <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Productos</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="../Vista/RegProductos.aspx" class="nav-link px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
+                                    <a href="../Vista/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
                                 </li>
                                 <li>
-                                    <a href="../Vista/ListaProductos.aspx" class="nav-link px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
+                                    <a href="../Vista/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <hr>
+                    <div id="CargarDAtos">
+                        <asp:Label ID="ReDatos" runat="server" Text="Label"></asp:Label>
+                    </div>
                 </div>
             </div>
             <form id="form1" runat="server">
