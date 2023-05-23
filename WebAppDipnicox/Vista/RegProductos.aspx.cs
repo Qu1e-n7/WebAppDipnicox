@@ -13,14 +13,18 @@ namespace WebAppDipnicox.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClTipoProducL obTipProd = new ClTipoProducL();
-            List<ClTipoProducE> listaTipProd = obTipProd.mtdLisTipProd();
+            if (!IsPostBack)
+            {
+                ClTipoProducL obTipProd = new ClTipoProducL();
+                List<ClTipoProducE> listaTipProd = obTipProd.mtdLisTipProd();
 
-            ddlTipoProduc.DataSource = listaTipProd;
-            ddlTipoProduc.DataTextField = "Nombre";
-            ddlTipoProduc.DataValueField = "idTipoProduc";
-            ddlTipoProduc.DataBind();
-            ddlTipoProduc.Items.Insert(0, new ListItem("Tipo Producto:", "0"));
+                ddlTipoProduc.DataSource = listaTipProd;
+                ddlTipoProduc.DataTextField = "Nombre";
+                ddlTipoProduc.DataValueField = "idTipoProduc";
+                ddlTipoProduc.DataBind();
+                ddlTipoProduc.Items.Insert(0, new ListItem("Tipo Producto:", "0"));
+            }
+            
 
         }
 
