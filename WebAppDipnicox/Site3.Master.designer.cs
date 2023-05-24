@@ -11,7 +11,7 @@ namespace WebAppDipnicox
 {
 
 
-    public partial class Site1
+    public partial class Site3
     {
 
         /// <summary>
@@ -31,15 +31,6 @@ namespace WebAppDipnicox
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Dipni;
-
-        /// <summary>
-        /// Control ReDatos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ReDatos;
 
         /// <summary>
         /// Control form1.

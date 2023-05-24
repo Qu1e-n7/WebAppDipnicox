@@ -11,7 +11,7 @@ namespace WebAppDipnicox
 {
 
 
-    public partial class WebForm1
+    public partial class AdminTrabaj
     {
 
         /// <summary>

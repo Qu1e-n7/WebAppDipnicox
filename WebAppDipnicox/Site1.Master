@@ -25,6 +25,8 @@
                 <div class="collapse navbar-collapse p-2" id="collapsibleNavbar">
                     <div class="navbar-nav ac">
                         <div class=" nav-item nav-">
+                            <asp:Label ID="Dipni" runat="server" Text="Dipnicox"></asp:Label>
+
                             <a class="nav-link pr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
                         </div>
                         <div class="nav-item">

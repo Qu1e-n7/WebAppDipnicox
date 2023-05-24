@@ -1,32 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WebAppDipnicox.WebForm1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="AdminTrabaj.aspx.cs" Inherits="WebAppDipnicox.AdminTrabaj" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link href="Vista/Css/Cards.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header">
-    <div class="inner-header flex">
-        <h2 class="rotate">Dipnicox</h2>
-    </div>
-    <div>
-        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-            <defs>
-                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-            </defs>
-            <g class="parallax">
-                <use xlink:href="#gentle-wave" x="48" y="0" fill="#031529" />
-                <use xlink:href="#gentle-wave" x="48" y="3" fill="#051e3a" />
-                <use xlink:href="#gentle-wave" x="48" y="5" fill="#07284e" />
-                <use xlink:href="#gentle-wave" x="48" y="7" fill="#09305e" />
-            </g>
-        </svg>
-    </div>
-    </div>
+    <h2>Bienvenido Trabajador</h2>
 
-    <div class="CardCatego">
+<div class="CardCatego">
         <div class="container">
             <div class="row">
                 <asp:Repeater ID="repcard" runat="server">
@@ -36,10 +17,11 @@
                                 <div class="card-body">
                                     <div class="nft">
                                         <div class="main">
-                                            <img src="Vista/Imagenes/Productos/TipoProd/<%# Eval("imagen") %>" class="tokenImage card-img-top" alt="nft">
+                                            <img src="Vista/Imagenes/Productos/TipoProd/" class="tokenImage card-img-top" alt="nft">
                                             <h5 class="card-title" style="color: #AE87EC;"><%# Eval("Nombre") %> </h5>
-                                            <p class="card-text" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
-                                            <div class="card-body">
+                                            <p class="card-body" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
+                                            <p class="card-text" style="color: #a89ec9;"><%# Eval("Valor") %> </p>
+                                            <div class="card-body" >
                                                 <hr />
                                                 <a href="#" class="card-link ms-5 btn btn-primary p-2">Productos</a>
                                             </div>

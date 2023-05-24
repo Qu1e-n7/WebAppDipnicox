@@ -23,6 +23,8 @@ namespace WebAppDipnicox.Datos
                 obDatoTipProd = new ClTipoProducE();
                 obDatoTipProd.idTipoProduc = int.Parse(tblDatos.Rows[i]["idTipoProduc"].ToString());
                 obDatoTipProd.Nombre = tblDatos.Rows[i]["Nombre"].ToString();
+                obDatoTipProd.Descripcion = tblDatos.Rows[i]["Descripcion"].ToString();
+                obDatoTipProd.imagen = tblDatos.Rows[i]["imagen"].ToString();
                 listTipProd.Add(obDatoTipProd);
             }
 
