@@ -36,7 +36,11 @@
             </tfoot>
         </table>
     </div>
-    <asp:TextBox ID="txtDato" runat="server" Visible="true"></asp:TextBox>
+    <div style="color: #ffeba7">
+        <asp:TextBox ID="txtDato" runat="server" Enabled="false " style="color:#031529; background: #031529; border: none;" ></asp:TextBox>
+
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="ModalActua" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -198,9 +202,7 @@
             console.log(idTipProd);
             var ddl = document.getElementById('<%= ddlTipProductos.ClientID %>');
             for (var i = 0; i < ddl.options.length; i++) {
-                console.log('cargo'+i);
                 if (ddl.options[i].value === idTipProd.toString()) {
-                    console.log('cargo');
                     ddl.selectedIndex = i;
                     break;
                 }

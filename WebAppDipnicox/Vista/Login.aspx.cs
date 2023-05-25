@@ -26,7 +26,7 @@ namespace WebAppDipnicox.Vista
             {
                 if (obDatosP.idTipoPersonal == 1)
                 {
-                    Session["Administrador"] = obDatosP.idPersonal + " " + obDatosP.Nombre + " " + obDatosP.Apellido + " " + obDatosP.Telefono;
+                    Session["Administrador"] = obDatosP;
                     Response.Redirect("../HomeAdmi.aspx");
                 }
                 else if (obDatosP.idTipoPersonal == 2)
