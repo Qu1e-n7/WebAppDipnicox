@@ -7,6 +7,15 @@
     <link href="Css/Style.css" rel="stylesheet" />
     <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <script>
+        <%--function mostrarSelectorArchivo() {
+            document.getElementById('<%= fUload.ClientID %>').click();
+            var file = document.getElementById('<%= fUload.ClientID %>');
+            if (file.value) {
+                console.log('123');
+            }
+        }--%>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="section">
@@ -40,6 +49,11 @@
                                             <i class="input-icon uil uil-user-check"></i>
                                         </div>
                                         <div class="form-group mt-2">
+                                            <asp:FileUpload ID="fUload" runat="server" AutoPostBack="true" OnChange="FileUpload1_Changed" OnLoad="fUload_Load" />
+                                            <i class="input-icon uil uil-user-check"></i>
+                                            <asp:Button ID="btnCambiarImagen" runat="server" CssClass="form-style" Text="Selecione Imagen Para Producto"/>
+                                        </div>
+                                        <div class="form-group mt-2">
                                             <asp:TextBox ID="txtMedidad" runat="server" CssClass="form-style" placeholder="Medida"></asp:TextBox>
                                             <i class="input-icon uil uil-at"></i>
                                         </div>
@@ -59,4 +73,5 @@
             </div>
         </div>
     </div>
+    
 </asp:Content>

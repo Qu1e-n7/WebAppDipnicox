@@ -37,7 +37,7 @@
         </table>
     </div>
     <div style="color: #ffeba7">
-        <asp:TextBox ID="txtDato" runat="server" Enabled="false " style="color:#031529; background: #031529; border: none;" ></asp:TextBox>
+        <asp:TextBox ID="txtDato" runat="server" Enabled="false " Style="color: #031529; background: #031529; border: none;"></asp:TextBox>
 
     </div>
 
@@ -46,10 +46,11 @@
     <div class="modal fade" id="ModalActua" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" style="width: 650px; background: #5e6a75">
-                <div class="modal-header">
+                <%--<div class="modal-header">
                     <h5 class="mx-auto modal-title" style="color: #0070ff" id="exampleModalLabel">Actualizacion de Productos</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+                    
+                </div>--%>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-body">
                     <div class="section">
                         <div class="container">
@@ -60,6 +61,15 @@
                                             <div class="card-front">
                                                 <h2 class="py-3 mt-3 mr-2 ">Datos del producto</h2>
                                                 <div class="center-wrap">
+                                                    <div class="d-flex justify-content-center mt-5 pt-4">
+                                                        <div class="py-3 image">
+                                                            <div class="CamImage">
+                                                                <button type="submit" class="btn btn-primary btnImage">Cambiar</button>
+                                                                <i class="input-icon uil uil-image-search" style="left: 5px; line-height: inherit;"></i>
+                                                            </div>
+                                                            <img src="Imagenes/Halo.PNG" style="height: 200px;">
+                                                        </div>
+                                                    </div>
                                                     <div class="text-center mt-2 py-4 px-2" style="background: #2b2e38">
                                                         <div class="section text-center">
                                                             <div class="row">
@@ -76,7 +86,6 @@
                                                                         <asp:TextBox ID="txtNombre" CssClass="form-style" runat="server"></asp:TextBox>
                                                                         <i class="input-icon uil uil-briefcase"></i>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                             <div class="mt-3 form-group">
@@ -92,7 +101,6 @@
                                                                         <asp:TextBox ID="txtValor" CssClass="form-style" runat="server"></asp:TextBox>
                                                                         <i class="input-icon uil uil-dollar-alt"></i>
                                                                     </div>
-
                                                                 </div>
                                                                 <div class="col-md-5">
                                                                     <div class="mt-3 form-group">
@@ -109,9 +117,8 @@
                                                                         <asp:TextBox ID="txtMedida" CssClass="form-style" runat="server"></asp:TextBox>
                                                                         <i class="input-icon uil uil-ruler"></i>
                                                                     </div>
-
                                                                 </div>
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-7">
                                                                     <div class="mt-3 form-group">
                                                                         <label for="TipProd">Tipo de Producto</label>
                                                                         <asp:DropDownList ID="ddlTipProductos" CssClass="form-style" runat="server"></asp:DropDownList>
@@ -121,6 +128,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <asp:Button ID="btnActualizar" CssClass="mx-5 mt-3 btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
+                                                    <asp:Button ID="btnEliminar" CssClass="mx-5 mt-3 btn btn-primary" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
                                                 </div>
                                             </div>
                                         </div>
@@ -130,84 +139,79 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <asp:Button ID="btnActualizar" CssClass="mx-5 btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
-                    <asp:Button ID="btnEliminar" CssClass="mx-5 btn btn-primary" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
-                </div>
             </div>
         </div>
-    </div>
-    <script>
-        $(document).ready(function () {
-            var id = 0;
-            $.ajax({
-                type: "POST",
-                url: "ListaProductos.aspx/mtdLista",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    var data = response.d;
-                    $('#tblUsua').DataTable({
-                        data: data,
-                        columns: [
-                            { data: "Codigo" },
-                            { data: "Nombre" },
-                            { data: "Descripcion" },
-                            { data: "Valor" },
-                            { data: "Cantidad" },
-                            { data: "UnidadMed" },
-                            { data: "idTipoProducto" },
-                            {
-                                data: null,
-                                render: function (data, type, row) {
-                                    return '<button type="button" id="btnActua" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalActua" data-id="' + data.idProducto + '">Editar</button > '
+        <script>
+            $(document).ready(function () {
+                var id = 0;
+                $.ajax({
+                    type: "POST",
+                    url: "ListaProductos.aspx/mtdLista",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        var data = response.d;
+                        $('#tblUsua').DataTable({
+                            data: data,
+                            columns: [
+                                { data: "Codigo" },
+                                { data: "Nombre" },
+                                { data: "Descripcion" },
+                                { data: "Valor" },
+                                { data: "Cantidad" },
+                                { data: "UnidadMed" },
+                                { data: "idTipoProducto" },
+                                {
+                                    data: null,
+                                    render: function (data, type, row) {
+                                        return '<button type="button" id="btnActua" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalActua" data-id="' + data.idProducto + '">Editar</button > '
+                                    }
                                 }
-                            }
-                        ]
-                    });
-                    $('#tblUsua').on('click', '#btnActua', function () {
-                        id = $(this).data('id');
-                        document.getElementById('<%= txtDato.ClientID %>').value = id;
-                        cargardatos(id);
-                    })
-                },
-                error: function (error) {
-                    console.log(error);
-                }
+                            ]
+                        });
+                        $('#tblUsua').on('click', '#btnActua', function () {
+                            id = $(this).data('id');
+                            document.getElementById('<%= txtDato.ClientID %>').value = id;
+                            cargardatos(id);
+                        })
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
             });
-        });
-        function cargardatos(idProducto) {
-            $.ajax({
-                type: "POST",
-                url: "ListaProductos.aspx/cargardatos",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify({ id: idProducto }),
-                success: function (dat) {
-                    var Carga = dat.d;
-                    document.getElementById('<%= txtCodigo.ClientID %>').value = Carga[0]["Codigo"];
-                    document.getElementById('<%= txtNombre.ClientID %>').value = Carga[0]["Nombre"];
-                    document.getElementById('<%= txtDescrip.ClientID %>').value = Carga[0]["Descripcion"];
-                    document.getElementById('<%= txtValor.ClientID %>').value = Carga[0]["Valor"];
-                    document.getElementById('<%= txtCantidad.ClientID %>').value = Carga[0]["Cantidad"];
-                    document.getElementById('<%= txtMedida.ClientID %>').value = Carga[0]["UnidadMed"];
-                    CargaTipPro(Carga[0]["idTipoProducto"]);
-                }, error: function (xhr, textStatus, errorThrown) {
-                    // Manejar cualquier error que ocurra durante la llamada AJAX
-                    console.error(errorThrown);
-                }
-            });
-        }
-        function CargaTipPro(idTipProd) {
-            console.log(idTipProd);
-            var ddl = document.getElementById('<%= ddlTipProductos.ClientID %>');
-            for (var i = 0; i < ddl.options.length; i++) {
-                if (ddl.options[i].value === idTipProd.toString()) {
-                    ddl.selectedIndex = i;
-                    break;
+            function cargardatos(idProducto) {
+                $.ajax({
+                    type: "POST",
+                    url: "ListaProductos.aspx/cargardatos",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({ id: idProducto }),
+                    success: function (dat) {
+                        var Carga = dat.d;
+                        document.getElementById('<%= txtCodigo.ClientID %>').value = Carga[0]["Codigo"];
+                        document.getElementById('<%= txtNombre.ClientID %>').value = Carga[0]["Nombre"];
+                        document.getElementById('<%= txtDescrip.ClientID %>').value = Carga[0]["Descripcion"];
+                        document.getElementById('<%= txtValor.ClientID %>').value = Carga[0]["Valor"];
+                        document.getElementById('<%= txtCantidad.ClientID %>').value = Carga[0]["Cantidad"];
+                        document.getElementById('<%= txtMedida.ClientID %>').value = Carga[0]["UnidadMed"];
+                        CargaTipPro(Carga[0]["idTipoProducto"]);
+                    }, error: function (xhr, textStatus, errorThrown) {
+                        // Manejar cualquier error que ocurra durante la llamada AJAX
+                        console.error(errorThrown);
+                    }
+                });
+            }
+            function CargaTipPro(idTipProd) {
+                console.log(idTipProd);
+                var ddl = document.getElementById('<%= ddlTipProductos.ClientID %>');
+                for (var i = 0; i < ddl.options.length; i++) {
+                    if (ddl.options[i].value === idTipProd.toString()) {
+                        ddl.selectedIndex = i;
+                        break;
+                    }
                 }
             }
-        }
 
-    </script>
+        </script>
 </asp:Content>

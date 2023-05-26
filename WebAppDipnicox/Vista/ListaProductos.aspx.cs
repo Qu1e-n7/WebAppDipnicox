@@ -29,6 +29,8 @@ namespace WebAppDipnicox.Vista
             }
         }
 
+
+
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             obDatos.idProducto = int.Parse(txtDato.Text);

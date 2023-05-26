@@ -32,12 +32,12 @@ namespace WebAppDipnicox.Vista
                 else if (obDatosP.idTipoPersonal == 2)
                 {
                     Session["Asesor"] = obDatosP.idPersonal + " " + obDatosP.Nombre + " " + obDatosP.Apellido + " " + obDatosP.Telefono;
-                    Response.Redirect("");
+
                 }
                 else if (obDatosP.idTipoPersonal == 3)
                 {
                     Session["Trabajador"] = obDatosP.idPersonal + " " + obDatosP.Nombre + " " + obDatosP.Apellido + " " + obDatosP.Telefono;
-                    Response.Redirect("");
+                    Response.Redirect("../AdminTrabaj.aspx");
                 }
             }
             else

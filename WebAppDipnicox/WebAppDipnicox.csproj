@@ -110,7 +110,6 @@
     <Content Include="Vista\JavaScript\Enviar.js" />
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Css\StyleHome.css" />
-    <Content Include="Vista\Imagenes\Login.png" />
     <Content Include="Vista\ListaProductos.aspx" />
     <Content Include="Vista\ListarPersonal.aspx" />
     <Content Include="Vista\Login.aspx" />

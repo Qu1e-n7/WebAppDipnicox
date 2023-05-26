@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 using WebAppDipnicox.Entidades;
 using WebAppDipnicox.Logica;
 
@@ -24,10 +27,17 @@ namespace WebAppDipnicox.Vista
                 ddlTipoProduc.DataBind();
                 ddlTipoProduc.Items.Insert(0, new ListItem("Tipo Producto:", "0"));
             }
-            
 
         }
-
+        protected void FileUpload1_Changed(object sender, EventArgs e)
+        {
+            if (fUload.HasFile)
+            {
+                // Acciones a realizar cuando se carga un archivo.
+                // Puedes acceder al archivo cargado a través de FileUpload1.PostedFile.
+                // Realiza aquí las operaciones necesarias con el archivo.
+            }
+        }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             ClProductosL obProd = new ClProductosL();
@@ -50,6 +60,11 @@ namespace WebAppDipnicox.Vista
 
             }
 
+        }
+
+        protected void fUload_Load(object sender, EventArgs e)
+        {
+            int x = 0;
         }
     }
 }
