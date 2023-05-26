@@ -69,15 +69,6 @@ namespace WebAppDipnicox.Vista
         protected global::System.Web.UI.WebControls.FileUpload fUload;
 
         /// <summary>
-        /// Control btnCambiarImagen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCambiarImagen;
-
-        /// <summary>
         /// Control txtMedidad.
         /// </summary>
         /// <remarks>

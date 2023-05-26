@@ -64,7 +64,8 @@
                                                     <div class="d-flex justify-content-center mt-5 pt-4">
                                                         <div class="py-3 image">
                                                             <div class="CamImage">
-                                                                <button type="submit" class="btn btn-primary btnImage">Cambiar</button>
+                                                                <asp:Button ID="btnCambiar" class="btn btn-primary btnImage" runat="server" OnClick="btnCambiar_Click" Text="" />
+                                                                <asp:FileUpload ID="FileUpload1" runat="server" />
                                                                 <i class="input-icon uil uil-image-search" style="left: 5px; line-height: inherit;"></i>
                                                             </div>
                                                             <img src="Imagenes/Halo.PNG" style="height: 200px;">
