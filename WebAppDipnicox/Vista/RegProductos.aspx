@@ -43,13 +43,13 @@
                                             <asp:TextBox ID="txtMedidad" runat="server" CssClass="form-style" placeholder="Medida"></asp:TextBox>
                                             <i class="input-icon uil uil-at"></i>
                                         </div>
-                                        </div>
+                                    </div>
 
-                                        <div class="form-group mt-2">
-                                            <asp:DropDownList ID="ddlTipoProduc" runat="server" CssClass="form-style"></asp:DropDownList>
-                                            <i class="input-icon uil uil-users-alt"></i>
-                                        </div>
-                                        <asp:Button ID="btnRegistrar" runat="server" Text="Register" CssClass="btn mt-4" OnClick="btnRegistrar_Click" />
+                                    <div class="form-group mt-2">
+                                        <asp:DropDownList ID="ddlTipoProduc" runat="server" CssClass="form-style"></asp:DropDownList>
+                                        <i class="input-icon uil uil-users-alt"></i>
+                                    </div>
+                                    <asp:Button ID="btnRegistrar" runat="server" Text="Register" CssClass="btn mt-4" OnClick="btnRegistrar_Click" />
                                 </div>
                             </div>
 

@@ -4,11 +4,21 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link href="Vista/Css/Cards.css" rel="stylesheet" />
+    <link href="Vista/Css/CSSDipnicox.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="header">
     <div class="inner-header flex">
-        <h2 class="rotate">Dipnicox</h2>
+        <div class="animated-word" >
+            <div class="letter">D</div>
+            <div class="letter">I</div>
+            <div class="letter">P</div>
+            <div class="letter">N</div>
+            <div class="letter">I</div>
+            <div class="letter">C</div>
+            <div class="letter">O</div>
+            <div class="letter">X</div>
+        </div>
     </div>
     <div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
