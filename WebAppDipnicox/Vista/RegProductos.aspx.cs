@@ -29,22 +29,35 @@ namespace WebAppDipnicox.Vista
             }
 
         }
-        protected void FileUpload1_Changed(object sender, EventArgs e)
-        {
-            if (fUload.HasFile)
-            {
-                // Acciones a realizar cuando se carga un archivo.
-                // Puedes acceder al archivo cargado a través de FileUpload1.PostedFile.
-                // Realiza aquí las operaciones necesarias con el archivo.
-            }
-        }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             ClProductosL obProd = new ClProductosL();
             ClProductosE obDatos = new ClProductosE();
             obDatos.Codigo = txtCodigo.Text;
             obDatos.Nombre = txtNombre.Text;
+            string nomImagen = FPImage.FileName;
+            string ruta = "/Vista/Imagenes/Productos/";
+            ////Cambio de nombre
+            //string NomNewImgJ = txtCodigo.Text + ".jpg";
+            //string NomNewImgP = txtCodigo.Text + ".png";
+            //string RutaNew = "/Vista/ImagesArt/";
+            if (FPImage.HasFile)
+            {
+                //si hay una archivo.
+                FPImage.SaveAs(Server.MapPath(ruta+nomImagen));
+                //if (FPImage.PostedFile.ContentType == "image/jpeg" || FPImage.PostedFile.ContentType == "image/jpg")
+                //{
+                //    System.IO.File.Move(Server.MapPath(ruta), Server.MapPath(RutaNew + NomNewImgJ));
+                //    obDatos.Image = NomNewImgP;
+                //}
+                //else if (FPImage.PostedFile.ContentType == "image/png")
+                //{
+                //    System.IO.File.Move(Server.MapPath(ruta), Server.MapPath(RutaNew + NomNewImgP));
+                //    obDatos.Image = NomNewImgP;
+                //}
+            }
             obDatos.Descripcion = txtDescripcion.Text;
+            obDatos.Image = FPImage.FileName;
             obDatos.Valor = int.Parse(txtValor.Text);
             obDatos.Cantidad = int.Parse(txtCantidad.Text);
             obDatos.UnidadMed = txtMedidad.Text;
@@ -60,11 +73,6 @@ namespace WebAppDipnicox.Vista
 
             }
 
-        }
-
-        protected void fUload_Load(object sender, EventArgs e)
-        {
-            int x = 0;
         }
     }
 }

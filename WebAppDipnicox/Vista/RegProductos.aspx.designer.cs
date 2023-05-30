@@ -60,13 +60,22 @@ namespace WebAppDipnicox.Vista
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
 
         /// <summary>
-        /// Control fUload.
+        /// Control FPImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fUload;
+        protected global::System.Web.UI.WebControls.FileUpload FPImage;
+
+        /// <summary>
+        /// Control btnimage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnimage;
 
         /// <summary>
         /// Control txtMedidad.

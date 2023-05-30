@@ -107,6 +107,7 @@
     <Content Include="Vista\Imagenes\Productos\TipoProd\alarmas.png" />
     <Content Include="Vista\Imagenes\Productos\TipoProd\Domo.png" />
     <Content Include="Vista\Imagenes\Productos\TipoProd\SisCon.png" />
+    <Content Include="Vista\Imagenes\Productos\y5sed.jpg" />
     <Content Include="Vista\JavaScript\Enviar.js" />
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Css\StyleHome.css" />

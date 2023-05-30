@@ -74,52 +74,5 @@ namespace WebAppDipnicox.Vista
             return ListaProductos;
         }
 
-        protected void btnCambiar_Click(object sender, EventArgs e)
-        {
-            FileUpload1.Attributes.Add("onchange", "handleFileSelection(event)");
-            FileUpload1.Attributes.Add("type", "file");
-            FileUpload1.Attributes.Add("accept", "image/*");
-            FileUpload1.Attributes.Add("multiple", "false");
-            FileUpload1.Style["display"]="none";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
     }
 }

@@ -15,6 +15,11 @@
 
     <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <script>
+        function abrir() {
+            document.getElementById('<%= FPIMage.ClientID %>').click();
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 1100px">
@@ -64,11 +69,12 @@
                                                     <div class="d-flex justify-content-center mt-5 pt-4">
                                                         <div class="py-3 image">
                                                             <div class="CamImage">
-                                                                <asp:Button ID="btnCambiar" class="btn btn-primary btnImage" runat="server" OnClick="btnCambiar_Click" Text="" />
-                                                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                                <asp:Button ID="btnCambiar" class="btn btn-primary btnImage" runat="server" Text="Cambiar" OnClientClick="abrir(); return false;" />
                                                                 <i class="input-icon uil uil-image-search" style="left: 5px; line-height: inherit;"></i>
+                                                                <asp:FileUpload ID="FPIMage" runat="server" Style="display: none;" onchange="imagen(this);" />
                                                             </div>
-                                                            <img src="Imagenes/Halo.PNG" style="height: 200px;">
+                                                            <asp:Image ID="imagen" src="Imagenes/Halo.PNG" runat="server" Style="height: 200px;" />
+                                                            <%--<img id="imgPro" style="height: 200px;">--%>
                                                         </div>
                                                     </div>
                                                     <div class="text-center mt-2 py-4 px-2" style="background: #2b2e38">
@@ -143,6 +149,23 @@
             </div>
         </div>
         <script>
+            function imagen(imput) {
+<%--                var fileUpload = document.getElementById("<%= imagen.ClientID %>");
+                if (fileUpload.files.length > 0) {
+                    var NomArc = fileUpload.files[0];
+                    console.log(NomArc);
+                    document.getElementById('<%= imagen.ClientID %>').alt = NomArc;
+                }--%>
+                if (imput.files && imput.files[0]) {
+                    var img = new FileReader();
+                    console.log('cargo');
+                    img.onload = function (e) {
+                        document.getElementById("<%= imagen.ClientID %>").src = e.target.result;
+                        console.log(e.target.result);
+                    };
+                    img.readAsDataURL(imput.files[0])
+                }
+            }
             $(document).ready(function () {
                 var id = 0;
                 $.ajax({
@@ -152,6 +175,7 @@
                     dataType: "json",
                     success: function (response) {
                         var data = response.d;
+                        console.log(data);
                         $('#tblUsua').DataTable({
                             data: data,
                             columns: [
@@ -190,6 +214,7 @@
                     data: JSON.stringify({ id: idProducto }),
                     success: function (dat) {
                         var Carga = dat.d;
+                        document.getElementById('<%= imagen.ClientID %>').src = 'Imagenes/Productos/' + Carga[0]["Image"];
                         document.getElementById('<%= txtCodigo.ClientID %>').value = Carga[0]["Codigo"];
                         document.getElementById('<%= txtNombre.ClientID %>').value = Carga[0]["Nombre"];
                         document.getElementById('<%= txtDescrip.ClientID %>').value = Carga[0]["Descripcion"];

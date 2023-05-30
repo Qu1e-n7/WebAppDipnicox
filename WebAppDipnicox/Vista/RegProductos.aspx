@@ -7,6 +7,13 @@
     <link href="Css/Style.css" rel="stylesheet" />
     <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+
+    <script>
+        function abrir() {
+            document.getElementById('<%= FPImage.ClientID %>').click();
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="section">
@@ -40,9 +47,10 @@
                                             <i class="input-icon uil uil-user-check"></i>
                                         </div>
                                         <div class="form-group mt-2">
-                                            <asp:FileUpload ID="fUload" runat="server" CssClass="form-style" />
+                                            <asp:FileUpload ID="FPImage" runat="server" style="display: none;" CssClass="form-style" onchange="imagen();"/>
+                                            <asp:Button ID="btnimage" CssClass="form-style" runat="server" Text="Selecione Imagen del Producto" OnClientClick="abrir(); return false;" />
                                             <i class="input-icon uil uil-image-plus"></i>
-                                           
+
                                         </div>
                                         <div class="form-group mt-2">
                                             <asp:TextBox ID="txtMedidad" runat="server" CssClass="form-style" placeholder="Medida"></asp:TextBox>
@@ -65,21 +73,13 @@
         </div>
     </div>
     <script>
-        function mostrarSelectorArchivo() {
-            document.getElementById('<%= fUload.ClientID %>').click();
-            <%--var file = document.getElementById('<%= fUload.ClientID %>');
-            if (file.value) {
-                console.log('carga');
-            }--%>
-            return false;
-        }
-        <%--function SelectArch() {
-            console.log('archivo');
-            var archivo = document.getElementById('<%= fUload.ClientID %>');
-            if (archivo.files.length >0) {
-              document.getElementById('<%= btnCambiarImagen.ClientID %>').value = archivo.name;
-                console.log('cargo');
+        function imagen() {
+            var fileUpload = document.getElementById("<%= FPImage.ClientID %>");
+            if (fileUpload.files.length > 0) {
+                var NomArc = fileUpload.files[0].name;
+                document.getElementById("<%=btnimage.ClientID %>").value = NomArc;
             }
-        }--%>
+        }
+
     </script>
 </asp:Content>
