@@ -37,6 +37,28 @@ namespace WebAppDipnicox.Vista
             obDatos.Codigo = txtCodigo.Text;
             obDatos.Nombre = txtNombre.Text;
             obDatos.Descripcion = txtDescrip.Text;
+            string nomImagen = FPIMage.FileName;
+            string ruta = "/Vista/Imagenes/Productos/";
+            ////Cambio de nombre
+            //string NomNewImgJ = txtCodigo.Text + ".jpg";
+            //string NomNewImgP = txtCodigo.Text + ".png";
+            //string RutaNew = "/Vista/ImagesArt/";
+            if (FPIMage.HasFile)
+            {
+                //si hay una archivo.
+                FPIMage.SaveAs(Server.MapPath(ruta + nomImagen));
+                //if (FPImage.PostedFile.ContentType == "image/jpeg" || FPImage.PostedFile.ContentType == "image/jpg")
+                //{
+                //    System.IO.File.Move(Server.MapPath(ruta), Server.MapPath(RutaNew + NomNewImgJ));
+                //    obDatos.Image = NomNewImgP;
+                //}
+                //else if (FPImage.PostedFile.ContentType == "image/png")
+                //{
+                //    System.IO.File.Move(Server.MapPath(ruta), Server.MapPath(RutaNew + NomNewImgP));
+                //    obDatos.Image = NomNewImgP;
+                //}
+            }
+            obDatos.Image = nomImagen;
             obDatos.Valor = int.Parse(txtValor.Text);
             obDatos.Cantidad = int.Parse(txtCantidad.Text);
             obDatos.UnidadMed = txtMedida.Text;

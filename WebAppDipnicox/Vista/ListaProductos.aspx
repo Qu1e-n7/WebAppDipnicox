@@ -42,7 +42,7 @@
         </table>
     </div>
     <div style="color: #ffeba7">
-        <asp:TextBox ID="txtDato" runat="server" Enabled="false " Style="color: #031529; background: #031529; border: none;"></asp:TextBox>
+        <asp:TextBox ID="txtDato" runat="server" Style="color: #031529; background: #031529; border: none;"></asp:TextBox>
 
     </div>
 
@@ -150,18 +150,10 @@
         </div>
         <script>
             function imagen(imput) {
-<%--                var fileUpload = document.getElementById("<%= imagen.ClientID %>");
-                if (fileUpload.files.length > 0) {
-                    var NomArc = fileUpload.files[0];
-                    console.log(NomArc);
-                    document.getElementById('<%= imagen.ClientID %>').alt = NomArc;
-                }--%>
                 if (imput.files && imput.files[0]) {
                     var img = new FileReader();
-                    console.log('cargo');
                     img.onload = function (e) {
                         document.getElementById("<%= imagen.ClientID %>").src = e.target.result;
-                        console.log(e.target.result);
                     };
                     img.readAsDataURL(imput.files[0])
                 }

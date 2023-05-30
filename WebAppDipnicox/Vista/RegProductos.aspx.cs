@@ -37,10 +37,10 @@ namespace WebAppDipnicox.Vista
             obDatos.Nombre = txtNombre.Text;
             string nomImagen = FPImage.FileName;
             string ruta = "/Vista/Imagenes/Productos/";
+
             ////Cambio de nombre
             //string NomNewImgJ = txtCodigo.Text + ".jpg";
             //string NomNewImgP = txtCodigo.Text + ".png";
-            //string RutaNew = "/Vista/ImagesArt/";
             if (FPImage.HasFile)
             {
                 //si hay una archivo.
