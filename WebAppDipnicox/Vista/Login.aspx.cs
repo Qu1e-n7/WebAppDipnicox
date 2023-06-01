@@ -31,7 +31,8 @@ namespace WebAppDipnicox.Vista
                 }
                 else if (obDatosP.idTipoPersonal == 2)
                 {
-                    Session["Asesor"] = obDatosP.idPersonal + " " + obDatosP.Nombre + " " + obDatosP.Apellido + " " + obDatosP.Telefono;
+                    Session["Asesor"] = obDatosP;
+                    
 
                 }
                 else if (obDatosP.idTipoPersonal == 3)

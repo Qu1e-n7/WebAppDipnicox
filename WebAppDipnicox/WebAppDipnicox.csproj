@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminTrabaj.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Vista\ActProductos.aspx" />
     <Content Include="Vista\Css\Actualiza.css" />
@@ -140,6 +141,9 @@
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
     <Compile Include="Entidades\ClTipoProducE.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="HomeAdmi.aspx.cs">
       <DependentUpon>HomeAdmi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
