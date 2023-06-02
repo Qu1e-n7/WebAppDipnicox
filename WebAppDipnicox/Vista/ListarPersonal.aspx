@@ -48,45 +48,42 @@
                 <SortedDescendingCellStyle BackColor="#D4DFE1" />
                 <SortedDescendingHeaderStyle BackColor="#15524A" />
             </asp:GridView>--%>
+           
+                <div id="dataTableContainer" class="table-responsive">
+                    <table id="tblTrabajador" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%">
+                        <thead>
+                            <tr>
 
-            <div id="dataTableContainer" class="table-responsive">
-                <table id="tblTrabajador" class="table table-striped table-bordered dt-responsive nowrap " style="width: 100%">
-                    <thead>
-                        <tr>
-                            <th>idPersonal</th>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Telefono</th>
-                            <th>Estado</th>
-                            <th>Email</th>
-                            <th>Contraseña</th>
-                            <th>idTipoPersonal</th>
-                            <th>idCiudad</th>
-                            <th>Detalles</th>
+                                <th>Documento</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Telefono</th>
+                                <th>Estado</th>
+                                <th>Email</th>
+                                <th>Contraseña</th>
+                                <th>Detalles</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>idPersonal</th>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Telefono</th>
-                            <th>Estado</th>
-                            <th>Email</th>
-                            <th>Contraseña</th>
-                            <th>idTipoPersonal</th>
-                            <th>idCiudad</th>
-                            <th>Detalles</th>
-                        </tr>
-                    </tfoot>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                                <th>Documento</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Telefono</th>
+                                <th>Estado</th>
+                                <th>Email</th>
+                                <th>Contraseña</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-        </div>
+       
 
 
 
@@ -153,7 +150,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>  
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <asp:Button ID="btnEliminar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
                             <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" />
                         </div>
@@ -180,7 +177,7 @@
                         responsive: true,
                         data: data,
                         columns: [
-                            { data: "idPersonal" },
+
                             { data: "Documento" },
                             { data: "Nombre" },
                             { data: "Apellido" },
@@ -188,8 +185,7 @@
                             { data: "Estado" },
                             { data: "Email" },
                             { data: "Contraseña" },
-                            { data: "idTipoPersonal" },
-                            { data: "idCiudad" },
+
                             {
                                 data: null,
                                 render: function (data, type, row) {
@@ -274,7 +270,7 @@
                 if (ddl.options[i].value === idTipoPersonal.toString()) {
                     ddl.seletedIndex = i;
                     break;
-                } 
+                }
             }
         }
         function CargarIdComboCiudad(idCiudad) {

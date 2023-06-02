@@ -13,6 +13,9 @@ namespace WebAppDipnicox.Datos
         {
             conexion = new SqlConnection("Data Source=SOGAPRRBCFSD544\\SQLEXPRESS;Initial Catalog=dbDipnicox;User ID=Quien;Password=q123");
             //conexion = new SqlConnection("Data Source=.;Initial Catalog=dbDipnicox;User ID=Quien1;Password=q123");
+
+            conexion = new SqlConnection("Data Source=SOGAPRRBCFSD546\\MSSQLSERVERR;Initial Catalog=dbDipnicox;User ID=Sizin;Password=123");
+
             conexion.Open();
             return conexion;
         }

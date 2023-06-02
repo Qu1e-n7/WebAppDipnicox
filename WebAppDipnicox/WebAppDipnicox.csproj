@@ -102,6 +102,7 @@
     <Content Include="HomeAdmi.aspx" />
     <Content Include="Vista\Css\Actualizar.css" />
     <Content Include="Vista\Css\Cards.css" />
+    <Content Include="Vista\Css\CSSDipnicox.css" />
     <Content Include="Vista\Css\Datatable.css" />
     <Content Include="Vista\Css\input.css" />
     <Content Include="Vista\Imagenes\Halo.PNG" />
@@ -116,6 +117,8 @@
     <Content Include="Vista\ListaProductos.aspx" />
     <Content Include="Vista\ListarPersonal.aspx" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Servicio\css\RegistrarServicio.css" />
+    <Content Include="Vista\Servicio\RegistrarServicio.aspx" />
     <Content Include="Vista\RegProductos.aspx" />
     <Content Include="Vista\RegTrabajadores.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
@@ -137,10 +140,12 @@
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProductosD.cs" />
+    <Compile Include="Datos\ClServicioD.cs" />
     <Compile Include="Datos\ClTipoProducD.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
+    <Compile Include="Entidades\ClServicioE.cs" />
     <Compile Include="Entidades\ClTipoProducE.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,6 +160,7 @@
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClProductosL.cs" />
+    <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Logica\ClTipoProducL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
@@ -220,6 +226,13 @@
     </Compile>
     <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Servicio\RegistrarServicio.aspx.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Servicio\RegistrarServicio.aspx.designer.cs">
+      <DependentUpon>RegistrarServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegProductos.aspx.cs">
       <DependentUpon>RegProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
