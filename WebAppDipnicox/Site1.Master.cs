@@ -14,7 +14,8 @@ namespace WebAppDipnicox
         {
             if (!IsPostBack)
             {
-                ClPersonalE obdatos=(ClPersonalE) Session["Administrador"];
+                
+                  ClPersonalE obdatos=(ClPersonalE) Session["Administrador"];
                 ReDatos.Text = obdatos.Nombre + " " + obdatos.Apellido;
             }
         }
