@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebAppDipnicox.Entidades;
 
 namespace WebAppDipnicox
 {
@@ -11,7 +12,12 @@ namespace WebAppDipnicox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                
+                  ClPersonalE obdatos=(ClPersonalE) Session["Administrador"];
+                ReDatos.Text = obdatos.Nombre + " " + obdatos.Apellido;
+            }
         }
     }
 }
