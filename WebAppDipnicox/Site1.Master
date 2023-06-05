@@ -44,9 +44,14 @@
         <div class="menu_ad">
         </div>
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <div class="col col-md-3 col-xl-2 bg-dark">
+                <div class="d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100">
+                    <div class="row justify-content-center text-center mt-col-auto mt-5">
+                        <asp:Label ID="Label1" runat="server" Text="Administrador"></asp:Label>
+                        <asp:Image ID="imgAdm" src="../Vista/Imagenes/IcoAdmi.png" runat="server" Style="height: 110px;width: auto;"/>
+                        <asp:Label ID="ReDatos" runat="server" data-bs-toggle="collapse" class="nav-link px-0 align-middle" Text="Label"></asp:Label>
+                    </div>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5" id="menu">
                         <li>
                             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-people" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Personal</span> </a>
@@ -73,9 +78,6 @@
                         </li>
                     </ul>
                     <hr>
-                    <div id="CargarDAtos">
-                        <asp:Label ID="ReDatos" runat="server" Text="Label"></asp:Label>
-                    </div>
                 </div>
             </div>
             <form id="form1" runat="server">

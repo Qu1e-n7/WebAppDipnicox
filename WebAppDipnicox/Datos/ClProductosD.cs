@@ -24,6 +24,7 @@ namespace WebAppDipnicox.Datos
             Registro.Parameters.AddWithValue("@Codigo", objDatos.Codigo);
             Registro.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
             Registro.Parameters.AddWithValue("@Descripcion", objDatos.Descripcion);
+            Registro.Parameters.AddWithValue("@image", objDatos.Image);     
             Registro.Parameters.AddWithValue("@Valor", objDatos.Valor);
             Registro.Parameters.AddWithValue("@Cantidad", objDatos.Cantidad);
             Registro.Parameters.AddWithValue("@Medida", objDatos.UnidadMed);
@@ -40,6 +41,7 @@ namespace WebAppDipnicox.Datos
             Actualizar.Parameters.AddWithValue("@Codigo", objDatos.Codigo);
             Actualizar.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
             Actualizar.Parameters.AddWithValue("@Descripcion", objDatos.Descripcion);
+            Actualizar.Parameters.AddWithValue("@image", objDatos.Image);
             Actualizar.Parameters.AddWithValue("@Valor", objDatos.Valor);
             Actualizar.Parameters.AddWithValue("@Cantidad", objDatos.Cantidad);
             Actualizar.Parameters.AddWithValue("@Medida", objDatos.UnidadMed);
@@ -70,10 +72,11 @@ namespace WebAppDipnicox.Datos
                 obDatos.Codigo =Dato.GetString(1);
                 obDatos.Nombre =Dato.GetString(2);
                 obDatos.Descripcion =Dato.GetString(3);
-                obDatos.Valor =Dato.GetInt32(4);
-                obDatos.Cantidad =Dato.GetInt32(5);
-                obDatos.UnidadMed =Dato.GetString(6);
-                obDatos.idTipoProducto =Dato.GetInt32(7);
+                obDatos.Image = Dato.GetString(4);
+                obDatos.Valor =Dato.GetInt32(5);
+                obDatos.Cantidad =Dato.GetInt32(6);
+                obDatos.UnidadMed =Dato.GetString(7);
+                obDatos.idTipoProducto =Dato.GetInt32(8);
                 listProdu.Add(obDatos);
             }
             return listProdu;
@@ -91,6 +94,7 @@ namespace WebAppDipnicox.Datos
                 obDatos.Codigo = datosread["Codigo"].ToString();
                 obDatos.Nombre = datosread["Nombre"].ToString();
                 obDatos.Descripcion = datosread["Descripcion"].ToString();
+                obDatos.Image = datosread["Imagen"].ToString();
                 obDatos.Valor = Convert.ToInt32(datosread["ValorUni"]);
                 obDatos.Cantidad = Convert.ToInt32(datosread["Cantidad"]);
                 obDatos.UnidadMed = datosread["UnidadMedida"].ToString();
