@@ -23,7 +23,11 @@ namespace WebAppDipnicox.Logica
             int Actualizar = obProducto.mtdActualizar(obDatos);
             return Actualizar;
         }
-
+        public List<string> mtdMensaje()
+        {
+            List<string> msjTrigger = obProducto.mtdTrMensa();
+            return msjTrigger;
+        }
         public int mtdEliminar(int id)
         {
             int  Eliminar= obProducto.mtdEliminar(id);

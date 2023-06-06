@@ -16,6 +16,25 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <!-- Modal notificacion-->
+    <div class="modal fade" id="Modalnotif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="cont">
+                <div class="row"> 
+                    <div class="ntPanel justify-content-center" >
+                        <asp:Repeater ID="repnotif" runat="server" OnItemDataBound="repnotif_ItemDataBound">
+                            <ItemTemplate>
+                                <div class="noti mt-2">
+                                    <asp:Label ID="lblnotifica" runat="server" Text=""></asp:Label>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container">
             <div class="menu">
@@ -35,6 +54,11 @@
                         <div class="nav-item">
                             <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso</font></font></a>
                         </div>
+                        <div class="conten">
+                            <div id="notificac" class="notifica" data-count="0" runat="server">
+                                <button class="btnn nof bi bi-bell-fill" data-bs-toggle="modal" data-bs-target="#Modalnotif"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -48,7 +72,7 @@
                 <div class="d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100">
                     <div class="row justify-content-center text-center mt-col-auto mt-5">
                         <asp:Label ID="Label1" runat="server" Text="Administrador"></asp:Label>
-                        <asp:Image ID="imgAdm" src="../Vista/Imagenes/IcoAdmi.png" runat="server" Style="height: 110px;width: auto;"/>
+                        <asp:Image ID="imgAdm" src="../Vista/Imagenes/IcoAdmi.png" runat="server" Style="height: 110px; width: auto;" />
                         <asp:Label ID="ReDatos" runat="server" data-bs-toggle="collapse" class="nav-link px-0 align-middle" Text="Label"></asp:Label>
                     </div>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5" id="menu">
@@ -88,6 +112,5 @@
             </form>
         </div>
     </div>
-
 </body>
 </html>
