@@ -16,12 +16,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
     <!-- Modal notificacion-->
     <div class="modal fade" id="Modalnotif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="cont">
-                <div class="row"> 
-                    <div class="ntPanel justify-content-center" >
+                <div class="row">
+                    <div class="ntPanel justify-content-center">
                         <asp:Repeater ID="repnotif" runat="server" OnItemDataBound="repnotif_ItemDataBound">
                             <ItemTemplate>
                                 <div class="noti mt-2">
@@ -112,5 +113,6 @@
             </form>
         </div>
     </div>
+
 </body>
 </html>

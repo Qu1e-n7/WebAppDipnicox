@@ -20,11 +20,15 @@ namespace WebAppDipnicox
                   ClPersonalE obdatos=(ClPersonalE) Session["Administrador"];
                 ReDatos.Text = obdatos.Nombre + " " + obdatos.Apellido;
                 List<string> list = obProductos.mtdMensaje();
-                repnotif.DataSource = list;
-                repnotif.DataBind();
-                int count = list.Count;
-                var miDiv = (HtmlGenericControl)FindControl("notificac");
-                miDiv.Attributes["data-count"]= count.ToString();
+                if (list!=null)
+                {
+                    repnotif.DataSource = list;
+                    repnotif.DataBind();
+                    int count = list.Count;
+                    var miDiv = (HtmlGenericControl)FindControl("notificac");
+                    miDiv.Attributes["data-count"] = count.ToString();
+                }
+                
                 
             }
         }

@@ -52,7 +52,7 @@ namespace WebAppDipnicox.Datos
         public List<string> mtdTrMensa()
         {
             List<string> mensajes= new List<string>();
-            string trigger = "select mensaje from ##tblMensaje";
+            string trigger = "select Descripcion from Notificaciones";
             SqlCommand TriggMensa = obSQL.mtdTrigger(trigger);
             SqlDataReader reader = TriggMensa.ExecuteReader();
             //object result= TriggMensa.ExecuteScalar();
@@ -62,7 +62,7 @@ namespace WebAppDipnicox.Datos
             //}
             while (reader.Read())
             {
-                string msjTrigg = (string)reader["mensaje"];
+                string msjTrigg = (string)reader["Descripcion"];
                 mensajes.Add(msjTrigg);
             }
 

@@ -26,6 +26,7 @@ namespace WebAppDipnicox.Vista
                 ddlTipProductos.DataTextField = "Nombre";
                 ddlTipProductos.DataValueField = "idTipoProduc";
                 ddlTipProductos.DataBind();
+
             }
         }
 
