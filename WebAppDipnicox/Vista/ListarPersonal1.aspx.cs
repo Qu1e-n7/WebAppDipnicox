@@ -1,27 +1,22 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.JsonResult;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Helpers;
-using System.Web.Mvc;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebAppDipnicox.Entidades;
 using WebAppDipnicox.Logica;
 
-
 namespace WebAppDipnicox.Vista
 {
-    public partial class ListarPersonal : System.Web.UI.Page
+    public partial class ListarPersonal1 : System.Web.UI.Page
     {
         private int idPersonal;
+        ClPersonalL objPersonalL = new ClPersonalL();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (!IsPostBack)
             {
 
@@ -77,7 +72,7 @@ namespace WebAppDipnicox.Vista
         public static void GuardarIdPersonal(int idPersonal)
         {
 
-            var page = HttpContext.Current.Handler as ListarPersonal;
+            var page = HttpContext.Current.Handler as ListarPersonal1;
             if (page != null)
             {
                 page.idPersonal = idPersonal;
@@ -88,17 +83,12 @@ namespace WebAppDipnicox.Vista
 
         }
         [WebMethod]
-        public static ClPersonalE mtdMostarPersonal(int idPersonal)
+        public static List<ClPersonalE> mtdMostarPersonal(int idPersonal)
         {
-
-            ClPersonalL objPersonal = new ClPersonalL();
-            List<ClPersonalE> list = objPersonal.mtdListaPersonalXDato(idPersonal);
-            if (list.Count > 0)
-            {
-                ClPersonalE obDatos = list[0];
-                return obDatos;
-            }
-            return null;
+            ClPersonalL objPersonalL = new ClPersonalL();
+            var Page = HttpContext.Current.Handler as ListarPersonal1;
+            List<ClPersonalE> list = Page.objPersonalL.mtdListaPersonalXDato(idPersonal);
+            return list;
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
