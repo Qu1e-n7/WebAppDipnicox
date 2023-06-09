@@ -140,12 +140,16 @@
     <Compile Include="Datos\ClCiudadD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
     <Compile Include="Datos\ClClienteD.cs" />
+    <Compile Include="Datos\ClHorarioD.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProductosD.cs" />
     <Compile Include="Datos\ClServicioD.cs" />
     <Compile Include="Datos\ClTipoProducD.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
+    <Compile Include="Entidades\ClDiaE.cs" />
+    <Compile Include="Entidades\ClHorarioDiaE.cs" />
+    <Compile Include="Entidades\ClHorarioE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
@@ -161,6 +165,7 @@
       <DependentUpon>HomeAdmi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logica\ClClienteL.cs" />
+    <Compile Include="Logica\ClHorarioL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClProductosL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
@@ -208,17 +213,13 @@
     <Compile Include="Vista\ListarPersonal.aspx.designer.cs">
       <DependentUpon>ListarPersonal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Logica\ClTipoPersonalL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Datos\ClTipoPersonalD.cs" />
     <Compile Include="Datos\ClTipoPersonalD.cs" />
     <Compile Include="Entidades\ClTipoPersonalE.cs" />
-    <Compile Include="Logica\ClCiudadL.cs" />
-    <Compile Include="Logica\ClTipoPersonalL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
-    <Compile Include="Entidades\ClTipoPersonalE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vista\ListarPersonal1.aspx.cs">
       <DependentUpon>ListarPersonal1.aspx</DependentUpon>
@@ -300,7 +301,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64689</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64689/</IISUrl>
+          <IISUrl>http://localhost:6407/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
