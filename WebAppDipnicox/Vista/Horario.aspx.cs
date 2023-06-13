@@ -23,22 +23,22 @@ namespace WebAppDipnicox.Vista
 
         }
 
-        //protected void chkDias_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    CheckBox checkBox=(CheckBox)sender;
-        //    string dato=checkBox.Text;
-        //    if (checkBox.Checked)
-        //    {
-        //        rptSeman.DataSource = dato;
-        //        rptSeman.DataBind();
-        //    }
-        //    else
-        //    {
-        //        rptSeman = null;
-        //    }
-        //}
+        protected void chkDias_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            string dato = checkBox.Text;
+            if (checkBox.Checked)
+            {
+                rptSeman.DataSource = dato;
+                rptSeman.DataBind();
+            }
+            else
+            {
+                rptSeman = null;
+            }
+            //}
 
-        protected void rptDias_ItemDataBound(object sender, RepeaterItemEventArgs e)
+            protected void rptDias_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
