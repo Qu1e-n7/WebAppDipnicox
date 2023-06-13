@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link href="Css/Horario.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -14,7 +15,7 @@
                 <asp:Repeater runat="server" ID="rptDias" OnItemDataBound="rptDias_ItemDataBound">
                     <ItemTemplate>
                         <label class="dia my-3 mx-4">
-                            <asp:CheckBox ID="chkDias" runat="server" onclick="slectheck(this)" Text='<%# Eval("Dia") %>' OnCheckedChanged="chkDias_CheckedChanged" />
+                            <asp:CheckBox ID="chkDias" runat="server" onclick="slectheck(this)" Text='<%# Eval("Dia") %>' />
                             <svg viewBox="0 0 64 64" height="2em" width="2em">
                                 <path
                                     d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -39,6 +40,24 @@
         </div>
     </div>
     <script>
+        $(document).ready(function () {
+            var checkb = $('.dia input[type="checkbox"]');
+            checkb.on('click', function () {
+                var selc = true;
+                checkb.each(function () {
+                    if ($(this).is(':checked'))  {
+                        selc = false;
+                        return false;
+                    }
+                });
+                var divhor = document.getElementById('<%= horinifin.ClientID %>');
+                if (selc) {
+                    console.log('pasa');
+                    divhor.className = 'd-none';
+                }
+            });
+
+        });
         function slectheck(check) {
             var chktex = check.parentNode.innerText;
             var divdias = document.getElementById('<%= diho.ClientID %>');
@@ -81,19 +100,6 @@
                 if (divdelt) {
                     divdias.removeChild(divdelt);
                 }
-            }
-            var checkb = document.querySelectorAll('.dia input[type="checkbox"]');
-            var chkselects = false;
-            for (var i = 0; i < checkb.length; i++) {
-                if (checkb.checked) {
-                    chkselects = true;
-                    break;
-                }
-            }
-            console.log(chkselects);
-            if (!chkselects) {
-                console.log('pasa');
-                divhor.className = 'd-none';
             }
         }
     </script>
