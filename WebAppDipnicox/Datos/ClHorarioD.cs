@@ -26,5 +26,17 @@ namespace WebAppDipnicox.Datos
             }
             return ListDias;
         }
+        public int AgregarHorarDia(ClHorarioDiaE obHorario)
+        {
+            string proceso = "AgregarHorarioDia";
+            SqlCommand Registar = obSQL.mtdProcesoAlmacenado(proceso);
+            Registar.Parameters.AddWithValue("@idHorario", obHorario.idHorario);
+            Registar.Parameters.AddWithValue("@idDia", obHorario.idDia);
+            Registar.Parameters.AddWithValue("@HoraIni", TimeSpan.Parse(obHorario.HoraInicio));
+            Registar.Parameters.AddWithValue("@HoraFin", TimeSpan.Parse(obHorario.HoraFinal));
+            int Registro = Registar.ExecuteNonQuery();
+            return Registro;
+
+        }
     }
 }

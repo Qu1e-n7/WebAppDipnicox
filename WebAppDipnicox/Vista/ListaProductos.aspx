@@ -216,7 +216,7 @@
                         CargaTipPro(Carga[0]["idTipoProducto"]);
                     }, error: function (xhr, textStatus, errorThrown) {
                         // Manejar cualquier error que ocurra durante la llamada AJAX
-                        console.error(errorThrown);
+                        console.error('No entra');
                     }
                 });
             }

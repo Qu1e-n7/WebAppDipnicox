@@ -15,5 +15,10 @@ namespace WebAppDipnicox.Logica
             List<ClDiaE> Lista=obHorario.mtdDias();
             return Lista;
         }
+        public int mtdAgregarHoraDi(ClHorarioDiaE obDatos)
+        {
+            int registrar = obHorario.AgregarHorarDia(obDatos);
+            return registrar;
+        }
     }
 }

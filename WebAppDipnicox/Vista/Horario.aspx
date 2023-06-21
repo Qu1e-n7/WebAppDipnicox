@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link href="Css/Horario.css" rel="stylesheet" />
+    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="conta">
@@ -27,10 +29,10 @@
                 </asp:Repeater>
 
             </div>
-            <div class="horar pt-5">
+            <div class="horar pt-3">
                 <div class="d-flex justify-content-center">
                     <div id="diho" runat="server" class="row">
-                        <div id="horinifin" runat="server" class="col mt-5 pt-5 p-0 d-none" style="width: 100px;">
+                        <div id="horinifin" runat="server" class="col mt-4 pt-3 p-0 d-none" style="width: 100px;">
                             <label for="" class="mt-4 pt-3" style="color: #10b3a0; font-size: 15px; font-weight: bold;">Hora inicial</label>
                             <label for="" class="mt-4 pt-3" style="color: #10b3a0; font-size: 15px; font-weight: bold;">Hora final</label>
                         </div>
@@ -45,7 +47,7 @@
             checkb.on('click', function () {
                 var selc = true;
                 checkb.each(function () {
-                    if ($(this).is(':checked'))  {
+                    if ($(this).is(':checked')) {
                         selc = false;
                         return false;
                     }
@@ -79,19 +81,32 @@
                 div2.id = 'ho' + chktex;
                 div2.className = 'Horas mt-4';
                 div2.style = 'width: min-content'
+                //Hora Inicial
                 var txthoraini = document.createElement('input');
                 txthoraini.type = 'time';
-                txthoraini.id = 'txt' + check;
+                txthoraini.id = 'txtIni' + lbdia.textContent;
                 txthoraini.className = 'tex mb-2';
                 div2.appendChild(txthoraini);
+                //Hora Final
                 var txthorafin = document.createElement('input')
                 txthorafin.type = 'time';
-                txthorafin.id = 'txt' + check;
+                txthorafin.id = 'txtFin' + lbdia.textContent;
                 txthorafin.className = 'tex mb-2';
                 div2.appendChild(txthorafin);
+                //Buton
+                var btn = document.createElement("button");
+                btn.className = 'guardar px-4 py-2 mb-4';
+                btn.innerHTML = "Guardar";
+                btn.setAttribute("type", "button");
 
+                btn.addEventListener("click", function (event) {
+                    console.log("Se hizo clic en el botón");
+                    Horario(txthoraini.value, txthorafin.value, lbdia.textContent);
+                });
+                div2.appendChild(btn);
                 div.appendChild(div1);
                 div.appendChild(div2);
+
 
                 divdias.appendChild(div);
                 divhor.className = 'col mt-5 pt-5 p-0 d-block';
@@ -101,6 +116,26 @@
                     divdias.removeChild(divdelt);
                 }
             }
+        }
+
+        function Horario(HoraIni, HoraFin, Dia) {
+            $.ajax({
+                type: "POST",
+                url: "Horario.aspx/mtdAgregarHor",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ txtInicio: HoraIni, txtFinal: HoraFin, dia: Dia }),
+                success: function (dat) {
+                    var Regis = dat.d;
+                    if (Regis != 0) {
+                        alert("Sii");
+                    }
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJAX
+                    console.error(errorThrown);
+                    console.error(xhr);
+                }
+            });
         }
     </script>
 </asp:Content>
