@@ -1,0 +1,112 @@
+﻿body {
+    background: #021428;
+}
+
+h2 {
+    color: #72AFE1;
+    font-size: 70pt;
+}
+
+h3 {
+    color: #fff;
+    background: #021428;
+    width: fit-content;
+    margin-top: -20px;
+}
+
+.labor {
+    border: 2px solid white;
+    border-radius: 3vh;
+    margin: 0 13%;
+    height: fit-content;
+}
+
+label {
+    color: #fff
+}
+
+.Dias {
+    height: 50px;
+    background: #134674;
+    width: 120px;
+    border-radius: 7px;
+    font-weight: bold;
+    color: black;
+}
+
+.tex {
+    height: 50px;
+    background: #7eadbf;
+    width: 120px;
+    border-radius: 7px;
+    border: none;
+}
+
+.dia {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .dia input {
+        display: none;
+    }
+
+    .dia svg {
+        overflow: visible;
+    }
+
+.path {
+    fill: none;
+    stroke: white;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+}
+
+.dia input:checked ~ svg .path {
+    fill: none;
+    stroke: #21b121;
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+}
+
+.Horas {
+    width: min-content;
+}
+
+.guardar {
+    background: #021d49;
+    border: none;
+    border-radius: 5px;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #2587b6;
+}
+
+.tbHor {
+    border-collapse: collapse;
+    margin-left: 5%;
+    width: 35%;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+
+    .tbHor thead th {
+        background-color: #134674;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .tbHor tbody td {
+        background-color: #7eadbf;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .tbHor tbody tr:nth-child(even) td {
+        background-color: #6d9ebe;
+    }

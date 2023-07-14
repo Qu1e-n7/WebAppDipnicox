@@ -41,5 +41,11 @@ namespace WebAppDipnicox.Datos
             
             return comando;
         }
+        public SqlCommand mtdTrigger(string consult)
+        {
+            ClConexion objConexion = new ClConexion();
+            SqlCommand comando = new SqlCommand(consult, objConexion.mtdConexion());
+            return comando;
+        }
     }
 }

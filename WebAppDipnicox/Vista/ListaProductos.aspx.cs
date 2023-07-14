@@ -26,6 +26,7 @@ namespace WebAppDipnicox.Vista
                 ddlTipProductos.DataTextField = "Nombre";
                 ddlTipProductos.DataValueField = "idTipoProduc";
                 ddlTipProductos.DataBind();
+
             }
         }
 
@@ -64,9 +65,9 @@ namespace WebAppDipnicox.Vista
             obDatos.UnidadMed = txtMedida.Text;
             obDatos.idTipoProducto = int.Parse(ddlTipProductos.SelectedValue.ToString());  
             int Actualizar = obProductos.mtdActualizar(obDatos);
-            if (Actualizar == 1)
+            if (Actualizar >= 1)
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Actualizar Producto!', 'Se ha Actualizado el producto " + obDatos.Codigo + "', 'success')", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Actualizar Producto!', 'Se ha Actualizado el producto " + obDatos.Codigo + "', 'success')", true);                
             }
         }
 

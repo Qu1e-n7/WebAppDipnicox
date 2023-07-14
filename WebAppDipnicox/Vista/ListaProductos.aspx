@@ -44,6 +44,7 @@
     <div style="color: #ffeba7">
         <asp:TextBox ID="txtDato" runat="server" Style="color: #031529; background: #031529; border: none;"></asp:TextBox>
 
+
     </div>
 
 
@@ -167,7 +168,6 @@
                     dataType: "json",
                     success: function (response) {
                         var data = response.d;
-                        console.log(data);
                         $('#tblUsua').DataTable({
                             data: data,
                             columns: [
@@ -216,12 +216,11 @@
                         CargaTipPro(Carga[0]["idTipoProducto"]);
                     }, error: function (xhr, textStatus, errorThrown) {
                         // Manejar cualquier error que ocurra durante la llamada AJAX
-                        console.error(errorThrown);
+                        console.error('No entra');
                     }
                 });
             }
             function CargaTipPro(idTipProd) {
-                console.log(idTipProd);
                 var ddl = document.getElementById('<%= ddlTipProductos.ClientID %>');
                 for (var i = 0; i < ddl.options.length; i++) {
                     if (ddl.options[i].value === idTipProd.toString()) {

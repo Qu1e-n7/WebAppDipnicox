@@ -7,92 +7,83 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebAppDipnicox
+namespace WebAppDipnicox.Vista
 {
 
 
-    public partial class Site1
+    public partial class ListHorario
     {
 
         /// <summary>
-        /// Control head.
+        /// Control horas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl horas;
 
         /// <summary>
-        /// Control repnotif.
+        /// Control diho.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repnotif;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl diho;
 
         /// <summary>
-        /// Control Dipni.
+        /// Control horinifin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dipni;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl horinifin;
 
         /// <summary>
-        /// Control notificac.
+        /// Control lblDia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notificac;
+        protected global::System.Web.UI.WebControls.Label lblDia;
 
         /// <summary>
-        /// Control Label1.
+        /// Control txtHoraIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtHoraIni;
 
         /// <summary>
-        /// Control imgAdm.
+        /// Control txtHoraFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgAdm;
+        protected global::System.Web.UI.WebControls.TextBox txtHoraFin;
 
         /// <summary>
-        /// Control ReDatos.
+        /// Control btnActualizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ReDatos;
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
 
         /// <summary>
-        /// Control form1.
+        /// Control txtid.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Control ContentPlaceHolder1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox txtid;
     }
 }
