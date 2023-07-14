@@ -26,22 +26,6 @@ namespace WebAppDipnicox.Vista
             }
 
         }
-
-        //protected void chkDias_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    CheckBox checkBox = (CheckBox)sender;
-        //    string dato = checkBox.Text;
-        //    if (checkBox.Checked)
-        //    {
-        //        rptSeman.DataSource = dato;
-        //        rptSeman.DataBind();
-        //    }
-        //    else
-        //    {
-        //        rptSeman = null;
-        //    }
-        //    //}
-
         protected void rptDias_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -52,29 +36,7 @@ namespace WebAppDipnicox.Vista
 
         }
 
-        //protected void btnHorario_Click(object sender, EventArgs e)
-        //{
-        //    string txt = "";
-        //    List<ClDiaE> Dias = obHorario.mtdDias();
-        //    txt = "txtIni" + Dias[0].Dia;
 
-        //    //string imput = Request.Form["txtIniLunes "];
-        //    //if (!string.IsNullOrEmpty(imput))
-        //    //{
-
-        //    //}
-
-        //    TextBox txtField = FindControlRecursive(Page, "txtIniLunes ") as TextBox;
-
-        //    if (txtField != null)
-        //    {
-        //        Console.WriteLine("SI que si");
-        //    }
-        //    //for (int i = 0; i < Dias.Count; i++)
-        //    //{
-
-        //    //}
-        //}
         [WebMethod]
         public static int mtdAgregarHor(string txtInicio, string txtFinal, string dia)
         {
@@ -94,8 +56,8 @@ namespace WebAppDipnicox.Vista
                 }
             }
 
-            obDatos.HoraInicio = txtInicio;
-            obDatos.HoraFinal = txtFinal;
+            obDatos.HoraInicio = TimeSpan.Parse(txtInicio);
+            obDatos.HoraFinal = TimeSpan.Parse(txtFinal);
             int registar = obHorario.mtdAgregarHoraDi(obDatos);
             return registar;
         }

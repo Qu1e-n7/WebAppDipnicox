@@ -9,9 +9,8 @@ namespace WebAppDipnicox.Entidades
     {
         public int idHorarioDia { get; set; }
         public int idHoraio { get; set; }
-        public int idDia { get; set; }
-        public string HoraInicio { get; set; }
-        public string HoraFinal { get; set; }
+        public TimeSpan HoraInicio { get; set; }
+        public TimeSpan HoraFinal { get; set; }
 
     }
 }

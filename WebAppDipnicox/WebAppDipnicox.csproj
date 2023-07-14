@@ -118,6 +118,7 @@
     <Content Include="Vista\ListaProductos.aspx" />
     <Content Include="Vista\ListarPersonal.aspx" />
     <Content Include="Vista\ListarPersonal1.aspx" />
+    <Content Include="Vista\ListHorario.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Servicio\css\RegistrarServicio.css" />
     <Content Include="Vista\Servicio\RegistrarServicio.aspx" />
@@ -228,6 +229,13 @@
     <Compile Include="Vista\ListarPersonal1.aspx.designer.cs">
       <DependentUpon>ListarPersonal1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ListHorario.aspx.cs">
+      <DependentUpon>ListHorario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListHorario.aspx.designer.cs">
+      <DependentUpon>ListHorario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,7 +309,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64689</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6407/</IISUrl>
+          <IISUrl>http://localhost:1818/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

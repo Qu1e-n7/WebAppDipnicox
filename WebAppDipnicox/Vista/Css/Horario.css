@@ -18,6 +18,7 @@ h3 {
     border: 2px solid white;
     border-radius: 3vh;
     margin: 0 13%;
+    height: fit-content;
 }
 
 label {
@@ -71,9 +72,11 @@ label {
     stroke-dasharray: 70.5096664428711 9999999;
     stroke-dashoffset: -262.2723388671875;
 }
+
 .Horas {
     width: min-content;
 }
+
 .guardar {
     background: #021d49;
     border: none;
@@ -82,3 +85,28 @@ label {
     font-weight: bold;
     color: #2587b6;
 }
+
+.tbHor {
+    border-collapse: collapse;
+    margin-left: 5%;
+    width: 35%;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+
+    .tbHor thead th {
+        background-color: #134674;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .tbHor tbody td {
+        background-color: #7eadbf;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .tbHor tbody tr:nth-child(even) td {
+        background-color: #6d9ebe;
+    }

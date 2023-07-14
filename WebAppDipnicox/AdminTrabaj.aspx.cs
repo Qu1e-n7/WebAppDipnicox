@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebAppDipnicox.Datos;
 using WebAppDipnicox.Entidades;
 using WebAppDipnicox.Logica;
 
@@ -13,10 +14,15 @@ namespace WebAppDipnicox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClProductosL obproduc=new ClProductosL();
-            List<ClProductosE> listProdu = obproduc.mtdListaProductos();
-            repcard.DataSource = listProdu;
-            repcard.DataBind();
+            if (!IsPostBack)
+            {
+                ClPersonalE obdatos = (ClPersonalE)Session["Trabajador"];
+                ClProductosL obproduc = new ClProductosL();
+                List<ClProductosE> listProdu = obproduc.mtdListaProductos();
+                repcard.DataSource = listProdu;
+                repcard.DataBind();
+            }
+            
         }
     }
 }
