@@ -1,6 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-* {
+
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -64,4 +65,60 @@
 .rotate{
     position:relative;
     filter
+}
+.conten .nof {
+    font-size: 20px;
+    color: #ddf1c6;
+}
+
+.conten .notifica:before {
+    position: absolute;
+    content: attr(data-count);
+    /* top: -22px; */
+    /*left: 36%;*/
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    padding: 3px 15px;
+    background: linear-gradient(#ff1a1a,#ff0000,#e60000);
+    border-radius: 50px;
+    line-height: 100%;
+    box-shadow: 0 0 10px rgb( 0, 0, 0, .2);
+    transition: opacity 0.1s ease-out;
+    z-index: 1;
+}
+
+.notifica .add-numb:before {
+    opacity: 1;
+}
+.btnn {
+    background: none;
+    border-radius: 2%;
+    border: none;
+}
+
+    /*.btnn:hover {
+        background: #0315296e;
+        border-radius: 2%;
+        border: 1px solid #031529;
+        margin: 0;
+        padding: 0;
+    }*/
+.cont {
+    margin: 0 10px;
+}
+
+.ntPanel {
+    background: #021428;
+    height: 420px;
+    width: 320px;
+    border-radius: 2%
+}
+
+.noti {
+    background: #375c86;
+    width: 96%;
+    height: fit-content;
+    border-radius: 2%;
+    color: #fff;
 }

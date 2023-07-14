@@ -49,6 +49,25 @@ namespace WebAppDipnicox.Datos
             int Actu = Actualizar.ExecuteNonQuery();
             return Actu;
         }
+        public List<string> mtdTrMensa()
+        {
+            List<string> mensajes= new List<string>();
+            string trigger = "select Descripcion from Notificaciones";
+            SqlCommand TriggMensa = obSQL.mtdTrigger(trigger);
+            SqlDataReader reader = TriggMensa.ExecuteReader();
+            //object result= TriggMensa.ExecuteScalar();
+            //if (result!=null)
+            //{
+            //   msjTrigg=result.ToString();
+            //}
+            while (reader.Read())
+            {
+                string msjTrigg = (string)reader["Descripcion"];
+                mensajes.Add(msjTrigg);
+            }
+
+            return mensajes;
+        }
         public int mtdEliminar(int idPro)
         {
             string Proceso = "EliminarProducto";
