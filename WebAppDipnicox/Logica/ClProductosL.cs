@@ -41,5 +41,10 @@ namespace WebAppDipnicox.Logica
             List<ClProductosE> Lista = obProducto.mtdListarProductos();
             return Lista;
         }
+        public List<ClProductosE> mtdBuscar(string NombreBusca)
+        {
+            List<ClProductosE> listaProducto = obProducto.mtdBuscar(NombreBusca);
+            return listaProducto;
+        }
     }
 }

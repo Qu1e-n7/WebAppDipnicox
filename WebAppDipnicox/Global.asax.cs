@@ -21,7 +21,7 @@ namespace WebAppDipnicox
             Session["Asesor"] = "";
             Session["Trabajador"] = "";
             Session["Usuario"] = "";
-
+            Session["Tipo"] = 0;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

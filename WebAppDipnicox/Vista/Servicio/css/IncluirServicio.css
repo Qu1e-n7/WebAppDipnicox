@@ -41,19 +41,19 @@
 html {
     height: 100%;
 }
-
+/*
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(#141e30, #243b55);
-}
+}*/
 
 html {
   height: 100%;
 }
 
-body {
+/*body {
   overflow: hidden;
   background: #bcdee7 url("../img/bg.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -64,7 +64,7 @@ body {
   height: 100%;
   font: normal 14px/1.618em "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-}
+}*/
 
 body:before {
   content: "";
@@ -473,7 +473,7 @@ p {
   body:before {
     width: 0px;
   }
-  @ -webkit-keyframes puff {
+  @-webkit-keyframes puff {
     0% {
       top: 100%;
       width: 0px;
@@ -520,7 +520,7 @@ p {
     display: block;
     float: none;
   }
-  @ -webkit-keyframes materia {
+  @-webkit-keyframes materia {
     0% {
       background: #E0E0E0;
     }
@@ -542,10 +542,11 @@ p {
       border-radius: 4px;
     }
     100% {
-      width: 280px;
+      width: 480px;
       height: 440px;
       background: #FFFFFF;
       border-radius: 4px;
     }
   }
 }
+

@@ -37,7 +37,7 @@ namespace WebAppDipnicox.Vista
                 }
                 else if (obDatosP.idTipoPersonal == 3)
                 {
-                    Session["Trabajador"] = obDatosP.idPersonal + " " + obDatosP.Nombre + " " + obDatosP.Apellido + " " + obDatosP.Telefono;
+                    Session["Trabajador"] = obDatosP;
                     Response.Redirect("../AdminTrabaj.aspx");
                 }
             }

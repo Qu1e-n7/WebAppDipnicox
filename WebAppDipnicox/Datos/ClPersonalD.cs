@@ -35,6 +35,8 @@ namespace WebAppDipnicox.Datos
                 obPersonalE.Telefono = tblPersonal.Rows[0]["Telefono"].ToString();
                 obPersonalE.Estado = tblPersonal.Rows[0]["Estado"].ToString();
                 obPersonalE.idTipoPersonal = int.Parse(tblPersonal.Rows[0]["idTipoPersonal"].ToString());
+                obPersonalE.idCiudad = int.Parse(tblPersonal.Rows[0]["idCiudad"].ToString());
+
             }
 
             return obPersonalE;

@@ -1,0 +1,160 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
+
+body {
+    background: #CDDC39;
+    font-family: 'Arimo', sans-serif;
+}
+
+h2 {
+    color: #000;
+    text-align: center;
+    font-size: 2em;
+    padding: 8px;
+}
+
+.warpper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0px 2px;
+    background: #000;
+    display: inline-block;
+    color: #fff;
+    border-radius: 3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+
+.panels {
+    background: #fffffff6;
+    box-shadow: 0 2rem 2rem #00000080;
+    min-height: 330px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.panel {
+    display: none;
+    animation: fadein .8s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.panel-title {
+    font-size: 1.5em;
+    font-weight: bold
+}
+
+.radio {
+    display: none;
+}
+
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel {
+    display: block
+}
+
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab {
+    background: #fffffff6;
+    color: #000;
+    border-top: 3px solid #000;
+}
+
+/*.inputbox {
+    position: relative;
+    width: 196px;
+}
+
+    .inputbox input {
+        position: relative;
+        width: 100%;
+        padding: 20px 10px 10px;
+        background: transparent;
+        outline: none;
+        box-shadow: none;
+        border: none;
+        color: #23242a;
+        font-size: 1em;
+        letter-spacing: 0.05em;
+        transition: 0.5s;
+        z-index: 10;
+    }
+
+    .inputbox span {
+        position: absolute;
+        left: 0;
+        padding: 20px 10px 10px;
+        font-size: 1em;
+        color: #8f8f8f;
+        letter-spacing: 00.05em;
+        transition: 0.5s;
+        pointer-events: none;
+    }
+
+    .inputbox input:valid ~ span,
+    .inputbox input:focus ~ span {
+        color: #45f3ff;
+        transform: translateX(-10px) translateY(-34px);
+        font-size: 0,75em;
+    }
+
+    .inputbox i {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #45f3ff;
+        border-radius: 4px;
+        transition: 0.5s;
+        pointer-events: none;
+        z-index: 9;
+    }
+
+    .inputbox input:valid ~ i,
+    .inputbox input:focus ~ i {
+        height: 44px;
+    }*/
+
+/* Boton */
+
+/*button {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+}
+
+#btn:hover, :focus {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff, 0 0 100px #008cff;
+}*/
