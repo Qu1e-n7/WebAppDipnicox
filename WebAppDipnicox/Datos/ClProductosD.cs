@@ -50,21 +50,19 @@ namespace WebAppDipnicox.Datos
             int Actu = Actualizar.ExecuteNonQuery();
             return Actu;
         }
-        public List<string> mtdTrMensa()
+        public List<ClNotificacionE> mtdTrMensa()
         {
-            List<string> mensajes= new List<string>();
-            string trigger = "select Descripcion from Notificaciones";
+            List<ClNotificacionE> mensajes= new List<ClNotificacionE>();
+            ClNotificacionE obNotifi =null;
+            string trigger = "select Titulo, Descripcion from Notificaciones";
             SqlCommand TriggMensa = obSQL.mtdTrigger(trigger);
             SqlDataReader reader = TriggMensa.ExecuteReader();
-            //object result= TriggMensa.ExecuteScalar();
-            //if (result!=null)
-            //{
-            //   msjTrigg=result.ToString();
-            //}
             while (reader.Read())
             {
-                string msjTrigg = (string)reader["Descripcion"];
-                mensajes.Add(msjTrigg);
+                obNotifi = new ClNotificacionE();
+                obNotifi.Titulo = reader.GetString(0);
+                obNotifi.Descripcion = reader.GetString(1);
+                mensajes.Add(obNotifi);
             }
 
             return mensajes;

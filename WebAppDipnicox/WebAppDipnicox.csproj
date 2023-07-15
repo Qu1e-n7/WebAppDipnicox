@@ -161,6 +161,7 @@
     <Compile Include="Entidades\ClDiaE.cs" />
     <Compile Include="Entidades\ClHorarioDiaE.cs" />
     <Compile Include="Entidades\ClHorarioE.cs" />
+    <Compile Include="Entidades\ClNotificacionE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
