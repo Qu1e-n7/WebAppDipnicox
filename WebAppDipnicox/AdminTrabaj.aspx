@@ -7,7 +7,7 @@
     <link href="Vista/Css/Buscar.css" rel="stylesheet" />
     <link href="Vista/Css/Carrito.css" rel="stylesheet" />
 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script
         src="https://www.paypal.com/sdk/js?client-id=AWh-o5lQO5QVXSj2EbM-WCe5hdhI_NlYNdSpw8ug6WGod8vn-FaX06E-IesnwfuL4Oel-eOrvrNZ1a3V"></script>
@@ -18,8 +18,6 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
 
     <div class="CardCatego">
         <header>
@@ -44,32 +42,39 @@
                             </div>
                             <div class="carrito-total">
                                 <div class="fila">
-                                    <h2>Total: $<strong id="contadorPrecio" class="price-total">0</strong></h2>
-                                    <section>
-                                        <div id="paypal-button-container"></div>
-                                       
+                                    <h2>Total: $<strong id="contadorPrecio" class="price-total" runat="server">0</strong></h2>
+                                    <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+                                    <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>--%>
+                                    <asp:DropDownList ID="ddlTipoVenta" runat="server" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged" onchange="mostrarElemento()"></asp:DropDownList>
 
-                                        <div id="successMessage" style="display: none;">
-                                            !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
-                                        </div>
+                                    <asp:Button ID="btnBoton" runat="server" Text="Pagar" Style="display: none;" OnClick="btnBoton_Click" />
 
-                                        <div id="cancelMessage" style="display: none;">
-                                            ¡Pago Cancelado! El Pago Ha Sido Cancelado.
-                                        </div>
+                                    <div id="panelContenedor" style="display: none;">
+                                        <section>
+                                            <div id="paypal-button-container"></div>
 
+                                            <div id="successMessage" style="display: none;">
+                                                !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
+                                            </div>
 
-                                        
+                                            <div id="cancelMessage" style="display: none;">
+                                                ¡Pago Cancelado! El Pago Ha Sido Cancelado.
+                                            </div>
 
-
-                                    </section>
+                                        </section>
+                                    </div>
+                                    <%--</ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="ddlTipoVenta" EventName="SelectedIndexChanged" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>--%>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    <
                 </div>
-            </div>
         </header>
         <h2>Bienvenido Trabajador</h2>
         <br />
@@ -82,45 +87,46 @@
         <br />
 
 
+        
+                <div class="container">
 
-        <div class="container">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <div class="products">
-                <div class="row">
-                    <asp:Repeater ID="repcard" runat="server" OnItemDataBound="repcard_ItemDataBound">
-                        <ItemTemplate>
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card bg-transparent border-0">
-                                    <div class="card-body">
-                                        <div class="nft">
-                                            <div class="main">
-                                                <img src="#" class="img-item tokenImage card-img-top" alt="nft">
-                                                <h3 class="titulo-item" style="color: #AE87EC;"><%# Eval("Nombre") %> </h3>
-                                                <p class="card-body" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
-                                                <p class="precio-item" style="color: #a89ec9;"><%# Eval("Valor") %> </p>
+                    <div class="products">
+                        <div class="row">
+                            <asp:Repeater ID="repcard" runat="server" OnItemDataBound="repcard_ItemDataBound">
+                                <ItemTemplate>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card bg-transparent border-0">
+                                            <div class="card-body">
+                                                <div class="nft">
+                                                    <div class="main">
+                                                        <img src="#" class="img-item tokenImage card-img-top" alt="nft">
+                                                        <h3 class="titulo-item" style="color: #AE87EC;"><%# Eval("Nombre") %> </h3>
+                                                        <p class="card-body" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
+                                                        <p class="precio-item" style="color: #a89ec9;"><%# Eval("Valor") %> </p>
 
-                                                <div class="card-body">
-                                                    <hr />
-                                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                        <ContentTemplate>
-                                                            <asp:Label ID="idProducto" runat="server" Text='<%# Eval("idProducto")  %>' Visible="false"></asp:Label></h5>
+                                                        <div class="card-body">
+                                                            <hr />
+                                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                                <ContentTemplate>
+                                                                    <asp:Label ID="idProducto" runat="server" Text='<%# Eval("idProducto")  %>' Visible="false"></asp:Label></h5>
                                                        <%--<a href="#" data-id="<%# Eval("idProducto")  %>" class="btn-add-cart card-link ms-5 btn btn-primary p-2">Agregar al Carrito</a>--%>
 
-                                                            <button class="btn-add-cart card-link ms-5 btn btn-primary p-2" onclick="agregarAlCarrito('<%# Eval("Nombre") %>', <%# Eval("Valor") %>);">Agregar al carrito</button>
-                                                            <%--<asp:Button data-id="<%# Eval("idProducto")  %>" ID="btnAgregar" CssClass="btn-add-cart card-link ms-5 btn btn-primary p-2" runat="server" Text="Agregar al Carrito" OnClick="btnAgregar_Click" />--%>
-                                                        </ContentTemplate>
-                                                    </asp:UpdatePanel>
+                                                                    <button class="btn-add-cart card-link ms-5 btn btn-primary p-2" onclick="agregarAlCarrito('<%# Eval("Nombre") %>', <%# Eval("Valor") %>);">Agregar al carrito</button>
+                                                                    <%--<asp:Button data-id="<%# Eval("idProducto")  %>" ID="btnAgregar" CssClass="btn-add-cart card-link ms-5 btn btn-primary p-2" runat="server" Text="Agregar al Carrito" OnClick="btnAgregar_Click" />--%>
+                                                                </ContentTemplate>
+                                                            </asp:UpdatePanel>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+           
     </div>
 
     <script>
@@ -131,6 +137,26 @@
             document.getElementById("products-id").style.display = "none";
         }
 
+    </script>
+
+    <script>
+    function mostrarElemento() {
+        var dropdownList = document.getElementById("<%= ddlTipoVenta.ClientID %>");
+        var opcionSeleccionada = dropdownList.options[dropdownList.selectedIndex].value;
+        var contenedor = document.getElementById("panelContenedor");
+        var boton = document.getElementById("<%= btnBoton.ClientID %>");
+
+        if (opcionSeleccionada === "1") {
+            contenedor.style.display = "block";
+            boton.style.display = "none";
+        } else if (opcionSeleccionada === "2") {
+            contenedor.style.display = "none";
+            boton.style.display = "block";
+        } else {
+            contenedor.style.display = "none";
+            boton.style.display = "none";
+        }
+    }
     </script>
 
     <script>
