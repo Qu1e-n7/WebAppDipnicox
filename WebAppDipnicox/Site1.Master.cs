@@ -19,7 +19,7 @@ namespace WebAppDipnicox
             {
                   ClPersonalE obdatos=(ClPersonalE) Session["Administrador"];
                 ReDatos.Text = obdatos.Nombre + " " + obdatos.Apellido;
-                List<string> list = obProductos.mtdMensaje();
+                List<ClNotificacionE> list = obProductos.mtdMensaje();
                 if (list!=null)
                 {
                     repnotif.DataSource = list;
@@ -33,14 +33,6 @@ namespace WebAppDipnicox
             }
         }
 
-        protected void repnotif_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType==ListItemType.Item||e.Item.ItemType==ListItemType.AlternatingItem)
-            {
-                string dato = (string)e.Item.DataItem;
-                Label lblDato = (Label)e.Item.FindControl("lblnotifica");
-                lblDato.Text = dato;
-            }
-        }
+
     }
 }

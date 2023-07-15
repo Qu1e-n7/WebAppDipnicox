@@ -107,6 +107,7 @@
     <Content Include="Vista\Css\CSSDipnicox.css" />
     <Content Include="Vista\Css\Datatable.css" />
     <Content Include="Vista\Css\input.css" />
+    <Content Include="Vista\Horario.aspx" />
     <Content Include="Vista\Imagenes\anadir-a-la-cesta.png" />
     <Content Include="Vista\Imagenes\Halo.PNG" />
     <Content Include="Vista\Imagenes\IcoAdmi.png" />
@@ -121,6 +122,7 @@
     <Content Include="Vista\ListaProductos.aspx" />
     <Content Include="Vista\ListarPersonal.aspx" />
     <Content Include="Vista\ListarPersonal1.aspx" />
+    <Content Include="Vista\ListHorario.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Servicio\css\Boton.css" />
     <Content Include="Vista\Servicio\css\IncluirServicio.css" />
@@ -147,12 +149,17 @@
     <Compile Include="Datos\ClCiudadD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
     <Compile Include="Datos\ClClienteD.cs" />
+    <Compile Include="Datos\ClHorarioD.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProductosD.cs" />
     <Compile Include="Datos\ClServicioD.cs" />
     <Compile Include="Datos\ClTipoProducD.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
+    <Compile Include="Entidades\ClDiaE.cs" />
+    <Compile Include="Entidades\ClHorarioDiaE.cs" />
+    <Compile Include="Entidades\ClHorarioE.cs" />
+    <Compile Include="Entidades\ClNotificacionE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
@@ -168,6 +175,7 @@
       <DependentUpon>HomeAdmi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logica\ClClienteL.cs" />
+    <Compile Include="Logica\ClHorarioL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClProductosL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
@@ -193,6 +201,13 @@
     </Compile>
     <Compile Include="Vista\ActProductos.aspx.designer.cs">
       <DependentUpon>ActProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Horario.aspx.cs">
+      <DependentUpon>Horario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Horario.aspx.designer.cs">
+      <DependentUpon>Horario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\ListaProductos.aspx.cs">
       <DependentUpon>ListaProductos.aspx</DependentUpon>
@@ -233,6 +248,13 @@
     </Compile>
     <Compile Include="Vista\ListarPersonal1.aspx.designer.cs">
       <DependentUpon>ListarPersonal1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\ListHorario.aspx.cs">
+      <DependentUpon>ListHorario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ListHorario.aspx.designer.cs">
+      <DependentUpon>ListHorario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
