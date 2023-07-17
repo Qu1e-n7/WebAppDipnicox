@@ -16,5 +16,11 @@ namespace WebAppDipnicox.Logica
             return obClienteE;
         }
 
+        public int mtdRegistrarCliente(ClClienteE objDatos)
+        {
+            ClClienteD objDatosD = new ClClienteD();
+            int registro = objDatosD.mtdRegistrarCliente(objDatos);
+            return registro;
+        }
     }
 }

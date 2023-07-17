@@ -42,7 +42,7 @@
                             </div>
                             <div class="carrito-total">
                                 <div class="fila">
-                                    <h2>Total: $<strong id="contadorPrecio" class="price-total" runat="server">0</strong></h2>
+                                    <h2>Total: $<strong id="contadorPrecio" class="price-total">0</strong></h2>
                                     <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
                                     <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>--%>

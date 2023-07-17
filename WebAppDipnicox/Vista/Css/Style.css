@@ -204,3 +204,21 @@ h6 span {
         color: #ffeba7;
         box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
     }
+
+.login-card a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+}
+
+    .login-card a:hover {
+        opacity: 1;
+    }
+
+a {
+    color: aliceblue;
+}

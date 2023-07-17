@@ -32,5 +32,22 @@ namespace WebAppDipnicox.Datos
 
             return obClienteE;
         }
+
+        public int mtdRegistrarCliente(ClClienteE objDatos)
+        {
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            string Proceso = "RegistrarCliente";
+            SqlCommand Registro = objSQL.mtdProcesoAlmacenado(Proceso);
+            Registro.Parameters.AddWithValue("@Documento", objDatos.Documento);
+            Registro.Parameters.AddWithValue("@Nombre", objDatos.Nombre);
+            Registro.Parameters.AddWithValue("@Apellido", objDatos.Apellido);
+            Registro.Parameters.AddWithValue("@Telefono", objDatos.Telefono);
+            Registro.Parameters.AddWithValue("@Email", objDatos.Email);
+            Registro.Parameters.AddWithValue("@Contraseña", objDatos.Contraseña);
+            Registro.Parameters.AddWithValue("@idCiudad", objDatos.idCiudad);
+            int Registar = Registro.ExecuteNonQuery();
+            return Registar;
+        }
+
     }
 }
