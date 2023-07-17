@@ -161,6 +161,7 @@
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProductosD.cs" />
+    <Compile Include="Datos\ClProductoVentaD.cs" />
     <Compile Include="Datos\ClServicioD.cs" />
     <Compile Include="Datos\ClTipoProducD.cs" />
     <Compile Include="Datos\ClTipoVentaD.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Entidades\ClNotificacionE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
+    <Compile Include="Entidades\ClProductoVentaE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
     <Compile Include="Entidades\ClTipoProducE.cs" />
     <Compile Include="Entidades\ClTipoVentaE.cs" />
@@ -199,6 +201,7 @@
     <Compile Include="Logica\ClHorarioL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClProductosL.cs" />
+    <Compile Include="Logica\ClProductoVentaL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Logica\ClTipoProducL.cs" />
     <Compile Include="Logica\ClTipoVentaL.cs" />
