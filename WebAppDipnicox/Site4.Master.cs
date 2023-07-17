@@ -5,15 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebAppDipnicox.Entidades;
-using WebAppDipnicox.Logica;
 
 namespace WebAppDipnicox
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class Site4 : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ClClienteE obdatos = (ClClienteE)Session["Usuario"];
+            lblNombre.Text = obdatos.Nombre + " " + obdatos.Apellido;
         }
     }
 }

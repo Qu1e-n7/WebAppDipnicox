@@ -48,6 +48,7 @@
                                     <h2>Total A Pagar</h2>
                                     <asp:Label ID="lblcontPrecio" CssClass="price-total" data-count="0" runat="server" Text="Total A Pagar"></asp:Label>
                                     <%--<strong id="contadorPrecio" class="price-total" runat="server">0</strong></h2>--%>
+
                                     <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
                                     <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
                                         <ContentTemplate>--%>

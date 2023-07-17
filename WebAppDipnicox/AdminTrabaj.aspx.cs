@@ -159,8 +159,11 @@ namespace WebAppDipnicox
             ClVentaL objVentaL = new ClVentaL();
             ClVentaE obDatos = new ClVentaE();
             ClPersonalE objDato = (ClPersonalE)Session["Trabajador"];
-
-            
+            obDatos.Estado = "Inactivo";
+            //obDatos.Total = contadorPrecio.InnerText;
+            obDatos.idCliente = 1;
+            obDatos.idPersonal = objDato.idPersonal;
+            obDatos.idTipoVenta = int.Parse(ddlTipoVenta.SelectedValue.ToString());
             int Registrar = objVentaL.mtdRegistrarVenta(obDatos);
             if (Registrar == 1)
             {
