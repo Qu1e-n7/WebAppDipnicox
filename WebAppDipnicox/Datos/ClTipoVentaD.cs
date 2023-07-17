@@ -23,8 +23,8 @@ namespace WebAppDipnicox.Datos
             while (reader.Read())
             {
                 obDatos = new ClTipoVentaE();
-                obDatos.idTipoVenta = Convert.ToInt32(reader["idTipoVenta"]);
-                obDatos.nombreTipoVenta = reader["nombreTipoVenta"].ToString();
+                obDatos.idTipoVenta = reader.GetInt32(0);
+                obDatos.nombreTipoVenta = reader.GetString(1);
 
                 listaTipoVenta.Add(obDatos);
             }

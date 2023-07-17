@@ -15,13 +15,22 @@ namespace WebAppDipnicox
     {
 
         /// <summary>
-        /// Control contadorPrecio.
+        /// Control lblcontador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contadorPrecio;
+        protected global::System.Web.UI.WebControls.Label lblcontador;
+
+        /// <summary>
+        /// Control lblcontPrecio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcontPrecio;
 
         /// <summary>
         /// Control ScriptManager2.
@@ -42,13 +51,13 @@ namespace WebAppDipnicox
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoVenta;
 
         /// <summary>
-        /// Control btnBoton.
+        /// Control btnPagar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBoton;
+        protected global::System.Web.UI.WebControls.Button btnPagar;
 
         /// <summary>
         /// Control txtBuscar.

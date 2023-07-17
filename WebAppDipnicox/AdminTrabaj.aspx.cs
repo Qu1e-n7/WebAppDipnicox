@@ -8,23 +8,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using WebAppDipnicox.Datos;
 using WebAppDipnicox.Entidades;
 using WebAppDipnicox.Logica;
+using WebAppDipnicox.Vista;
 
 namespace WebAppDipnicox
 {
     public partial class AdminTrabaj : System.Web.UI.Page
     {
+        ClVentaL obVenta = new ClVentaL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClProductosL obproduc = new ClProductosL();
-            List<ClProductosE> listProdu = obproduc.mtdListaProductos();
-            repcard.DataSource = listProdu;
-            repcard.DataBind();
-
             if (!Page.IsPostBack)
             {
+                ClPersonalE obPersonal = (ClPersonalE)Session["Trabajador"];
+                //Cards
+                ClProductosL obproduc = new ClProductosL();
+                List<ClProductosE> listProdu = obproduc.mtdListaProductos();
+                repcard.DataSource = listProdu;
+                repcard.DataBind();
+                //Contador
+                //int count = ListaCarrito.Count;
+                //lblcontador.Text = count.ToString();
+                //mtdTotalPagar(ListaCarrito);
+                //TipVenta
                 ClTipoVentaE objDatos = new ClTipoVentaE();
                 ClTipoVentaL objTipoVentaL = new ClTipoVentaL();
                 List<ClTipoVentaE> listaVenta = objTipoVentaL.mtdListarVenta(objDatos);
@@ -35,6 +45,40 @@ namespace WebAppDipnicox
                 ddlTipoVenta.Items.Insert(0, new ListItem("Tipo Venta:", "0"));
 
             }
+        }
+
+        [WebMethod]
+        public static List<ClVentaE> mtdAgregar(int idProd)
+        {
+            var page = HttpContext.Current.Handler as AdminTrabaj;
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
+            ClVentaL obVenta = new ClVentaL();
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idVenta = obDatos.idVenta;
+            List<ClVentaE> ListaCarrito = new List<ClVentaE>();
+            if (obDatos == null)
+            {
+                obDatos = new ClVentaE();
+                obDatos.Estado = "Pendiente";
+                obDatos.idPersonal = obPersonal.idPersonal;
+                int AgregVenta = obVenta.mtdRegistrarVenta(obDatos);
+            }
+            else
+            {
+
+                ClProductoVentaL obProVen = new ClProductoVentaL();
+                obDatos = new ClVentaE();
+                obDatos.idVenta = idVenta;
+                obDatos.idProducto = idProd;
+                obDatos.CantidadVen = 1;
+                int RegProducVen = obProVen.mtdReg(obDatos);
+                if (RegProducVen != 0)
+                {
+                    ListaCarrito = obProVen.mtdList(idVenta);
+                        
+                }
+            }
+            return ListaCarrito;
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -50,51 +94,22 @@ namespace WebAppDipnicox
 
         }
 
+        [WebMethod]
+        public static List<ClVentaE> mtdListProdVen()
+        {
+            ClVentaL obVenta = new ClVentaL();
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idVenta = obDatos.idVenta;
+            ClProductoVentaL obProVen = new ClProductoVentaL();
+            List<ClVentaE> ListaCarrito = obProVen.mtdList(idVenta);
+            return ListaCarrito;
+        }
+           
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            List<ClProductosE> listaProducto = new List<ClProductosE>();
-            List<ClProductosE> listaProducto1 = new List<ClProductosE>();
-
-            foreach (RepeaterItem item in repcard.Items)
-            {
-                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
-                {
-                    ClProductosE objProdcutosE = new ClProductosE();
-
-                    Label lblId = (Label)item.FindControl("idProducto");
-                    objProdcutosE.idProducto = int.Parse(lblId.Text);
-
-                    //Image imgProducto = (Image)item.FindControl("img");
-                    //objProdcutosE.Imagen = imgProducto.ImageUrl;
-
-                    Label lblNombre = (Label)item.FindControl("Nombre");
-                    objProdcutosE.Nombre = lblNombre.Text;
-
-                    Label lblPrecio = (Label)item.FindControl("Valor");
-                    objProdcutosE.Valor = int.Parse(lblPrecio.Text);
-
-                    listaProducto.Add(objProdcutosE);
-
-                }
-            }
-
-            int tipo = int.Parse(Session["Tipo"].ToString());
-
-            for (int i = 0; i < listaProducto.Count; i++)
-            {
-                if (listaProducto[i].idProducto == tipo)
-                {
-                    listaProducto1.Add(listaProducto[i]);
-                }
-
-
-            }
-            string productosJson = JsonConvert.SerializeObject(listaProducto1);
-
-            ScriptManager.RegisterStartupScript(this, GetType(), "app", $"agregarAlCarrito('{productosJson}')", true);
-
-
-
+            
         }
 
         [WebMethod]
@@ -145,21 +160,61 @@ namespace WebAppDipnicox
             ClVentaE obDatos = new ClVentaE();
             ClPersonalE objDato = (ClPersonalE)Session["Trabajador"];
 
-            obDatos.Estado = "Inactivo";
-            obDatos.Total = contadorPrecio.InnerText;
-            obDatos.idCliente = 1;
-            obDatos.idPersonal = objDato.idPersonal;
-            obDatos.idTipoVenta = int.Parse(ddlTipoVenta.SelectedValue.ToString());
+            
             int Registrar = objVentaL.mtdRegistrarVenta(obDatos);
             if (Registrar == 1)
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Servicio Registrado!', 'Su Servicio ha Sido Registrado Con Exito', 'success')", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡!Pago Exitoso!', 'Su Pago se ha Sido hecho Con Exito', 'success')", true);
             }
             else
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Producto No Registrado!', 'Su Producto no ha Sido Registrado', 'warning')", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Pago Negado!', 'Su Pago no ha Sido Confirmado', 'warning')", true);
 
             }
+        }
+        [WebMethod]
+        public static List<ClVentaE> mtdEliminarCarro(int idProVen)
+        {
+            ClProductoVentaL obProdVen = new ClProductoVentaL();
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
+            ClVentaL obVenta = new ClVentaL();
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idVenta = obDatos.idVenta;
+            List<ClVentaE> ListaCarrito = new List<ClVentaE>();
+            int Elimnar = obProdVen.mtdEliminar(idProVen);
+            if (Elimnar!=0)
+            {
+                ListaCarrito = obProdVen.mtdList(idVenta);
+
+            }
+            return ListaCarrito;
+        }
+
+        protected void btnPagar_Click(object sender, EventArgs e)
+        {
+            ClVentaL objVentaL = new ClVentaL();
+            ClVentaE obDatos = new ClVentaE();
+            ClPersonalE objDato = (ClPersonalE)Session["Trabajador"];
+            obDatos.Estado = "Confirmar";
+            obDatos.Total = int.Parse(lblcontPrecio.Text);
+            obDatos.idTipoVenta = int.Parse(ddlTipoVenta.SelectedValue.ToString());
+            int Cofirmar = objVentaL.mtdConfirmarVenta(obDatos);
+            HtmlGenericControl div = (HtmlGenericControl)FindControl("listaCarrito");
+            if (Cofirmar!=0)
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡!Pago Exitoso!', 'Su Pago se ha Sido hecho Con Exito', 'success')", true);
+                if (div!=null)
+                {
+                    div.Parent.Controls.Remove(div);
+                }
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Pago Negado!', 'Su Pago no ha Sido Confirmado', 'warning')", true);
+
+            }
+
+
         }
     }
 }
