@@ -45,10 +45,8 @@ namespace WebAppDipnicox.Vista
             {
                 ClClienteL obCliente = new ClClienteL();
                 ClClienteE obDatosC = obCliente.mtdLogin(Usuario, Clave);
-
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Bienvenido " + obDatosC.Nombre + "!', 'Se ha iniciado Sesion', 'success')", true);
-                Session["Usuario"] = obDatosC.idCliente + " " + obDatosC.Nombre + " " + obDatosC.Apellido + " " + obDatosC.Telefono;
-                Response.Redirect("");
+                Session["Usuario"] = obDatosC;
+                Response.Redirect("../HomeCliente.aspx");
             }
         }
     }
