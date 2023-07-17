@@ -8,9 +8,9 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
-    <link href="Css/Horario.css" rel="stylesheet" />
-    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
-    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <link href="../Css/Horario.css" rel="stylesheet" />
+    <script src="../SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="../SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="mt-5">
