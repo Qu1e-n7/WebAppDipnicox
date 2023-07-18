@@ -314,7 +314,7 @@
 
 
     <script>
-        var btnPagar = document.getElementById('<%= lblcontPrecio.ClientID %>');
+        var btnPagar = document.getElementById('<%= btnPagar.ClientID %>');
         paypal.Buttons({
             style: {
                 color: 'blue',

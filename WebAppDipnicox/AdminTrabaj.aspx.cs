@@ -109,7 +109,7 @@ namespace WebAppDipnicox
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+            lblcontPrecio.Text = "0";
         }
 
         [WebMethod]
