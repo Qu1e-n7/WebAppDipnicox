@@ -107,15 +107,16 @@ namespace WebAppDipnicox
         }
            
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
-        {
-            lblcontPrecio.Text = "0";
-        }
 
         [WebMethod]
         public static void Listar(string tipo)
         {
             HttpContext.Current.Session["Tipo"] = tipo;
+        }
+        [WebMethod]
+        public static void mtdTotal(string total)
+        {
+            HttpContext.Current.Session["Total"]  = total;
         }
 
         protected void repcard_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -179,8 +180,8 @@ namespace WebAppDipnicox
         public static List<ClVentaE> mtdEliminarCarro(int idProVen)
         {
             ClProductoVentaL obProdVen = new ClProductoVentaL();
-            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClVentaL obVenta = new ClVentaL();
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
             int idVenta = obDatos.idVenta;
             List<ClVentaE> ListaCarrito = new List<ClVentaE>();
@@ -195,11 +196,14 @@ namespace WebAppDipnicox
 
         protected void btnPagar_Click(object sender, EventArgs e)
         {
+            ClPersonalE obPersonal = (ClPersonalE)Session["Trabajador"];
             ClVentaL objVentaL = new ClVentaL();
-            ClVentaE obDatos = new ClVentaE();
-            ClPersonalE objDato = (ClPersonalE)Session["Trabajador"];
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idVenta = obDatos.idVenta;
+            obDatos=new ClVentaE();
+            obDatos.idVenta = idVenta;
             obDatos.Estado = "Confirmar";
-            obDatos.Total = int.Parse(lblcontPrecio.Text);
+            obDatos.Total = int.Parse(Session["Total"].ToString());
             obDatos.idTipoVenta = int.Parse(ddlTipoVenta.SelectedValue.ToString());
             int Cofirmar = objVentaL.mtdConfirmarVenta(obDatos);
             HtmlGenericControl div = (HtmlGenericControl)FindControl("listaCarrito");

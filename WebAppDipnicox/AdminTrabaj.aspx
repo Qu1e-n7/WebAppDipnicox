@@ -22,7 +22,6 @@
     <div class="CardCatego">
         <header>
             <div class="header-section container">
-
                 <div>
                     <img onclick="showCart(this)" class="cart" src="Vista/Imagenes/anadir-a-la-cesta.png" alt="">
                     <asp:Label ID="lblcontador" class="count-product" runat="server" Text="0"></asp:Label>
@@ -46,35 +45,12 @@
                             <div class="carrito-total">
                                 <div class="fila">
                                     <h2>Total A Pagar</h2>
-                                    <asp:Label ID="lblcontPrecio" CssClass="price-total" data-count="0" runat="server" Text="Total A Pagar"></asp:Label>
-                                    <%--<strong id="contadorPrecio" class="price-total" runat="server">0</strong></h2>--%>
-
+                                    <asp:Label ID="lblcontPrecio" ClientIDMode="Static" CssClass="price-total" runat="server"></asp:Label>
                                     <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
-                                    <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                                        <ContentTemplate>--%>
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged" onchange="mostrarElemento()"></asp:DropDownList>
-
                                     <asp:Button ID="btnPagar" runat="server" Text="Pagar" Style="display: none;" OnClick="btnPagar_Click" />
-
                                     <div id="panelContenedor" style="display: none;">
-                                        <section>
-                                            <div id="paypal-button-container"></div>
-
-                                            <div id="successMessage" style="display: none;">
-                                                !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
-                                            </div>
-
-                                            <div id="cancelMessage" style="display: none;">
-                                                ¡Pago Cancelado! El Pago Ha Sido Cancelado.
-                                            </div>
-
-                                        </section>
                                     </div>
-                                    <%--</ContentTemplate>
-                                        <Triggers>
-                                            <asp:AsyncPostBackTrigger ControlID="ddlTipoVenta" EventName="SelectedIndexChanged" />
-                                        </Triggers>
-                                    </asp:UpdatePanel>--%>
                                 </div>
 
                             </div>
@@ -217,7 +193,6 @@
             var ListaCarr = document.getElementById('listaCarrito');
             console.log(ListaCarr);
             var TotalPagar = 0;
-            var lblTotal = document.getElementById("<%= lblcontPrecio.ClientID %>");
             for (var i = 0; i < data.length; i++) {
                 rptDatos += `<li>
                         <div class="carrito-item">
@@ -237,9 +212,27 @@
                         <li>`;
                 TotalPagar = TotalPagar + data[i].Total;
             }
+            
             ListaCarr.innerHTML = rptDatos;
             actualizarContador(data.length);
-            lblTotal.textContent = TotalPagar;
+            TotalPgar(TotalPagar);
+            
+        }
+        function TotalPgar(TotalP) {
+            var lblTotal = document.getElementById("<%= lblcontPrecio.ClientID %>");
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdTotal",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ total: TotalP }),
+                success: function (response) {
+                    lblTotal.textContent = TotalP;
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
         }
         function EliminarCarr(idProVent) {
             $.ajax({
