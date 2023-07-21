@@ -22,11 +22,28 @@ namespace WebAppDipnicox
         {
             ClVentaL obVenta = new ClVentaL();
             ClClienteE obCliente = HttpContext.Current.Session["Usuario"] as ClClienteE;
-            ClVentaE obDatos = obVenta.mtdListarXid(obCliente.idCliente);
+            int idPerso=0;
+            ClVentaE obDatos = obVenta.mtdListarXid(idPerso,obCliente.idCliente);
             int idVenta = obDatos.idVenta;
             ClProductoVentaL obProVen = new ClProductoVentaL();
             List<ClVentaE> ListaCarrito = obProVen.mtdList(idVenta);
             return ListaCarrito;
+        }
+        [WebMethod]
+        public static void mtdTotal(string total)
+        {
+            HttpContext.Current.Session["Total"]  = total;
+        }
+
+         [WebMethod]
+        public static void mtdEliminarCarro(int idProVen)
+        {
+            ClProductoVentaL obProdVen = new ClProductoVentaL();
+            ClVentaL obVenta = new ClVentaL();
+            ClClienteE obCliente = HttpContext.Current.Session["Usuario"] as ClClienteE;
+            ClVentaE obDatos = obVenta.mtdListarXid(0,obCliente.idCliente);
+            int idVenta = obDatos.idVenta;
+            int Elimnar = obProdVen.mtdEliminar(idProVen);
         }
     }
 

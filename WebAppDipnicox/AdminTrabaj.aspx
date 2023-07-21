@@ -259,10 +259,6 @@
             var contadorElement = document.getElementById("<%= lblcontador.ClientID %>");
             contadorElement.textContent = contador;
         }
-        function actualizarContadorPrecio() {
-            var contadorPrecioElement = document.getElementById('contadorPrecio');
-            contadorPrecioElement.innerHTML = total;
-        }
         // Función para mostrar el total
         function mostrarTotal() {
             var totalElement = document.getElementById('total');

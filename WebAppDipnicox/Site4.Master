@@ -1,6 +1,14 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site4.master.cs" Inherits="WebAppDipnicox.Site4" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+    protected void btnPagar_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 
 <html>
 <head runat="server">
@@ -72,7 +80,7 @@
                                     <asp:Label ID="lblcontPrecio" ClientIDMode="Static" CssClass="price-total" runat="server"></asp:Label>
                                     <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" onchange="mostrarElemento()"></asp:DropDownList>
-                                    <asp:Button ID="btnPagar" runat="server" Text="Pagar" Style="display: none;" />
+                                    <asp:Button ID="btnPagar" runat="server" Text="Pagar" Style="display: none;" OnClick="btnPagar_Click"/>
                                     <div id="panelContenedor" style="display: none;">
                                     </div>
                                 </div>
@@ -89,19 +97,7 @@
     </form>
     <script>
         $(document).ready(function () {
-            $.ajax({
-                type: "POST",
-                url: "",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    var data = response.d;
-                    ListCarr(data);
-                }, error: function (xhr, textStatus, errorThrown) {
-                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
-                    console.error(errorThrown);
-                }
-            });
+            ListarCarro();
         })
         function showCart() {
             document.getElementById("products-id").style.display = "block";
@@ -109,6 +105,124 @@
         function closeBtn() {
             document.getElementById("products-id").style.display = "none";
         }
+
+        function ListarCarro() {
+            $.ajax({
+                type: "POST",
+                url: "Site4.Master/mtdListarCarrito",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var listProd = response.d;
+                    var rptDatos = '';
+                    var ListaCarr = document.getElementById('listaCarrito');
+                    console.log(ListaCarr);
+                    var TotalPagar = 0;
+                    for (var i = 0; i < listProd.length; i++) {
+                        rptDatos += `<li>
+                        <div class="carrito-item">
+                            <img src="#" width="80px" alt="">
+                                <div class="carrito-item-detalles">
+                                    <span class="carrito-item-titulo">${data[i].Nombre}</span>
+                                    <div class="selector-cantidad">
+                                        <i class="uil uil-angle-left-b restar-cantidad"></i>
+                                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                                            <i class="uil uil-angle-right sumar-cantidad"></i>
+                                    </div>
+
+                                    <span class="carrito-item-precio">${data[i].Total}</span>
+                                </div>
+                                <button class="ms-5 btn btn-$indigo-400 p-2" onclick="EliminarCarr(${data[i].idProductoVenta})">Eliminar</button>
+                        </div>
+                        <li>`;
+                        TotalPagar = TotalPagar + data[i].Total;
+                    }
+                    ListaCarr.innerHTML = rptDatos;
+                    actualizarContador(data.length);
+                    TotalPgar(TotalPagar);
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        }
+        function TotalPgar(TotalP) {
+            var lblTotal = document.getElementById("<%= lblcontPrecio.ClientID %>");
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdTotal",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ total: TotalP }),
+                success: function (response) {
+                    lblTotal.textContent = TotalP;
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        }
+        function EliminarCarr(idProVent) {
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdEliminarCarro",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ idProVen: idProVent }),
+                success: function (response) {
+                    var datos = response.d;
+                    ListarCarro();
+
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        }
+        function actualizarContador(contador) {
+            var contadorElement = document.getElementById("<%= lblcontador.ClientID %>");
+            contadorElement.textContent = contador;
+        }
+        function ocultarCarrito() {
+            var carrito = document.getElementById('carrito');
+            carrito.style.display = 'none';
+        }
+        var btnPagar = document.getElementById('<%= btnPagar.ClientID %>');
+        paypal.Buttons({
+            style: {
+                color: 'blue',
+                shape: 'pill',
+                label: 'pay'
+            },
+            createOrder: function (data, actions) {
+                var total = document.getElementById('<%= lblcontPrecio.ClientID %>').textContent;
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: total
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                btnPagar.click();
+                return actions.order.capture().then(function (details) {
+                    document.getElementById('paymentDetails').textContent = JSON.stringify(details, null, 2);
+                    document.getElementById('nameField').textContent = details.payer.name.given_name + ' ' + details.payer.name.surname;
+                    document.getElementById('emailField').textContent = details.payer.email.address;
+                    document.getElementById('paymentTable').style.display = 'table';
+                    document.getElementById('successMessage').style.display = 'block';
+
+                    console.log(details);
+                });
+            },
+            onCancel: function (data) {
+                swal("!Pago Cancelado!", "El Pago Ha Sido Cancelado.", "error");
+                document.getElementById('cancelMessage').style.display = 'block';
+                console.log(data);
+            }
+        }).render('#paypal-button-container');
+
     </script>
 </body>
 </html>

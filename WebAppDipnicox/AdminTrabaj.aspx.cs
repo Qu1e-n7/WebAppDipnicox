@@ -53,7 +53,8 @@ namespace WebAppDipnicox
             var page = HttpContext.Current.Handler as AdminTrabaj;
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClVentaL obVenta = new ClVentaL();
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idcliente=0;
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,idcliente);
             int idVenta = obDatos.idVenta;
             List<ClVentaE> ListaCarrito = new List<ClVentaE>();
             if (obDatos == null)
@@ -99,7 +100,8 @@ namespace WebAppDipnicox
         {
             ClVentaL obVenta = new ClVentaL();
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idcliente=0;
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,idcliente);
             int idVenta = obDatos.idVenta;
             ClProductoVentaL obProVen = new ClProductoVentaL();
             List<ClVentaE> ListaCarrito = obProVen.mtdList(idVenta);
@@ -182,7 +184,7 @@ namespace WebAppDipnicox
             ClProductoVentaL obProdVen = new ClProductoVentaL();
             ClVentaL obVenta = new ClVentaL();
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,0);
             int idVenta = obDatos.idVenta;
             List<ClVentaE> ListaCarrito = new List<ClVentaE>();
             int Elimnar = obProdVen.mtdEliminar(idProVen);
@@ -198,7 +200,7 @@ namespace WebAppDipnicox
         {
             ClPersonalE obPersonal = (ClPersonalE)Session["Trabajador"];
             ClVentaL objVentaL = new ClVentaL();
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,0);
             int idVenta = obDatos.idVenta;
             obDatos=new ClVentaE();
             obDatos.idVenta = idVenta;

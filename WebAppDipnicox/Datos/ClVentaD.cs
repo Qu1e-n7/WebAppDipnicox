@@ -15,7 +15,7 @@ namespace WebAppDipnicox.Datos
             SqlCommand Registro = objSQL.mtdProcesoAlmacenado("AgregarVenta");
             Registro.Parameters.AddWithValue("@Estado", objDatos.Estado);
             Registro.Parameters.AddWithValue("@idCliente", (object)objDatos.idCliente ?? DBNull.Value);
-            Registro.Parameters.AddWithValue("@idPersonal", objDatos.idPersonal);
+            Registro.Parameters.AddWithValue("@idPersonal", (object)objDatos.idPersonal ?? DBNull.Value);
             int Registar = Registro.ExecuteNonQuery();
             return Registar;
         }
