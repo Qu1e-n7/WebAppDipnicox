@@ -53,7 +53,8 @@ namespace WebAppDipnicox
             var page = HttpContext.Current.Handler as AdminTrabaj;
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClVentaL obVenta = new ClVentaL();
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idcliente=0;
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,idcliente);
             int idVenta = obDatos.idVenta;
             List<ClVentaE> ListaCarrito = new List<ClVentaE>();
             if (obDatos == null)
@@ -99,7 +100,8 @@ namespace WebAppDipnicox
         {
             ClVentaL obVenta = new ClVentaL();
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            int idcliente=0;
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,idcliente);
             int idVenta = obDatos.idVenta;
             ClProductoVentaL obProVen = new ClProductoVentaL();
             List<ClVentaE> ListaCarrito = obProVen.mtdList(idVenta);
@@ -107,15 +109,16 @@ namespace WebAppDipnicox
         }
            
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         [WebMethod]
         public static void Listar(string tipo)
         {
             HttpContext.Current.Session["Tipo"] = tipo;
+        }
+        [WebMethod]
+        public static void mtdTotal(string total)
+        {
+            HttpContext.Current.Session["Total"]  = total;
         }
 
         protected void repcard_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -179,9 +182,9 @@ namespace WebAppDipnicox
         public static List<ClVentaE> mtdEliminarCarro(int idProVen)
         {
             ClProductoVentaL obProdVen = new ClProductoVentaL();
-            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClVentaL obVenta = new ClVentaL();
-            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal);
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,0);
             int idVenta = obDatos.idVenta;
             List<ClVentaE> ListaCarrito = new List<ClVentaE>();
             int Elimnar = obProdVen.mtdEliminar(idProVen);
@@ -195,11 +198,14 @@ namespace WebAppDipnicox
 
         protected void btnPagar_Click(object sender, EventArgs e)
         {
+            ClPersonalE obPersonal = (ClPersonalE)Session["Trabajador"];
             ClVentaL objVentaL = new ClVentaL();
-            ClVentaE obDatos = new ClVentaE();
-            ClPersonalE objDato = (ClPersonalE)Session["Trabajador"];
+            ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,0);
+            int idVenta = obDatos.idVenta;
+            obDatos=new ClVentaE();
+            obDatos.idVenta = idVenta;
             obDatos.Estado = "Confirmar";
-            obDatos.Total = int.Parse(lblcontPrecio.Text);
+            obDatos.Total = int.Parse(Session["Total"].ToString());
             obDatos.idTipoVenta = int.Parse(ddlTipoVenta.SelectedValue.ToString());
             int Cofirmar = objVentaL.mtdConfirmarVenta(obDatos);
             HtmlGenericControl div = (HtmlGenericControl)FindControl("listaCarrito");

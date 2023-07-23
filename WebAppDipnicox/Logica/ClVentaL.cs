@@ -17,14 +17,14 @@ namespace WebAppDipnicox.Logica
             return registro;
         }
 
-        public ClVentaE mtdListarXid(int idPersonal)
+        public ClVentaE mtdListarXid(int idPersonal,int idCliente)
         {
             List<ClVentaE> Lista = objDatosVentaD.mtdListar();
             ClVentaE obDatos=new ClVentaE();
 
             for (int i = 0; i < Lista.Count; i++)
             {
-                if (Lista[i].idPersonal== idPersonal && Lista[i].Estado=="Pendiente")
+                if (Lista[i].idPersonal== idPersonal && Lista[i].Estado=="Pendiente" || Lista[i].idCliente == idCliente && Lista[i].Estado == "Pendiente")
                 {
                     obDatos.idVenta = Lista[i].idVenta;
                     obDatos.Codigo = Lista[i].Codigo;
