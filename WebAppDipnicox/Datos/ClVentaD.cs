@@ -47,7 +47,7 @@ namespace WebAppDipnicox.Datos
             actu.Parameters.AddWithValue("@Estado", obDatos.Estado);
             actu.Parameters.AddWithValue("@Total", obDatos.Total);
             actu.Parameters.AddWithValue("@idTipoVenta", obDatos.idTipoVenta);
-            actu.Parameters.AddWithValue("@idVenta", obDatos.idVenta);
+            actu.Parameters.AddWithValue("@idVenta", obDatos.idVenta );
             int actualizar= actu.ExecuteNonQuery();
             return actualizar;
 

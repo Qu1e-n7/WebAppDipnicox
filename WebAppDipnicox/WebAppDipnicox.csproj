@@ -126,6 +126,7 @@
     <Content Include="Vista\Administrador\ListarPersonal1.aspx" />
     <Content Include="Vista\Trabajador\ListHorario.aspx" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Productos.aspx" />
     <Content Include="Vista\RegistrarCliente.aspx" />
     <Content Include="Vista\Servicio\css\Boton.css" />
     <Content Include="Vista\Servicio\css\CardServicio.css" />
@@ -298,6 +299,13 @@
     </Compile>
     <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\Productos.aspx.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Productos.aspx.designer.cs">
+      <DependentUpon>Productos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistrarCliente.aspx.cs">
       <DependentUpon>RegistrarCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

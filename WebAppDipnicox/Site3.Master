@@ -16,6 +16,35 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <!-- Modal notificacion-->
+    <div class="modal fade" id="Modalnotif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="cont">
+                <div class="row">
+                    <div class="ntPanel justify-content-center">
+                        <asp:Repeater ID="repnotif" runat="server">
+                            <ItemTemplate>
+                                <div class="noti mt-2">
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <div class="img"></div>
+                                        <div class="textBox">
+                                            <div class="textContent">
+                                                <p class="h1"><%# Eval("Titulo") %> </p>
+                                                <span class="span">12 min ago</span>
+                                            </div>
+                                            <p class="p"><%# Eval("Descripcion") %> </p>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container">
             <div class="menu">
@@ -35,6 +64,11 @@
                         
                         <div class="nav-item">
                             <a class="nav-link mr-10" href="../Vista/Trabajador/ListHorario.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Horario</font></font></a>
+                        </div>
+                        <div class="conten">
+                            <div id="notificac" class="notifica" data-count="0" runat="server">
+                                <button class="btnn nof bi bi-bell-fill" data-bs-toggle="modal" data-bs-target="#Modalnotif"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
