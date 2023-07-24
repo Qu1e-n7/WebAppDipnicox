@@ -7,7 +7,7 @@
 }
 
     .coolinput label.text {
-        font-size: 0.75rem;
+        font-size: 0.95rem;
         color: #198754;
         font-weight: 700;
         position: relative;
@@ -20,7 +20,7 @@
 
     .coolinput input[type=text].input {
         padding: 11px 10px;
-        font-size: 0.75rem;
+        font-size: 0.80rem;
         border: 2px #198754 solid;
         border-radius: 20px;
         background: transparent;
