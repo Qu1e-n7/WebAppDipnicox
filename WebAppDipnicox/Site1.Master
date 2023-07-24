@@ -23,10 +23,21 @@
             <div class="cont">
                 <div class="row">
                     <div class="ntPanel justify-content-center">
-                        <asp:Repeater ID="repnotif" runat="server" OnItemDataBound="repnotif_ItemDataBound">
+                        <asp:Repeater ID="repnotif" runat="server">
                             <ItemTemplate>
                                 <div class="noti mt-2">
-                                    <asp:Label ID="lblnotifica" runat="server" Text=""></asp:Label>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <div class="img"></div>
+                                        <div class="textBox">
+                                            <div class="textContent">
+                                                <p class="h1"><%# Eval("Titulo") %> </p>
+                                                <span class="span">12 min ago</span>
+                                            </div>
+                                            <p class="p"><%# Eval("Descripcion") %> </p>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -82,10 +93,10 @@
                                 <i class="fs-4 bi-people" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Personal</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="../Vista/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
+                                    <a href="../../Vista/Administrador/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
                                 </li>
                                 <li>
-                                    <a href="../Vista/ListarPersonal.aspx" class="nav-link bi-person-lines-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Personal</span>  </a>
+                                    <a href="../../Vista/Administrador/ListarPersonal1.aspx" class="nav-link bi-person-lines-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Personal</span>  </a>
                                 </li>
                             </ul>
                         </li>
@@ -94,10 +105,10 @@
                                 <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Productos</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="../Vista/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
+                                    <a href="../../Vista/Administrador/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
                                 </li>
                                 <li>
-                                    <a href="../Vista/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
+                                    <a href="../../Vista/Administrador/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
                                 </li>
                             </ul>
                         </li>

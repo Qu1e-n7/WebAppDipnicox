@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebAppDipnicox.Entidades
 {
-    public class ClVentaE
+    public class ClVentaE:ClProductoVentaE
     {
         public int idVenta { get; set; }
-        public string Codigo { get; set; }
+        public string CodVenta { get; set; }
         public string Fecha { get; set; }
         public string Estado { get; set; }
-        public string Total { get; set; }
-        public int idCliente { get; set; }
-        public int idPersonal { get; set; }
-        public int idTipoVenta { get; set; }
+        public string TotalVen { get; set; }
+        public int? idCliente { get; set; }
+        public int? idPersonal { get; set; }
+        public int? idTipoVenta { get; set; }
     }
 }

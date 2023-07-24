@@ -14,11 +14,8 @@ namespace WebAppDipnicox.Vista.Servicio
     public partial class MostrarServicio : System.Web.UI.Page
     {
         protected string valorRepeater;
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             ClServicioL objServicioL = new ClServicioL();
             List<ClServicioE> listaServicio = objServicioL.mtdListarServicio();
             repcard.DataSource = listaServicio;
@@ -39,7 +36,6 @@ namespace WebAppDipnicox.Vista.Servicio
 
            
         }
-
         [WebMethod]
         public static void Listar(string tipo)
         {
