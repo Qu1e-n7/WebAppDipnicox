@@ -1,18 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="HomeCliente.aspx.cs" Inherits="WebAppDipnicox.HomeCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="Productos.aspx.cs" Inherits="WebAppDipnicox.Vista.Productos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link href="Vista/Css/Cards.css" rel="stylesheet" />
-    <link href="Vista/Css/CSSDipnicox.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link href="Vista/Css/Carrito.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AWh-o5lQO5QVXSj2EbM-WCe5hdhI_NlYNdSpw8ug6WGod8vn-FaX06E-IesnwfuL4Oel-eOrvrNZ1a3V"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <header>
@@ -46,17 +41,17 @@
                                 <asp:Button ID="btnPagar" runat="server" Text="Pagar" Style="display: none;" OnClick="btnPagar_Click" />
                                 <div id="panelContenedor" style="display: none;">
                                     <section>
-                                            <div id="paypal-button-container"></div>
+                                        <div id="paypal-button-container"></div>
 
-                                            <div id="successMessage" style="display: none;">
-                                                !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
-                                            </div>
+                                        <div id="successMessage" style="display: none;">
+                                            !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
+                                        </div>
 
-                                            <div id="cancelMessage" style="display: none;">
-                                                ¡Pago Cancelado! El Pago Ha Sido Cancelado.
-                                            </div>
+                                        <div id="cancelMessage" style="display: none;">
+                                            ¡Pago Cancelado! El Pago Ha Sido Cancelado.
+                                        </div>
 
-                                        </section>
+                                    </section>
                                 </div>
                             </div>
 
@@ -64,38 +59,11 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </header>
-
-    <div class="header">
-        <div class="inner-header flex">
-            <div class="animated-word">
-                <div class="letter">D</div>
-                <div class="letter">I</div>
-                <div class="letter">P</div>
-                <div class="letter">N</div>
-                <div class="letter">I</div>
-                <div class="letter">C</div>
-                <div class="letter">O</div>
-                <div class="letter">X</div>
-            </div>
-        </div>
-        <div>
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                </defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="#031529" />
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="#051e3a" />
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="#07284e" />
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#09305e" />
-                </g>
-            </svg>
-        </div>
+    <div class="">
+        <asp:Label ID="lblProductos" runat="server" Text="Productos"></asp:Label>
     </div>
-
     <div class="CardCatego">
         <div class="container">
             <div class="row">
@@ -106,12 +74,12 @@
                                 <div class="card-body">
                                     <div class="nft">
                                         <div class="main">
-                                            <img src="Vista/Imagenes/Productos/TipoProd/<%# Eval("imagen") %>" class="tokenImage card-img-top" alt="nft">
+                                            <img src="Vista/Imagenes/Productos/<%# Eval("Image") %>" class="tokenImage card-img-top" alt="nft">
                                             <h5 class="card-title" style="color: #AE87EC;"><%# Eval("Nombre") %> </h5>
                                             <p class="card-text" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
                                             <div class="card-body">
                                                 <hr />
-                                                <asp:Button ID="btnProductos" runat="server" Text="Ver Productos" OnClick="btnProductos_Click" CommandArgument='<%# Eval("idTipoProduc") %>' />
+                                                <button class="btn-add-cart card-link ms-5 btn btn-primary p-2" onclick="AgregarVent('<%# Eval("idProducto")  %>');">Agregar al carrito</button>
                                             </div>
                                         </div>
                                     </div>
@@ -123,6 +91,7 @@
             </div>
         </div>
     </div>
+
     <script>
         $(document).ready(function () {
             ListarCarro();
@@ -137,7 +106,7 @@
         function ListarCarro() {
             $.ajax({
                 type: "POST",
-                url: "HomeCliente.aspx/mtdListarCarrito",
+                url: "Productos.aspx/mtdListarCarrito",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
@@ -178,7 +147,7 @@
             var lblTotal = document.getElementById("<%= lblcontPrecio.ClientID %>");
             $.ajax({
                 type: "POST",
-                url: "HomeCliente.aspx/mtdTotal",
+                url: "Productos.aspx/mtdTotal",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify({ total: TotalP }),
@@ -193,7 +162,7 @@
         function EliminarCarr(idProVent) {
             $.ajax({
                 type: "POST",
-                url: "HomeCliente.aspx/mtdEliminarCarro",
+                url: "Productos.aspx/mtdEliminarCarro",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify({ idProVen: idProVent }),
@@ -201,6 +170,22 @@
                     var datos = response.d;
                     ListarCarro();
 
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        }
+        function AgregarVent(idPro) {
+            $.ajax({
+                type: "POST",
+                url: "Productos.aspx/mtdAgregar",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ idProd: idPro }),
+                success: function (response) {
+                    var data = response.d;
+                    ListarCarro();
                 }, error: function (xhr, textStatus, errorThrown) {
                     // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
                     console.error(errorThrown);
@@ -270,4 +255,5 @@
         }).render('#paypal-button-container');
 
     </script>
+
 </asp:Content>
