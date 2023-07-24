@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,9 +15,19 @@ namespace WebAppDipnicox.Vista.Servicio
 {
     public partial class IncluirServicio : System.Web.UI.Page
     {
+        protected string ListaEnJson { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClNotificacionesL objDatosL = new ClNotificacionesL();
+            List<ClNotificacionesE> listaNoti = objDatosL.mtdListarNotiXSer();
+            repcard.DataSource = listaNoti;
+            repcard.DataBind();
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            ListaEnJson = serializer.Serialize(listaNoti);
+
+
             if (!IsPostBack)
             {
 
@@ -39,10 +51,6 @@ namespace WebAppDipnicox.Vista.Servicio
                 ddlCiudad.DataTextField = "Ciudad";
                 ddlCiudad.DataValueField = "idCiudad";
 
-
-
-
-
                 int idPersonal = objDato.idPersonal;
 
 
@@ -63,6 +71,7 @@ namespace WebAppDipnicox.Vista.Servicio
 
             }
         }
+
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {

@@ -107,8 +107,12 @@
     <Content Include="Vista\Css\Carrito.css" />
     <Content Include="Vista\Css\CSSDipnicox.css" />
     <Content Include="Vista\Css\Datatable.css" />
+    <Content Include="Vista\Css\IncluirServicio.css" />
     <Content Include="Vista\Css\input.css" />
+    <Content Include="Vista\Css\Notificacion.css" />
+    <Content Include="Vista\Css\TextBox.css" />
     <Content Include="Vista\Horario.aspx" />
+    <Content Include="Vista\Imagenes\1271361.png" />
     <Content Include="Vista\Imagenes\anadir-a-la-cesta.png" />
     <Content Include="Vista\Imagenes\Halo.PNG" />
     <Content Include="Vista\Imagenes\IcoAdmi.png" />
@@ -129,10 +133,8 @@
     <Content Include="Vista\RegistrarCliente.aspx" />
     <Content Include="Vista\Servicio\css\Boton.css" />
     <Content Include="Vista\Servicio\css\CardServicio.css" />
-    <Content Include="Vista\Servicio\css\IncluirServicio.css" />
     <Content Include="Vista\Servicio\css\Modal.css" />
     <Content Include="Vista\Servicio\css\RegistrarServicio.css" />
-    <Content Include="Vista\Servicio\css\TextBox.css" />
     <Content Include="Vista\Servicio\css\Trabajador.css" />
     <Content Include="Vista\Servicio\IncluirServicio.aspx" />
     <Content Include="Vista\Servicio\MostrarServicio.aspx" />
@@ -158,6 +160,7 @@
     <Compile Include="Datos\ClClienteD.cs" />
     <Compile Include="Datos\ClCotizacionD.cs" />
     <Compile Include="Datos\ClHorarioD.cs" />
+    <Compile Include="Datos\ClNotificacionesD.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProductosD.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="Entidades\ClDiaE.cs" />
     <Compile Include="Entidades\ClHorarioDiaE.cs" />
     <Compile Include="Entidades\ClHorarioE.cs" />
+    <Compile Include="Entidades\ClNotificacionesE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
@@ -196,6 +200,7 @@
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClCotizacionL.cs" />
     <Compile Include="Logica\ClHorarioL.cs" />
+    <Compile Include="Logica\ClNotificacionesL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClProductosL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
