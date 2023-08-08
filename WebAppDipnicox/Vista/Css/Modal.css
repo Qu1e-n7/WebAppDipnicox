@@ -1,0 +1,237 @@
+﻿/* css variables */
+:root {
+    --width-A: 100px;
+    --width-B: calc(var(--width-A) / 2);
+    --width-C: calc(50% - var(--width-B));
+    --color-1: #27f;
+    --color-1a: #05d;
+    --color-2: #eee;
+    --color-3: #ddd;
+    --color-4: #3b1;
+    --color-4a: #280;
+    --color-5: rgba(0,0,0,0.75);
+    --modal-width: 40vw;
+    --modal-calc: calc(var(--modal-width) / 2);
+    --modal-position-x: calc(50% - var(--modal-calc));
+}
+
+/* global site styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid red; */
+}
+
+h1, h3, p, a {
+    font-family: Helvetica, sans-serif;
+}
+
+/* buttons/links styles */
+
+.btn {
+    color: var(--color-2);
+    display: block;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-sm {
+    background-color: var(--color-5);
+    border-radius: 50%;
+    display: block;
+    padding: 5px 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.btn-std {
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: var(--width-A);
+    transition: 1s ease-in;
+}
+
+    .btn-std:hover {
+        transition: 1s ease-out;
+    }
+
+.mt-link {
+    background-color: var(--color-1);
+    margin: 20px var(--width-C) 0;
+}
+
+    .mt-link:hover {
+        background-color: var(--color-1a);
+    }
+
+.mb-link {
+    background-color: var(--color-4);
+}
+
+    .mb-link:hover {
+        background-color: var(--color-4a);
+    }
+
+/* site markup */
+
+.container {
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.main-header, .random-text-header {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.random-text-header {
+    margin: 20px 0 5px;
+}
+
+/* modal markup */
+
+.modal-page {
+    background-color: var(--color-5);
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+.modal-wrapper {
+    background-color: var(--color-3);
+    border-radius: 10px;
+    position: absolute;
+    left: var(--modal-position-x);
+    padding: 1%;
+    width: var(--modal-width);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-body {
+    margin: 10px 5px;
+}
+
+.modal-text {
+    padding: 10px;
+    text-align: justify;
+}
+
+/* modal show and hide */
+
+#modal-1:target {
+    display: block;
+}
+
+/* modal animation */
+
+.modal-wrapper {
+    top: -20vh;
+    animation: show 1s ease-out forwards;
+    background: linear-gradient(60deg,rgb(32, 43, 55) 0%, rgb(23, 38, 53) 100%);
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: scaleX(0.05)
+    }
+
+    50% {
+        transform: translateY(55vh) scaleY(0.8);
+    }
+
+    75% {
+        transform: translateY(40vh) scaleY(1.2);
+    }
+
+    90% {
+        transform: translateY(50vh) scaleY(1) scaleX(1);
+    }
+
+    100% {
+        transform: translateY(45vh);
+        opacity: 1;
+    }
+}
+
+/*Formulario*/
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+}
+
+/*Boton*/
+
+.botonCon {
+    font-size: 18px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+    .botonCon:focus,
+    .botonCon:hover {
+        color: #fff;
+    }
+
+        .botonCon:focus:after,
+        .botonCon:hover:after {
+            width: 100%;
+            left: 0%;
+        }
+
+    .botonCon:after {
+        content: "";
+        pointer-events: none;
+        bottom: -2px;
+        left: 50%;
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: width, left;
+    }
