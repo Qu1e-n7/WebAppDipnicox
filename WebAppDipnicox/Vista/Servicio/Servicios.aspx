@@ -85,7 +85,7 @@
             var valor = elementoA.previousElementSibling.innerText;
             $.ajax({
                 type: "POST",
-                url: "MostrarServicio.aspx/Listar",
+                url: "Servicios.aspx/Listar",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify({ tipo: valor }),

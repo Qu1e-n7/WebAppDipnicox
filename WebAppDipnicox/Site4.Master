@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site4.master.cs" Inherits="WebAppDipnicox.Site4" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,10 +10,23 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
     <link href="Vista/Css/StyleHome.css" rel="stylesheet" />
+
+     <%--Carrito--%>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <link href="Vista/Css/Cards.css" rel="stylesheet" />
+        <link href="Vista/Css/Buscar.css" rel="stylesheet" />
+        <link href="Vista/Css/Carrito.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+        <script src="https://www.paypal.com/sdk/js?client-id=AWh-o5lQO5QVXSj2EbM-WCe5hdhI_NlYNdSpw8ug6WGod8vn-FaX06E-IesnwfuL4Oel-eOrvrNZ1a3V"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container">
             <div class="menu">
@@ -24,14 +36,19 @@
                 <div class="collapse navbar-collapse p-2" id="collapsibleNavbar">
                     <div class="navbar-nav ac">
                         <div class=" nav-item nav-">
-                            <a class="nav-link pr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
+                            <a class="nav-link pr-10" href="../../HomeCliente.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
                         </div>
-                       
+
                         <div class="nav-item">
-                            <a class="nav-link mr-10" href="Vista/Servicio/Servicios.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicio</font></font></a>
+                            <a class="nav-link mr-10" href="../Vista/Servicio/Servicios.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicio</font></font></a>
                         </div>
                         <div class="nav-item">
-                            <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label> </font></font></a>
+                            <a class="nav-link mr-10" href="Vista/Productos.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Productos</font></font></a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                <asp:Label ID="lblNombre" runat="server" Text="Label"></asp:Label>
+                            </font></font></a>
                         </div>
                     </div>
                 </div>
@@ -44,5 +61,7 @@
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    
+    
 </body>
 </html>

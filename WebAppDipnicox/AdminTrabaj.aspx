@@ -22,10 +22,10 @@
     <div class="CardCatego">
         <header>
             <div class="header-section container">
-
                 <div>
                     <img onclick="showCart(this)" class="cart" src="Vista/Imagenes/anadir-a-la-cesta.png" alt="">
-                    <p id="contador" class="count-product">0</p>
+                    <asp:Label ID="lblcontador" class="count-product" runat="server" Text="0"></asp:Label>
+                    <%--<p id="contador"  runat="server" >0</p>--%>
                 </div>
                 <div class="cart-products" id="products-id">
 
@@ -37,38 +37,20 @@
                             </div>
                             <p class="close-btn" onclick="closeBtn()">X</p>
 
-                            <div class="carrito-items">
-                                <ul id="listaCarrito" style="background-color: blue; border-radius: 10px;"></ul>
+                            <div id="carComp" class="carrito-items">
+                                <ul id="listaCarrito" style="background-color: blue; border-radius: 10px;">
+                                </ul>
                             </div>
+                            <%--Pago--%>
                             <div class="carrito-total">
                                 <div class="fila">
-                                    <h2>Total: $<strong id="contadorPrecio" class="price-total">0</strong></h2>
+                                    <h2>Total A Pagar</h2>
+                                    <asp:Label ID="lblcontPrecio" ClientIDMode="Static" CssClass="price-total" runat="server"></asp:Label>
                                     <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
-                                    <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                                        <ContentTemplate>--%>
                                     <asp:DropDownList ID="ddlTipoVenta" runat="server" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged" onchange="mostrarElemento()"></asp:DropDownList>
-
-                                    <asp:Button ID="btnBoton" runat="server" Text="Pagar" Style="display: none;" OnClick="btnBoton_Click" />
-
+                                    <asp:Button ID="btnPagar" runat="server" Text="Pagar" Style="display: none;" OnClick="btnPagar_Click" />
                                     <div id="panelContenedor" style="display: none;">
-                                        <section>
-                                            <div id="paypal-button-container"></div>
-
-                                            <div id="successMessage" style="display: none;">
-                                                !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
-                                            </div>
-
-                                            <div id="cancelMessage" style="display: none;">
-                                                ¡Pago Cancelado! El Pago Ha Sido Cancelado.
-                                            </div>
-
-                                        </section>
                                     </div>
-                                    <%--</ContentTemplate>
-                                        <Triggers>
-                                            <asp:AsyncPostBackTrigger ControlID="ddlTipoVenta" EventName="SelectedIndexChanged" />
-                                        </Triggers>
-                                    </asp:UpdatePanel>--%>
                                 </div>
 
                             </div>
@@ -87,49 +69,64 @@
         <br />
 
 
-        
-                <div class="container">
 
-                    <div class="products">
-                        <div class="row">
-                            <asp:Repeater ID="repcard" runat="server" OnItemDataBound="repcard_ItemDataBound">
-                                <ItemTemplate>
-                                    <div class="col-lg-4 col-md-6 col-sm-12">
-                                        <div class="card bg-transparent border-0">
-                                            <div class="card-body">
-                                                <div class="nft">
-                                                    <div class="main">
-                                                        <img src="#" class="img-item tokenImage card-img-top" alt="nft">
-                                                        <h3 class="titulo-item" style="color: #AE87EC;"><%# Eval("Nombre") %> </h3>
-                                                        <p class="card-body" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
-                                                        <p class="precio-item" style="color: #a89ec9;"><%# Eval("Valor") %> </p>
+        <div class="container">
 
-                                                        <div class="card-body">
-                                                            <hr />
-                                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                                <ContentTemplate>
-                                                                    <asp:Label ID="idProducto" runat="server" Text='<%# Eval("idProducto")  %>' Visible="false"></asp:Label></h5>
+            <div class="products">
+                <div class="row">
+                    <asp:Repeater ID="repcard" runat="server" OnItemDataBound="repcard_ItemDataBound">
+                        <ItemTemplate>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card bg-transparent border-0">
+                                    <div class="card-body">
+                                        <div class="nft">
+                                            <div class="main">
+                                                <img src="#" class="img-item tokenImage card-img-top" alt="nft">
+                                                <h3 class="titulo-item" style="color: #AE87EC;"><%# Eval("Nombre") %> </h3>
+                                                <p class="card-body" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
+                                                <p class="precio-item" style="color: #a89ec9;"><%# Eval("Valor") %> </p>
+
+                                                <div class="card-body">
+                                                    <hr />
+                                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="idProducto" runat="server" Text='<%# Eval("idProducto")  %>' Visible="false"></asp:Label></h5>
                                                        <%--<a href="#" data-id="<%# Eval("idProducto")  %>" class="btn-add-cart card-link ms-5 btn btn-primary p-2">Agregar al Carrito</a>--%>
 
-                                                                    <button class="btn-add-cart card-link ms-5 btn btn-primary p-2" onclick="agregarAlCarrito('<%# Eval("Nombre") %>', <%# Eval("Valor") %>);">Agregar al carrito</button>
-                                                                    <%--<asp:Button data-id="<%# Eval("idProducto")  %>" ID="btnAgregar" CssClass="btn-add-cart card-link ms-5 btn btn-primary p-2" runat="server" Text="Agregar al Carrito" OnClick="btnAgregar_Click" />--%>
-                                                                </ContentTemplate>
-                                                            </asp:UpdatePanel>
-                                                        </div>
-                                                    </div>
+                                                            <button class="btn-add-cart card-link ms-5 btn btn-primary p-2" onclick="agregarAlCarrito('<%# Eval("idProducto")  %>');">Agregar al carrito</button>
+                                                            <%--<asp:Button data-id="<%# Eval("idProducto")  %>" ID="btnAgregar" CssClass="btn-add-cart card-link ms-5 btn btn-primary p-2" runat="server" Text="Agregar al Carrito" OnClick="btnAgregar_Click" />--%>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
-           
+            </div>
+        </div>
+
     </div>
 
     <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdListProdVen",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    var data = response.d;
+                    ListCarr(data);
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        })
         function showCart(x) {
             document.getElementById("products-id").style.display = "block";
         }
@@ -140,23 +137,23 @@
     </script>
 
     <script>
-    function mostrarElemento() {
-        var dropdownList = document.getElementById("<%= ddlTipoVenta.ClientID %>");
-        var opcionSeleccionada = dropdownList.options[dropdownList.selectedIndex].value;
-        var contenedor = document.getElementById("panelContenedor");
-        var boton = document.getElementById("<%= btnBoton.ClientID %>");
+        function mostrarElemento() {
+            var dropdownList = document.getElementById("<%= ddlTipoVenta.ClientID %>");
+            var opcionSeleccionada = dropdownList.options[dropdownList.selectedIndex].value;
+            var contenedor = document.getElementById("panelContenedor");
+            var boton = document.getElementById("<%= btnPagar.ClientID %>");
 
-        if (opcionSeleccionada === "1") {
-            contenedor.style.display = "block";
-            boton.style.display = "none";
-        } else if (opcionSeleccionada === "2") {
-            contenedor.style.display = "none";
-            boton.style.display = "block";
-        } else {
-            contenedor.style.display = "none";
-            boton.style.display = "none";
+            if (opcionSeleccionada === "1") {
+                contenedor.style.display = "block";
+                boton.style.display = "none";
+            } else if (opcionSeleccionada === "2") {
+                contenedor.style.display = "none";
+                boton.style.display = "block";
+            } else {
+                contenedor.style.display = "none";
+                boton.style.display = "none";
+            }
         }
-    }
     </script>
 
     <script>
@@ -167,66 +164,100 @@
         var contador = 0;
 
         // Función para agregar un producto al carrito
-        function agregarAlCarrito(nombre, precio) {
-            var listaCarrito = document.getElementById('listaCarrito');
-            var li = document.createElement('li');
-            li.innerHTML = `
-        <div class="carrito-item">
-            <img src="#" width="80px" alt="">
-            <div class="carrito-item-detalles">
-                <span class="carrito-item-titulo">${nombre}</span>
-                <div class="selector-cantidad">
-                    <i class="uil uil-angle-left-b restar-cantidad"></i>
-                    <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                    <i class="uil uil-angle-right sumar-cantidad"></i>
-                </div>
-               
-                <span class="carrito-item-precio">${precio}</span>
-            </div>
-            
-
-        </div>
-    `;
-
-            var botonEliminar = document.createElement('button');
-            botonEliminar.textContent = 'Eliminar';
-            botonEliminar.classList.add('btn-eliminar');
-            botonEliminar.addEventListener('click', function () {
-                eliminarDelCarrito(li, precio);
-            });
-            li.appendChild(botonEliminar);
-
-            listaCarrito.appendChild(li);
-
+        function agregarAlCarrito(idProd) {
+            AgregarVent(idProd)
             // Actualizar contador y total
-            contador++;
             total += precio;
-            actualizarContador();
             actualizarContadorPrecio();
         }
 
-        function eliminarDelCarrito(item, precio) {
-            item.parentNode.removeChild(item);
+        function AgregarVent(idPro) {
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdAgregar",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ idProd: idPro }),
+                success: function (response) {
+                    var data = response.d;
+                    ListCarr(data);
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        }
 
-            // Actualizar contador de productos y total
-            contador--;
-            total -= precio;
-            actualizarContador();
-            actualizarContadorPrecio();
+        function ListCarr(data) {
+            var rptDatos = '';
+            var ListaCarr = document.getElementById('listaCarrito');
+            console.log(ListaCarr);
+            var TotalPagar = 0;
+            for (var i = 0; i < data.length; i++) {
+                rptDatos += `<li>
+                        <div class="carrito-item">
+                            <img src="#" width="80px" alt="">
+                                <div class="carrito-item-detalles">
+                                    <span class="carrito-item-titulo">${data[i].Nombre}</span>
+                                    <div class="selector-cantidad">
+                                        <i class="uil uil-angle-left-b restar-cantidad"></i>
+                                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                                            <i class="uil uil-angle-right sumar-cantidad"></i>
+                                    </div>
 
-            if (contador === 0) {
-                ocultarCarrito();
+                                    <span class="carrito-item-precio">${data[i].Total}</span>
+                                </div>
+                                <button class="ms-5 btn btn-$indigo-400 p-2" onclick="EliminarCarr(${data[i].idProductoVenta});">Eliminar</button>
+                        </div>
+                        <li>`;
+                TotalPagar = TotalPagar + data[i].Total;
             }
+            
+            ListaCarr.innerHTML = rptDatos;
+            actualizarContador(data.length);
+            TotalPgar(TotalPagar);
+            
+        }
+        function TotalPgar(TotalP) {
+            var lblTotal = document.getElementById("<%= lblcontPrecio.ClientID %>");
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdTotal",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ total: TotalP }),
+                success: function (response) {
+                    lblTotal.textContent = TotalP;
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
+        }
+        function EliminarCarr(idProVent) {
+            $.ajax({
+                type: "POST",
+                url: "AdminTrabaj.aspx/mtdEliminarCarro",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ idProVen: idProVent }),
+                success: function (response) {
+                    var datos = response.d;
+                    if (datos=!null) {
+                        alert('se elimino');
+                    }
+                    
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
+                    console.error(errorThrown);
+                }
+            });
         }
 
         // Función para actualizar el contador
-        function actualizarContador() {
-            var contadorElement = document.getElementById('contador');
-            contadorElement.innerHTML = contador;
-        }
-        function actualizarContadorPrecio() {
-            var contadorPrecioElement = document.getElementById('contadorPrecio');
-            contadorPrecioElement.innerHTML = total;
+        function actualizarContador(contador) {
+            var contadorElement = document.getElementById("<%= lblcontador.ClientID %>");
+            contadorElement.textContent = contador;
         }
         // Función para mostrar el total
         function mostrarTotal() {
@@ -272,6 +303,7 @@
 
 
     <script>
+        var btnPagar = document.getElementById('<%= btnPagar.ClientID %>');
         paypal.Buttons({
             style: {
                 color: 'blue',
@@ -279,7 +311,7 @@
                 label: 'pay'
             },
             createOrder: function (data, actions) {
-                var total = document.getElementById('contadorPrecio').textContent;
+                var total = document.getElementById('<%= lblcontPrecio.ClientID %>').textContent;
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
@@ -289,7 +321,7 @@
                 });
             },
             onApprove: function (data, actions) {
-                swal("¡Pago Aprobado! ", "El Pago Ha Sido Realizado Con Exito.", "success");
+                btnPagar.click();
                 return actions.order.capture().then(function (details) {
                     document.getElementById('paymentDetails').textContent = JSON.stringify(details, null, 2);
                     document.getElementById('nameField').textContent = details.payer.name.given_name + ' ' + details.payer.name.surname;
@@ -300,7 +332,7 @@
                     console.log(details);
                 });
             },
-            OnCancel: function (data) {
+            onCancel: function (data) {
                 swal("!Pago Cancelado!", "El Pago Ha Sido Cancelado.", "error");
                 document.getElementById('cancelMessage').style.display = 'block';
                 console.log(data);

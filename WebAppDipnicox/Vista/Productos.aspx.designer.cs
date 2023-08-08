@@ -7,65 +7,74 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebAppDipnicox
+namespace WebAppDipnicox.Vista
 {
 
 
-    public partial class Site3
+    public partial class Productos
     {
 
         /// <summary>
-        /// Control head.
+        /// Control lblcontador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label lblcontador;
 
         /// <summary>
-        /// Control repnotif.
+        /// Control lblcontPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repnotif;
+        protected global::System.Web.UI.WebControls.Label lblcontPrecio;
 
         /// <summary>
-        /// Control Dipni.
+        /// Control ScriptManager2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dipni;
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
 
         /// <summary>
-        /// Control notificac.
+        /// Control ddlTipoVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notificac;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoVenta;
 
         /// <summary>
-        /// Control form1.
+        /// Control btnPagar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btnPagar;
 
         /// <summary>
-        /// Control ContentPlaceHolder1.
+        /// Control lblProductos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Label lblProductos;
+
+        /// <summary>
+        /// Control repcard.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repcard;
     }
 }
