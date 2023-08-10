@@ -47,6 +47,9 @@ namespace WebAppDipnicox
             Session["Asesor"] = "";
             Session["Trabajador"] = "";
             Session["Usuario"] = "";
+            Session["Tipo"] = 0;
+            Session["Total"] = 0;
+            Session["TipProductos"] = 0;
         }
 
         protected void Application_End(object sender, EventArgs e)
