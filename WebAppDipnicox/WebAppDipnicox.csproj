@@ -132,8 +132,13 @@
     <Content Include="Vista\Css\Carrito.css" />
     <Content Include="Vista\Css\CSSDipnicox.css" />
     <Content Include="Vista\Css\Datatable.css" />
+    <Content Include="Vista\Css\IncluirServicio.css" />
     <Content Include="Vista\Css\input.css" />
+    <Content Include="Vista\Css\Notificacion.css" />
+    <Content Include="Vista\Css\TextBox.css" />
     <Content Include="Vista\Horario.aspx" />
+    <Content Include="Vista\Imagenes\1271361.png" />
+    <Content Include="Vista\Trabajador\Horario.aspx" />
     <Content Include="Vista\Imagenes\anadir-a-la-cesta.png" />
     <Content Include="Vista\Imagenes\Halo.PNG" />
     <Content Include="Vista\Imagenes\IcoAdmi.png" />
@@ -146,26 +151,24 @@
     <Content Include="Vista\JavaScript\Enviar.js" />
     <Content Include="Vista\Css\Style.css" />
     <Content Include="Vista\Css\StyleHome.css" />
-    <Content Include="Vista\ListaProductos.aspx" />
+    <Content Include="Vista\Administrador\ListaProductos.aspx" />
     <Content Include="Vista\ListarPersonal.aspx" />
-    <Content Include="Vista\ListarPersonal1.aspx" />
-    <Content Include="Vista\ListHorario.aspx" />
+    <Content Include="Vista\Administrador\ListarPersonal1.aspx" />
+    <Content Include="Vista\Trabajador\ListHorario.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Productos.aspx" />
     <Content Include="Vista\ProductosHo.aspx" />
     <Content Include="Vista\RegistrarCliente.aspx" />
     <Content Include="Vista\Servicio\css\Boton.css" />
     <Content Include="Vista\Servicio\css\CardServicio.css" />
-    <Content Include="Vista\Servicio\css\IncluirServicio.css" />
     <Content Include="Vista\Servicio\css\Modal.css" />
     <Content Include="Vista\Servicio\css\RegistrarServicio.css" />
-    <Content Include="Vista\Servicio\css\TextBox.css" />
     <Content Include="Vista\Servicio\css\Trabajador.css" />
     <Content Include="Vista\Servicio\IncluirServicio.aspx" />
     <Content Include="Vista\Servicio\MostrarServicio.aspx" />
     <Content Include="Vista\Servicio\RegistrarServicio.aspx" />
-    <Content Include="Vista\RegProductos.aspx" />
-    <Content Include="Vista\RegTrabajadores.aspx" />
+    <Content Include="Vista\Administrador\RegProductos.aspx" />
+    <Content Include="Vista\Administrador\RegTrabajadores.aspx" />
     <Content Include="Vista\Servicio\Servicios.aspx" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
@@ -186,6 +189,7 @@
     <Compile Include="Datos\ClClienteD.cs" />
     <Compile Include="Datos\ClCotizacionD.cs" />
     <Compile Include="Datos\ClHorarioD.cs" />
+    <Compile Include="Datos\ClNotificacionesD.cs" />
     <Compile Include="Datos\ClPersonalD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProductosD.cs" />
@@ -199,6 +203,7 @@
     <Compile Include="Entidades\ClDiaE.cs" />
     <Compile Include="Entidades\ClHorarioDiaE.cs" />
     <Compile Include="Entidades\ClHorarioE.cs" />
+    <Compile Include="Entidades\ClNotificacionesE.cs" />
     <Compile Include="Entidades\ClNotificacionE.cs" />
     <Compile Include="Entidades\ClPersonalE.cs" />
     <Compile Include="Entidades\ClProductosE.cs" />
@@ -227,6 +232,7 @@
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClCotizacionL.cs" />
     <Compile Include="Logica\ClHorarioL.cs" />
+    <Compile Include="Logica\ClNotificacionesL.cs" />
     <Compile Include="Logica\ClPersonalL.cs" />
     <Compile Include="Logica\ClProductosL.cs" />
     <Compile Include="Logica\ClProductoVentaL.cs" />
@@ -263,27 +269,18 @@
     <Compile Include="Vista\ActProductos.aspx.designer.cs">
       <DependentUpon>ActProductos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Chat\ChatLinea.aspx.cs">
-      <DependentUpon>ChatLinea.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Chat\ChatLinea.aspx.designer.cs">
-      <DependentUpon>ChatLinea.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\Chat\HubChat.cs" />
-    <Compile Include="Vista\Chat\StarChat.cs" />
     <Compile Include="Vista\Horario.aspx.cs">
       <DependentUpon>Horario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Horario.aspx.designer.cs">
+    <Compile Include="Vista\Trabajador\Horario.aspx.designer.cs">
       <DependentUpon>Horario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\ListaProductos.aspx.cs">
+    <Compile Include="Vista\Administrador\ListaProductos.aspx.cs">
       <DependentUpon>ListaProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\ListaProductos.aspx.designer.cs">
+    <Compile Include="Vista\Administrador\ListaProductos.aspx.designer.cs">
       <DependentUpon>ListaProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site2.Master.cs">
@@ -312,18 +309,18 @@
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClTipoPersonalE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\ListarPersonal1.aspx.cs">
+    <Compile Include="Vista\Administrador\ListarPersonal1.aspx.cs">
       <DependentUpon>ListarPersonal1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\ListarPersonal1.aspx.designer.cs">
+    <Compile Include="Vista\Administrador\ListarPersonal1.aspx.designer.cs">
       <DependentUpon>ListarPersonal1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\ListHorario.aspx.cs">
+    <Compile Include="Vista\Trabajador\ListHorario.aspx.cs">
       <DependentUpon>ListHorario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\ListHorario.aspx.designer.cs">
+    <Compile Include="Vista\Trabajador\ListHorario.aspx.designer.cs">
       <DependentUpon>ListHorario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Login.aspx.cs">
@@ -377,18 +374,18 @@
     <Compile Include="Vista\Servicio\RegistrarServicio.aspx.designer.cs">
       <DependentUpon>RegistrarServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\RegProductos.aspx.cs">
+    <Compile Include="Vista\Administrador\RegProductos.aspx.cs">
       <DependentUpon>RegProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\RegProductos.aspx.designer.cs">
+    <Compile Include="Vista\Administrador\RegProductos.aspx.designer.cs">
       <DependentUpon>RegProductos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\RegTrabajadores.aspx.cs">
+    <Compile Include="Vista\Administrador\RegTrabajadores.aspx.cs">
       <DependentUpon>RegTrabajadores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\RegTrabajadores.aspx.designer.cs">
+    <Compile Include="Vista\Administrador\RegTrabajadores.aspx.designer.cs">
       <DependentUpon>RegTrabajadores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
@@ -426,7 +423,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Vista\Usuario\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

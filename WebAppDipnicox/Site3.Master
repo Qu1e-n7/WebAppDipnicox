@@ -63,7 +63,7 @@
                         </div>
                         
                         <div class="nav-item">
-                            <a class="nav-link mr-10" href="\Vista\ListHorario.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Horario</font></font></a>
+                            <a class="nav-link mr-10" href="../Vista/Trabajador/ListHorario.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Horario</font></font></a>
                         </div>
                         <div class="conten">
                             <div id="notificac" class="notifica" data-count="0" runat="server">

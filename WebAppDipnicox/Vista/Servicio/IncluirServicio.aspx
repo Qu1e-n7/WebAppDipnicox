@@ -1,14 +1,64 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="IncluirServicio.aspx.cs" Inherits="WebAppDipnicox.Vista.Servicio.IncluirServicio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/IncluirServicio.css" rel="stylesheet" />
+
     <script src="../SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="../SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
 
     <link href="css/Trabajador.css" rel="stylesheet" />
-    <link href="css/TextBox.css" rel="stylesheet" />
+    <link href="../Css/TextBox.css" rel="stylesheet" />
+    <link href="../Css/Carrito.css" rel="stylesheet" />
+    <link href="../Css/Notificacion.css" rel="stylesheet" />
+    <link href="../Css/IncluirServicio.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+    <header>
+        <div class="header-section container">
+
+            <div>
+                <img onclick="showCart(this)" class="cart" src="../Imagenes/1271361.png" alt="">
+                <p id="contador" class="count-product">0</p>
+                <asp:HiddenField ID="hfListaEnJson" runat="server" Value='<%# ListaEnJson %>' />
+            </div>
+            <div class="cart-products" id="products-id">
+
+                <div class="card-item">
+                    <!-- Carrito de compras -->
+                    <div class="carrito">
+                        <div class="header-carrito">
+                            <h2 style="color: white;">Notificaciones!!</h2>
+                        </div>
+                        <p class="close-btn" onclick="closeBtn()">X</p>
+                    </div>
+                    <asp:Repeater ID="repcard" runat="server">
+                        <ItemTemplate>
+
+                            <div class="toast-tray dissmiss-toast">
+                                <div class="toast-wrap">
+                                    <div class="toast-icon">
+                                        <img src="payment-icon.svg" alt="">
+                                    </div>
+
+                                    <div class="toast-msg">
+                                        <span><%# Eval("Titulo") %></span><br>
+                                        <%# Eval("Descripcion") %>
+                                    </div>
+                                </div>
+                                <div class="toast-btn">
+                                    <a href="#" class="link">VIEW</a>
+                                    <hr>
+                                    <a href="#" class="link dissmiss">DISMISS</a>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+        </div>
+
+    </header>
 
     <aside class="profile-card">
 
@@ -101,7 +151,7 @@
 
                             </div>
                             <div class="inputbox ms-5">
-                                
+
                                 <asp:DropDownList ID="ddlServicio" CssClass="input" runat="server"></asp:DropDownList>
                             </div>
                         </div>
@@ -114,9 +164,28 @@
             </div>
         </div>
     </aside>
-    
+
     <script>
 
+        function showCart(x) {
+            document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn() {
+            document.getElementById("products-id").style.display = "none";
+        }
+        var listaNoti = JSON.parse(document.getElementById('<%= hfListaEnJson.ClientID %>').value);
+        function calcularContador() {
+            var contador = 0;
+
+            for (var i = 0; i < listaNoti.length; i++) {
+                contador += listaNoti[i];
+            }
+
+            document.getElementById("contador").innerHTML = contador;
+        }
+        window.onload = function () {
+            calcularContador();
+        };
 
     </script>
 </asp:Content>
