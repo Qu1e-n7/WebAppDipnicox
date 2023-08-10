@@ -10,12 +10,12 @@ namespace WebAppDipnicox.Datos
 {
     public class ClClienteD
     {
+        ClProcesarSQL objSQL = new ClProcesarSQL();
         public ClClienteE mtdLogin(string Usua, string Clave)
         {
 
             string consulta = "Select * from Cliente where Email='" + Usua + "' and Contraseña='" + Clave + "'";
-            ClProcesarSQL obSql = new ClProcesarSQL();
-            DataTable tblPersonal = obSql.mtdSelectDesc(consulta);
+            DataTable tblPersonal = objSQL.mtdSelectDesc(consulta);
             ClClienteE obClienteE = null;
             if (tblPersonal.Rows.Count > 0)
             {
@@ -35,7 +35,7 @@ namespace WebAppDipnicox.Datos
 
         public int mtdRegistrarCliente(ClClienteE objDatos)
         {
-            ClProcesarSQL objSQL = new ClProcesarSQL();
+
             string Proceso = "RegistrarCliente";
             SqlCommand Registro = objSQL.mtdProcesoAlmacenado(Proceso);
             Registro.Parameters.AddWithValue("@Documento", objDatos.Documento);
@@ -49,5 +49,24 @@ namespace WebAppDipnicox.Datos
             return Registar;
         }
 
+        public List<ClClienteE> Lista()
+        {
+            string Consulta = "Select * from Cliente";
+            DataTable dt = objSQL.mtdSelectDesc(Consulta);
+            ClClienteE obClienteE = null;
+            List<ClClienteE> Lista = new List<ClClienteE>();
+            if (dt.Rows.Count > 0)
+            {
+                obClienteE = new ClClienteE();
+                obClienteE.idCliente = int.Parse(dt.Rows[0]["idCliente"].ToString());
+
+                obClienteE.Nombre = dt.Rows[0]["Nombre"].ToString();
+                obClienteE.Apellido = dt.Rows[0]["Apellido"].ToString();
+                Lista.Add(obClienteE);
+            }
+
+            return Lista;
+        }
     }
+
 }

@@ -46,7 +46,11 @@ namespace WebAppDipnicox.Vista
                 ClClienteL obCliente = new ClClienteL();
                 ClClienteE obDatosC = obCliente.mtdLogin(Usuario, Clave);
                 Session["Usuario"] = obDatosC;
-                Response.Redirect("../HomeCliente.aspx");
+                if (obDatosC!=null)
+                {
+                    Response.Redirect("../HomeCliente.aspx");
+                }
+                
             }
         }
     }

@@ -51,7 +51,8 @@
                                             <p class="card-text" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
                                             <div class="card-body">
                                                 <hr />
-                                                <a href="#" class="card-link ms-5 btn btn-primary p-2">Productos</a>
+                                                <asp:Button ID="btnProductos" CssClass="ard-link ms-5 btn btn-primary p-2" runat="server" Text="Ver Productos" OnClick="btnProductos_Click" CommandArgument='<%# Eval("idTipoProduc") %>'/>
+                                                <%--<a href="#" class="card-link ms-5 btn btn-primary p-2">Productos</a>--%>
                                             </div>
                                         </div>
                                     </div>

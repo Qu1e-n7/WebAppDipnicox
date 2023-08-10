@@ -54,5 +54,20 @@ namespace WebAppDipnicox.Logica
             int Eliminar = objPersonalD.mtdEliminarDato(objDatos);
             return Eliminar;
         }
+        public string mtdNombres(int idPersonal)
+        {
+            ClPersonalD obPersonal= new ClPersonalD();
+            List<ClPersonalE> Lista = obPersonal.mtdListaPersonal();
+            string Nombre = "";
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                if (idPersonal == Lista[i].idPersonal)
+                {
+                    Nombre = Lista[i].Nombre + " " + Lista[i].Apellido;
+                }
+
+            }
+            return Nombre;
+        }
     }
 }
