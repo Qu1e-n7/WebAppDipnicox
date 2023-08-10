@@ -109,7 +109,6 @@
     <Content Include="Vista\Css\Datatable.css" />
     <Content Include="Vista\Css\IncluirServicio.css" />
     <Content Include="Vista\Css\input.css" />
-    <Content Include="Vista\Css\Modal.css" />
     <Content Include="Vista\Css\Notificacion.css" />
     <Content Include="Vista\Css\TextBox.css" />
     <Content Include="Vista\Horario.aspx" />
