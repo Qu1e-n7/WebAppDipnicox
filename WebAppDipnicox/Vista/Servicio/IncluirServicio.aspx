@@ -8,6 +8,7 @@
     <link href="css/Trabajador.css" rel="stylesheet" />
     <link href="../Css/TextBox.css" rel="stylesheet" />
     <link href="../Css/Carrito.css" rel="stylesheet" />
+    <link href="../Css/Modal.css" rel="stylesheet" />
     <link href="../Css/Notificacion.css" rel="stylesheet" />
     <link href="../Css/IncluirServicio.css" rel="stylesheet" />
 </asp:Content>
@@ -47,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="toast-btn">
-                                    <a href="#" class="link">VIEW</a>
+                                    <a href="#modal-1" class="link">VIEW</a>
                                     <hr>
                                     <a href="#" class="link dissmiss">DISMISS</a>
                                 </div>
@@ -164,6 +165,36 @@
             </div>
         </div>
     </aside>
+
+    <div class="modal-page" id="modal-1">
+
+        <div class="modal-wrapper">
+
+            <h1 style="color: white;">Aceptar Servicio</h1>
+
+            <fieldset>
+
+                <label for="name" style="color: white">Valores Adicionales:</label>
+                <asp:TextBox ID="name" name="user_name" runat="server" Style="background: none;">0</asp:TextBox>
+
+
+            </fieldset>
+            <fieldset>
+
+                <label for="bio" style="color: white;">Caracteristicas Adicionales:</label>
+                <asp:TextBox ID="bio" runat="server" name="user_bio" TextMode="MultiLine" Rows="4" Columns="40" Style="color: black;"></asp:TextBox>
+
+
+                <a href="#" class="btn btn-sm">X</a>
+            </fieldset>
+            <asp:Label ID="lblValor" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btnConsignacion" CssClass="botonCon" Style="transform: translateX(-50%); left: 50%;" runat="server" Text="Pedir" />
+
+        </div>
+        <!-- modal wrapper end -->
+
+    </div>
+    <!-- modal-page end -->
 
     <script>
 
