@@ -23,6 +23,13 @@ namespace WebAppDipnicox
             }
             
         }
+
+        protected void btnProductos_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            HttpContext.Current.Session["TipProductos"] = btn.CommandArgument;
+            Response.Redirect("/Vista/ProductosHo.aspx");
+        }
     }
 }
 

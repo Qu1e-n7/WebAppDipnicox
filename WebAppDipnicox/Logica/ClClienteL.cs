@@ -22,5 +22,19 @@ namespace WebAppDipnicox.Logica
             int registro = objDatosD.mtdRegistrarCliente(objDatos);
             return registro;
         }
+        public string ListaNombre(int idCliente)
+        {
+            ClClienteD objDatosD = new ClClienteD();
+            List<ClClienteE> Lista = objDatosD.Lista();
+            string Nombre = "";
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                if (idCliente == Lista[i].idCliente)
+                {
+                    Nombre = Lista[i].Nombre + " " + Lista[i].Apellido;
+                }
+            }
+            return Nombre;
+        }
     }
 }

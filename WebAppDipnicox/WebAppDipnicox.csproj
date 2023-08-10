@@ -43,7 +43,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.3\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -53,6 +68,10 @@
     <Reference Include="Newtonsoft.JsonResult, Version=1.0.5778.10762, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.JsonResult.1.0.5778.10762\lib\net40\Newtonsoft.JsonResult.dll</HintPath>
     </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -98,7 +117,13 @@
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="HomeCliente.aspx" />
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.3.min.js" />
     <Content Include="Vista\ActProductos.aspx" />
+    <Content Include="Vista\Chat\ChatLinea.aspx" />
     <Content Include="Vista\Css\Actualiza.css" />
     <Content Include="HomeAdmi.aspx" />
     <Content Include="Vista\Css\Actualizar.css" />
@@ -131,6 +156,7 @@
     <Content Include="Vista\Trabajador\ListHorario.aspx" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Productos.aspx" />
+    <Content Include="Vista\ProductosHo.aspx" />
     <Content Include="Vista\RegistrarCliente.aspx" />
     <Content Include="Vista\Servicio\css\Boton.css" />
     <Content Include="Vista\Servicio\css\CardServicio.css" />
@@ -146,6 +172,7 @@
     <Content Include="Vista\SweetAlert\Scripts\sweetalert-dev.js" />
     <Content Include="Vista\SweetAlert\Scripts\sweetalert.min.js" />
     <Content Include="Vista\SweetAlert\Styles\sweetalert.css" />
+    <Content Include="Vista\Ventas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +268,7 @@
     <Compile Include="Vista\ActProductos.aspx.designer.cs">
       <DependentUpon>ActProductos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Trabajador\Horario.aspx.cs">
+    <Compile Include="Vista\Horario.aspx.cs">
       <DependentUpon>Horario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -311,6 +338,13 @@
     <Compile Include="Vista\Productos.aspx.designer.cs">
       <DependentUpon>Productos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\ProductosHo.aspx.cs">
+      <DependentUpon>ProductosHo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\ProductosHo.aspx.designer.cs">
+      <DependentUpon>ProductosHo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\RegistrarCliente.aspx.cs">
       <DependentUpon>RegistrarCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -366,6 +400,13 @@
     </Compile>
     <Compile Include="Vista\Servicio\Servicios.aspx.designer.cs">
       <DependentUpon>Servicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
