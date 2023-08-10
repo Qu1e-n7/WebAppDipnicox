@@ -112,7 +112,6 @@
     <Content Include="Vista\Css\Modal.css" />
     <Content Include="Vista\Css\Notificacion.css" />
     <Content Include="Vista\Css\TextBox.css" />
-    <Content Include="Vista\Horario.aspx" />
     <Content Include="Vista\Imagenes\1271361.png" />
     <Content Include="Vista\Trabajador\Horario.aspx" />
     <Content Include="Vista\Imagenes\anadir-a-la-cesta.png" />
