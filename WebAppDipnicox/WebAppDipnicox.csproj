@@ -268,10 +268,6 @@
     <Compile Include="Vista\ActProductos.aspx.designer.cs">
       <DependentUpon>ActProductos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Horario.aspx.cs">
-      <DependentUpon>Horario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Vista\Trabajador\Horario.aspx.designer.cs">
       <DependentUpon>Horario.aspx</DependentUpon>
     </Compile>

@@ -105,19 +105,29 @@
                                 <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Productos</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="../../Vista/Administrador/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
+                                    <a href="../../../Vista/Administrador/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
                                 </li>
                                 <li>
-                                    <a href="../../Vista/Administrador/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
+                                    <a href="../../../Vista/Administrador/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Productos</span> </a>
+                                <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Ventas</span> </a>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li class="w-100">
-                                    <a href="../Vista/" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Lista de ventas</span></a>
+                                    <a href="../../../Vista/Ventas.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Lista de ventas</span></a>
+                                </li>
+                    
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Servicios</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+                                <li class="w-100">
+                                    <a href="../../../Vista/Servicio/RegistrarServicio.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Servicios</span></a>
                                 </li>
                     
                             </ul>
