@@ -35,5 +35,11 @@ namespace WebAppDipnicox
             var miDiv = (HtmlGenericControl)FindControl("notificac");
             miDiv.Attributes["data-count"] = count.ToString();
         }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session["Trabajador"] = "";
+            Response.Redirect("Home.aspx");
+        }
     }
 }

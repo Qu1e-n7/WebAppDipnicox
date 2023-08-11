@@ -22,7 +22,7 @@ p {
 }
 
 .inner-header {
-    height: 40vh;
+    height: 78vh;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -156,7 +156,7 @@ ins {
     object-fit: cover;
 }
 
-img {
+/*img {
     border-radius: 100%;
     border: 1px solid #ffffff22;
     width: 2rem;
@@ -164,7 +164,7 @@ img {
     object-fit: cover;
     margin: 0;
 }
-
+*/
 
 
 /* ins{

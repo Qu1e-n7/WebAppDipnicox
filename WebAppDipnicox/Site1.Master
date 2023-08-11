@@ -12,138 +12,141 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
     <link href="Vista/Css/StyleHome.css" rel="stylesheet" />
+    <link href="Vista/Css/BotonSalir.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
-    <!-- Modal notificacion-->
-    <div class="modal fade" id="Modalnotif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="cont">
-                <div class="row">
-                    <div class="ntPanel justify-content-center">
-                        <asp:Repeater ID="repnotif" runat="server">
-                            <ItemTemplate>
-                                <div class="noti mt-2">
-                                    <div class="d-flex justify-content-center mt-3">
-                                        <div class="img"></div>
-                                        <div class="textBox">
-                                            <div class="textContent">
-                                                <p class="h1"><%# Eval("Titulo") %> </p>
-                                                <span class="span">12 min ago</span>
-                                            </div>
-                                            <p class="p"><%# Eval("Descripcion") %> </p>
-                                            <div>
+    <form id="form1" runat="server">
+        <!-- Modal notificacion-->
+        <div class="modal fade" id="Modalnotif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="cont">
+                    <div class="row">
+                        <div class="ntPanel justify-content-center">
+                            <asp:Repeater ID="repnotif" runat="server">
+                                <ItemTemplate>
+                                    <div class="noti mt-2">
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <div class="img"></div>
+                                            <div class="textBox">
+                                                <div class="textContent">
+                                                    <p class="h1"><%# Eval("Titulo") %> </p>
+                                                    <span class="span">12 min ago</span>
+                                                </div>
+                                                <p class="p"><%# Eval("Descripcion") %> </p>
+                                                <div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container">
-            <div class="menu">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse p-2" id="collapsibleNavbar">
-                    <div class="navbar-nav ac">
-                        <div class=" nav-item nav-">
-                            <asp:Label ID="Dipni" runat="server" Text="Dipnicox"></asp:Label>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container">
+                <div class="menu">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse p-2" id="collapsibleNavbar">
+                        <div class="navbar-nav ac">
+                            <div class=" nav-item nav-">
 
-                            <a class="nav-link pr-10" href="../HomeAdmin.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
-                        </div>
-                        <div class="nav-item">
-                            <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Categoría</font></font></a>
-                        </div>
-                        <div class="nav-item">
-                            <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso</font></font></a>
-                        </div>
-                        <div class="conten">
-                            <div id="notificac" class="notifica" data-count="0" runat="server">
-                                <button class="btnn nof bi bi-bell-fill" data-bs-toggle="modal" data-bs-target="#Modalnotif"></button>
+                                <a class="nav-link pr-10" href="../HomeAdmin.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Categoría</font></font></a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso</font></font></a>
+                            </div>
+                            <div class="conten">
+                                <div id="notificac" class="notifica" data-count="0" runat="server">
+                                    <button class="btnn nof bi bi-bell-fill" data-bs-toggle="modal" data-bs-target="#Modalnotif"></button>
+                                </div>
+                            </div>
+                            <div class="nav-item" style="margin-top: -10px; margin-left: 100%;">
+                                <asp:Button ID="btnCerrar" CssClass="buton" runat="server" Text="Cerrar Sesion" OnClick="btnCerrar_Click" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <div class="container-fluid">
-        <div class="menu_ad">
-        </div>
-        <div class="row flex-nowrap">
-            <div class="col col-md-3 col-xl-2 bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100">
-                    <div class="row justify-content-center text-center mt-col-auto mt-5">
-                        <asp:Label ID="Label1" runat="server" Text="Administrador"></asp:Label>
-                        <asp:Image ID="imgAdm" src="../Vista/Imagenes/IcoAdmi.png" runat="server" Style="height: 110px; width: auto;" />
-                        <asp:Label ID="ReDatos" runat="server" data-bs-toggle="collapse" class="nav-link px-0 align-middle" Text="Label"></asp:Label>
-                    </div>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5" id="menu">
-                        <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Personal</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="../../Vista/Administrador/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
-                                </li>
-                                <li>
-                                    <a href="../../Vista/Administrador/ListarPersonal1.aspx" class="nav-link bi-person-lines-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Personal</span>  </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Productos</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="../../../Vista/Administrador/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
-                                </li>
-                                <li>
-                                    <a href="../../../Vista/Administrador/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Ventas</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="../../../Vista/Ventas.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Lista de ventas</span></a>
-                                </li>
-                    
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Servicios</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
-                                <li class="w-100">
-                                    <a href="../../../Vista/Servicio/RegistrarServicio.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Servicios</span></a>
-                                </li>
-                    
-                            </ul>
-                        </li>
-                    </ul>
-                    <hr>
-                </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="menu_ad">
             </div>
-            <form id="form1" runat="server">
+            <div class="row flex-nowrap">
+                <div class="col col-md-3 col-xl-2 bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100">
+                        <div class="row justify-content-center text-center mt-col-auto mt-5">
+                            <asp:Label ID="Label1" runat="server" Text="Administrador"></asp:Label>
+                            <asp:Image ID="imgAdm" src="../Vista/Imagenes/IcoAdmi.png" runat="server" Style="height: 110px; width: auto;" />
+                            <asp:Label ID="ReDatos" runat="server" data-bs-toggle="collapse" class="nav-link px-0 align-middle" Text="Label"></asp:Label>
+                        </div>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5" id="menu">
+                            <li>
+                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-people" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Personal</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                    <li class="w-100">
+                                        <a href="../../Vista/Administrador/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
+                                    </li>
+                                    <li>
+                                        <a href="../../Vista/Administrador/ListarPersonal1.aspx" class="nav-link bi-person-lines-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Personal</span>  </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Productos</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                    <li class="w-100">
+                                        <a href="../../../Vista/Administrador/RegProductos.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Producto</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="../../../Vista/Administrador/ListaProductos.aspx" class="nav-link bi-filter-circle-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Producto</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Ventas</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                    <li class="w-100">
+                                        <a href="../../../Vista/Ventas.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Lista de ventas</span></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Servicios</span> </a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+                                    <li class="w-100">
+                                        <a href="../../../Vista/Servicio/RegistrarServicio.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Servicios</span></a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                </div>
+
                 <div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
-            </form>
-        </div>
-    </div>
 
+            </div>
+        </div>
+    </form>
 </body>
 </html>
