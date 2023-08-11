@@ -42,9 +42,8 @@ namespace WebAppDipnicox.Vista
         {
             ClHorarioL obHorario = new ClHorarioL();
             ClHorarioDiaE obDatos = new ClHorarioDiaE();
-
-            obDatos.idHorario = 1;
-
+            int idHorario = int.Parse(HttpContext.Current.Session["idHorario"].ToString());
+            obDatos.idHorario = idHorario;
             List<ClDiaE> Dias = obHorario.mtdListaDias();
             for (int i = 0; i < Dias.Count; i++)
             {

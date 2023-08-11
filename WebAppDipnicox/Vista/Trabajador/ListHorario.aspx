@@ -119,42 +119,40 @@
                         id = $(this).data('iddia');
                         var divhor = document.getElementById('<%= diho.ClientID %>');
                         divhor.className = 'horar ms-5 pt-3 d-block';
-                        $.ajax({
-                            type: "Post",
-                            url: "ListHorario.aspx/mtdListHoraDia",
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            data: JSON.stringify({ id: id }),
-                            success: function (response) {
-                                var data = response.d;
-                                console.log(data);
-                                var lblDia = document.getElementById('<%= lblDia.ClientID %>');
-                                var txtid = document.getElementById('<%= txtid.ClientID %>');
-                                var txtHIni = document.getElementById('<%= txtHoraIni.ClientID %>');
-                                var txtHFin = document.getElementById('<%= txtHoraFin.ClientID %>');
-                                lblDia.textContent = data.Dia;
-                                txtid.value = data.idHorarioDia;
-                                //Hora Inicial
-                                var HInicio = new Date();
-                                HInicio.setHours(data.HoraInicio.Hours);
-                                HInicio.setMinutes(data.HoraInicio.Minutes);
-                                txtHIni.value = HInicio.getHours().toString().padStart(2, '0') + ':' + HInicio.getMinutes().toString().padStart(2, '0');
-                                //Hora Fin
-                                var HFin = new Date();
-                                HFin.setHours(data.HoraFinal.Hours);
-                                HFin.setMinutes(data.HoraFinal.Minutes);
-                                txtHFin.value = HFin.getHours().toString().padStart(2, '0') + ':' + HFin.getMinutes().toString().padStart(2, '0');
-                            }
-                        });
-
-
+                        HoraDia(id);
                     })
-
                 }
-
             });
-
         });
+        function HoraDia(id) {
+            $.ajax({
+                type: "Post",
+                url: "ListHorario.aspx/mtdListHoraDia",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ id: id }),
+                success: function (response) {
+                    var data = response.d;
+                    console.log(data);
+                    var lblDia = document.getElementById('<%= lblDia.ClientID %>');
+                    var txtid = document.getElementById('<%= txtid.ClientID %>');
+                    var txtHIni = document.getElementById('<%= txtHoraIni.ClientID %>');
+                    var txtHFin = document.getElementById('<%= txtHoraFin.ClientID %>');
+                    lblDia.textContent = data.Dia;
+                    txtid.value = data.idHorarioDia;
+                    //Hora Inicial
+                    var HInicio = new Date();
+                    HInicio.setHours(data.HoraInicio.Hours);
+                    HInicio.setMinutes(data.HoraInicio.Minutes);
+                    txtHIni.value = HInicio.getHours().toString().padStart(2, '0') + ':' + HInicio.getMinutes().toString().padStart(2, '0');
+                    //Hora Fin
+                    var HFin = new Date();
+                    HFin.setHours(data.HoraFinal.Hours);
+                    HFin.setMinutes(data.HoraFinal.Minutes);
+                    txtHFin.value = HFin.getHours().toString().padStart(2, '0') + ':' + HFin.getMinutes().toString().padStart(2, '0');
+                }
+            });
+        }
         function AddHorario() {
             $.ajax({
                 type: "Post",
@@ -163,7 +161,7 @@
                 dataType: "json",
                 success: function (response) {
                     var data = response.d;
-                    if (data!="") {
+                    if (data != "") {
                         location.href = data;
                     }
                 }

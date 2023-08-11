@@ -74,7 +74,7 @@
                                 <div class="card-body">
                                     <div class="nft">
                                         <div class="main">
-                                            <img src="Vista/Imagenes/Productos/<%# Eval("Image") %>" class="tokenImage card-img-top" alt="nft">
+                                            <img src="Imagenes/Productos/<%# Eval("Image") %>" class="tokenImage card-img-top" alt="nft">
                                             <h5 class="card-title" style="color: #AE87EC;"><%# Eval("Nombre") %> </h5>
                                             <p class="card-text" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
                                             <div class="card-body">
