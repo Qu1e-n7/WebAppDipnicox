@@ -22,7 +22,7 @@
     <div style="width: 1100px">
         <div id="dataTableContainer" class="table-responsive">
             <table id="tblTrabajador" class="table" style="width: 100%; color: #ffffff">
-                <thead style="color: #0070ff">
+                <thead style="color: #99b8df ">
                     <tr>
 
                         <th>Documento</th>

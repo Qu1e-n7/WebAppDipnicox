@@ -27,8 +27,8 @@
                         </div>
                         <p class="close-btn" onclick="closeBtn()">X</p>
 
-                        <div id="carComp" class="carrito-items">
-                            <ul id="listaCarrito" style="background-color: blue; border-radius: 10px;">
+                        <div id="carComp" class="carrito-items" style="height: 350px;overflow: scroll;">
+                            <ul id="listaCarrito" style="background-color: #386eb3; border-radius: 10px;">
                             </ul>
                         </div>
                         <%--Pago--%>
@@ -121,14 +121,14 @@
                                 <div class="carrito-item-detalles">
                                     <span class="carrito-item-titulo">${listProd[i].Nombre}</span>
                                     <div class="selector-cantidad">
-                                        <i class="uil uil-angle-left-b restar-cantidad"></i>
-                                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                                            <i class="uil uil-angle-right sumar-cantidad"></i>
+                                        <i class="bi bi-caret-left-fill" onclick="SumarCarr()"></i>
+                                        <input type="text" id="lblCantidad" value="${listProd[i].Cantidad}" class="carrito-item-cantidad" disabled>
+                                            <i class="bi bi-caret-right-fill" onclick="RestarCarr()""></i>
                                     </div>
 
                                     <span class="carrito-item-precio">${listProd[i].Total}</span>
                                 </div>
-                                <button class="ms-5 btn btn-$indigo-400 p-2" onclick="EliminarCarr(${listProd[i].idProductoVenta})">Eliminar</button>
+                                <button class="ms-5 btn btn-indigo-400 p-2" onclick="EliminarCarr(${listProd[i].idProductoVenta})">Eliminar</button>
                         </div>
                         <li>`;
                         TotalPagar = TotalPagar + listProd[i].Total;

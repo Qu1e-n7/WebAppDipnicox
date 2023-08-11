@@ -24,7 +24,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: 1100px">
         <table id="tblUsua" class="table" style="color: #ffffff">
-            <thead style="color:#0070ff ">
+            <thead style="color:#99b8df  ">
                 <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>

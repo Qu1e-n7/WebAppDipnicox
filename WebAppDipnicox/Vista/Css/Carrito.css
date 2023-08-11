@@ -62,7 +62,7 @@ header {
     padding: 0 18px;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0%);
     display: none;
-    min-width: 290px;
+    width: 590px;
 }
 
 .cart:hover {
