@@ -18,8 +18,11 @@ namespace WebAppDipnicox
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClClienteE obdatos = (ClClienteE)Session["Usuario"];
-            lblNombre.Text = obdatos.Nombre + " " + obdatos.Apellido;
+            if (!IsPostBack)
+            {
+                ClClienteE obdatos = (ClClienteE)Session["Usuario"];
+                lblNombre.Text = obdatos.Nombre + " " + obdatos.Apellido;
+            }
         }
 
     }
