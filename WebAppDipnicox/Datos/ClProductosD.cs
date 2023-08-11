@@ -112,7 +112,7 @@ namespace WebAppDipnicox.Datos
                 obDatos.Codigo = datosread["Codigo"].ToString();
                 obDatos.Nombre = datosread["Nombre"].ToString();
                 obDatos.Descripcion = datosread["Descripcion"].ToString();
-                //obDatos.Image = datosread["Imagen"].ToString();
+                obDatos.Image = datosread["Imagen"].ToString();
                 obDatos.Valor = Convert.ToInt32(datosread["ValorUni"]);
                 obDatos.Cantidad = Convert.ToInt32(datosread["Cantidad"]);
                 obDatos.UnidadMed = datosread["UnidadMedida"].ToString();

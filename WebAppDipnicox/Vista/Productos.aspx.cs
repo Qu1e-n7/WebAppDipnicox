@@ -34,7 +34,7 @@ namespace WebAppDipnicox.Vista
                         obDatos.Codigo = listProdu[i].Codigo;
                         obDatos.Nombre = listProdu[i].Nombre;
                         obDatos.Descripcion = listProdu[i].Descripcion;
-                        //obDatos.Image = datosread["Imagen"].ToString();
+                        obDatos.Image = listProdu[i].Image;
                         obDatos.Valor = listProdu[i].Valor;
                         obDatos.Cantidad = listProdu[i].Cantidad;
                         obDatos.UnidadMed = listProdu[i].UnidadMed;

@@ -26,8 +26,9 @@ namespace WebAppDipnicox.Vista
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClHorarioL obHorario = new ClHorarioL();
             int idHorario = obHorario.mtdidHorario(obPersonal.idPersonal);
-            string ruta = "/Vista/Horario.aspx";
-            if (idHorario != 0)
+            HttpContext.Current.Session["idHorario"]=idHorario;
+            string ruta = "/Vista/Trabajador/HorarioDia.aspx";
+            if (idHorario == 0)
             {
                 ClHorarioE obDatos = new ClHorarioE();
                 obDatos.FechaInicio = DateTime.Parse("1900-01-01");
