@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site4.Master" AutoEventWireup="true" CodeBehind="Servicios.aspx.cs" Inherits="WebAppDipnicox.Vista.Servicio.Servicios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/CardServicio.css" rel="stylesheet" />
+
+     <link href="css/CardServicio.css" rel="stylesheet" />
     <link href="css/Modal.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="../SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="CardCatego">
@@ -54,7 +56,7 @@
 
         <div class="modal-wrapper">
 
-            <h1 style="color: white;">Quiero Adquirir Este Servicio </h1>
+            <h2 style="color: white;">Quiero Adquirir Este Servicio </h2>
 
             <fieldset>
 
@@ -85,7 +87,7 @@
             var valor = elementoA.previousElementSibling.innerText;
             $.ajax({
                 type: "POST",
-                url: "Servicios.aspx/Listar",
+                url: "MostrarServicio.aspx/Listar",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify({ tipo: valor }),
@@ -102,7 +104,7 @@
         function activarBoton() {
             // Obtiene una referencia al botón
             console.log("bvb");
-            var boton = document.getElementById('<%= btnAgregarValor.ClientID %>');
+<%--            var boton = document.getElementById('<%= btnAgregarValor.ClientID %>');--%>
             console.log(boton);
             // Simula el clic en el botón
             if (boton) {

@@ -14,7 +14,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <header>
+    <header style="display:none;">
         <div class="header-section container">
 
             <div>
@@ -70,7 +70,7 @@
             <div class="tabs">
                 <label class="tab" id="one-tab" for="one">Datos Personales</label>
                 <label class="tab" id="two-tab" for="two">Datos de Contacto </label>
-                <label class="tab" id="three-tab" for="three">Servicio</label>
+                <label class="tab" id="three-tab" for="three">Otros</label>
             </div>
             <div class="panels">
                 <div class="panel" id="one-panel">

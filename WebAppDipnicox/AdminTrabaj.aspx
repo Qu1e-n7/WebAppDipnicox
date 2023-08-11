@@ -6,6 +6,7 @@
     <link href="Vista/Css/Cards.css" rel="stylesheet" />
     <link href="Vista/Css/Buscar.css" rel="stylesheet" />
     <link href="Vista/Css/Carrito.css" rel="stylesheet" />
+    <link href="Vista/Css/CSSDipnicox.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -58,7 +59,20 @@
                     </div>
                 </div>
         </header>
-        <h2>Bienvenido Trabajador</h2>
+         <div class="inner-header flex">
+            <div class="animated-word">
+                <div class="letter">T</div>
+                <div class="letter">R</div>
+                <div class="letter">A</div>
+                <div class="letter">B</div>
+                <div class="letter">A</div>
+                <div class="letter">J</div>
+                <div class="letter">A</div>
+                <div class="letter">D</div>
+                <div class="letter">O</div>
+                <div class="letter">R</div>
+            </div>
+        </div>
         <br />
 
 
