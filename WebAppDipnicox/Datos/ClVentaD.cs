@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WebAppDipnicox.Entidades;
+using WebAppDipnicox.Vista;
 
 namespace WebAppDipnicox.Datos
 {
@@ -29,7 +30,7 @@ namespace WebAppDipnicox.Datos
             while (rd.Read()) {
                 obDatos = new ClVentaE();
                 obDatos.idVenta = rd.GetInt32(0);
-                obDatos.Codigo = rd.GetString(1);
+                obDatos.Codigo = rd.GetString(1) ;
                 obDatos.Fecha = rd.IsDBNull(2) ? null : rd.GetString(2); ;
                 obDatos.Estado = rd.GetString(3);
                 obDatos.TotalVen = rd.IsDBNull(4) ? null : rd.GetString(4); ;
@@ -50,10 +51,26 @@ namespace WebAppDipnicox.Datos
             actu.Parameters.AddWithValue("@idVenta", obDatos.idVenta );
             int actualizar= actu.ExecuteNonQuery();
             return actualizar;
-
-
         }
 
+        public List<ClVentaE> mtdConfirma()
+        {
+            SqlCommand Lista = objSQL.mtdProcesoAlmacenado("ListarVentasConfi");
+            SqlDataReader rd = Lista.ExecuteReader();
+            ClVentaE obDatos = null;
+            List<ClVentaE> listaventa = new List<ClVentaE>();
+            while (rd.Read())
+            {
+                obDatos = new ClVentaE();
+                obDatos.Codigo = rd.GetString(0);
+                obDatos.Fecha = rd.GetString(1);
+                obDatos.Total = rd.GetInt32(2);
+                obDatos.Cliente = rd.GetString(3);
+                obDatos.Personal = rd.GetString(4);
+                obDatos.TipVent = rd.GetString(5);
+            }
+            return listaventa;
+        }
         
     }
 }

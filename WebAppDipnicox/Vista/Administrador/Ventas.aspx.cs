@@ -24,22 +24,8 @@ namespace WebAppDipnicox.Vista
         {
             ClVentaL obVentas= new ClVentaL();
             List<ClVentaE> list = obVentas.mtdVentaConfirmadas();
+            
             return list;
-        }
-        [WebMethod]
-        public static string Nombres (int idCliente, int idTrabajador)
-        {
-            string Nombres = "";
-            List<ClClienteE> ListaCliente = new List<ClClienteE>();
-            ClClienteL obCliente = new ClClienteL();
-            ClPersonalL obPersonal = new ClPersonalL();
-            if (idCliente!=0)
-            {
-                Nombres = obCliente.ListaNombre(idCliente);
-            }else if (idTrabajador!=0) {
-                Nombres = obPersonal.mtdNombres(idTrabajador);
-            }
-            return Nombres;
         }
     }
 }

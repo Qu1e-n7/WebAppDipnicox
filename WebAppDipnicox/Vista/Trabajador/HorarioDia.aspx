@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="Horario.aspx.cs" Inherits="WebAppDipnicox.Vista.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site3.Master" AutoEventWireup="true" CodeBehind="HorarioDia.aspx.cs" Inherits="WebAppDipnicox.Vista.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <link href="Css/Horario.css" rel="stylesheet" />
-    <script src="SweetAlert/Scripts/sweetalert.min.js"></script>
-    <link href="SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
+    <link href="../Css/Horario.css" rel="stylesheet" />
+    <script src="../SweetAlert/Scripts/sweetalert.min.js"></script>
+    <link href="../SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="conta">
@@ -121,14 +121,14 @@
         function Horario(HoraIni, HoraFin, Dia) {
             $.ajax({
                 type: "POST",
-                url: "Horario.aspx/mtdAgregarHor",
+                url: "HorarioDia.aspx/mtdAgregarHor",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 data: JSON.stringify({ txtInicio: HoraIni, txtFinal: HoraFin, dia: Dia }),
                 success: function (dat) {
                     var Regis = dat.d;
                     if (Regis != 0) {
-                        alert("Sii");
+                        alert("Se registro Horas del dia");
                     }
                 }, error: function (xhr, textStatus, errorThrown) {
                     // Manejar cualquier error que ocurra durante la llamada AJAX

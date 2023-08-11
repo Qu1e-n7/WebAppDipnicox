@@ -13,7 +13,12 @@ namespace WebAppDipnicox.Entidades
         public string Estado { get; set; }
         public string TotalVen { get; set; }
         public int? idCliente { get; set; }
+        public string Cliente { get; set; }
         public int? idPersonal { get; set; }
+        public string Personal { get; set; }
+
         public int? idTipoVenta { get; set; }
+        public string TipVent { get; set; }
+
     }
 }

@@ -206,7 +206,7 @@
                     data: JSON.stringify({ id: idProducto }),
                     success: function (dat) {
                         var Carga = dat.d;
-                        document.getElementById('<%= imagen.ClientID %>').src = 'Imagenes/Productos/' + Carga[0]["Image"];
+                        document.getElementById('<%= imagen.ClientID %>').src = '../Imagenes/Productos/' + Carga[0]["Image"];
                         document.getElementById('<%= txtCodigo.ClientID %>').value = Carga[0]["Codigo"];
                         document.getElementById('<%= txtNombre.ClientID %>').value = Carga[0]["Nombre"];
                         document.getElementById('<%= txtDescrip.ClientID %>').value = Carga[0]["Descripcion"];

@@ -37,33 +37,31 @@ namespace WebAppDipnicox.Vista
             obDatos.Nombre = txtNombre.Text;
             string nomImagen = FPImage.FileName;
             string ruta = "/Vista/Imagenes/Productos/";
-
-            ////Cambio de nombre
-            //string NomNewImgJ = txtCodigo.Text + ".jpg";
-            //string NomNewImgP = txtCodigo.Text + ".png";
+            //Cambio de nombre
+            string NomNewImgJ = txtCodigo.Text + ".jpg";
+            string NomNewImgP = txtCodigo.Text + ".png";
             if (FPImage.HasFile)
             {
                 //si hay una archivo.
-                FPImage.SaveAs(Server.MapPath(ruta+nomImagen));
-                //if (FPImage.PostedFile.ContentType == "image/jpeg" || FPImage.PostedFile.ContentType == "image/jpg")
-                //{
-                //    System.IO.File.Move(Server.MapPath(ruta), Server.MapPath(RutaNew + NomNewImgJ));
-                //    obDatos.Image = NomNewImgP;
-                //}
-                //else if (FPImage.PostedFile.ContentType == "image/png")
-                //{
-                //    System.IO.File.Move(Server.MapPath(ruta), Server.MapPath(RutaNew + NomNewImgP));
-                //    obDatos.Image = NomNewImgP;
-                //}
+                //FPImage.SaveAs(Server.MapPath(ruta+nomImagen));
+                if (FPImage.PostedFile.ContentType == "image/jpeg" || FPImage.PostedFile.ContentType == "image/jpg")
+                {
+                    FPImage.SaveAs(Server.MapPath(ruta +  NomNewImgJ));
+                    obDatos.Image = NomNewImgP;
+                }
+                else if (FPImage.PostedFile.ContentType == "image/png")
+                {
+                    FPImage.SaveAs(Server.MapPath(ruta + NomNewImgP));
+                    obDatos.Image = NomNewImgP;
+                }
             }
             obDatos.Descripcion = txtDescripcion.Text;
-            obDatos.Image = FPImage.FileName;
             obDatos.Valor = int.Parse(txtValor.Text);
             obDatos.Cantidad = int.Parse(txtCantidad.Text);
             obDatos.UnidadMed = txtMedidad.Text;
             obDatos.idTipoProducto = int.Parse(ddlTipoProduc.SelectedValue.ToString());
             int Registrar = obProd.mtdRegistar(obDatos);
-            if (Registrar == 1)
+            if (Registrar != 0)
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Producto Registrado!', 'Su Producto ha Sido Registrado Con Exito', 'success')", true);
             }
