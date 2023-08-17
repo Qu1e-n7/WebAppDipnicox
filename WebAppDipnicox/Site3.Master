@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css" />
     <link href="Vista/Css/StyleHome.css" rel="stylesheet" />
     <link href="Vista/Css/BotonSalir.css" rel="stylesheet" />
+    <link href="Vista/Css/Notificacion.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -60,11 +61,15 @@
                                 <a class="nav-link pr-10" href="../../AdminTrabaj.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
                             </div>
                             <div class="nav-item">
-                                <a class="nav-link mr-10" href="../Vista/Servicio/IncluirServicio.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a>
+                                <a class="nav-link mr-10" href="../../Vista/Servicio/IncluirServicio.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perfil</font></font></a>
                             </div>
 
                             <div class="nav-item">
-                                <a class="nav-link mr-10" href="../Vista/Trabajador/ListHorario.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Horario</font></font></a>
+                                <a class="nav-link mr-10" href="../../Vista/Trabajador/ListHorario.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Horario</font></font></a>
+                            </div>
+
+                            <div class="nav-item">
+                                <a class="nav-link mr-10" href="../../Vista/Chat/ChatLinea.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chat</font></font></a>
                             </div>
 
                             <div class="conten">

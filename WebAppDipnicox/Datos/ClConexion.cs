@@ -12,9 +12,9 @@ namespace WebAppDipnicox.Datos
         public SqlConnection mtdConexion()
         {
             //conexion = new SqlConnection("Data Source=SOGAPRRBCFSD544\\SQLEXPRESS;Initial Catalog=dbDipnicox;User ID=Quien;Password=q123");
-            //conexion = new SqlConnection("Data Source=DESKTOP-44I9G0O;Initial Catalog=dbDipnicox;Integrated Security=True");
+            conexion = new SqlConnection("Data Source=DESKTOP-44I9G0O;Initial Catalog=dbDipnicox;User ID=Quien1;Password=1234");
 
-            conexion = new SqlConnection("Data Source=DESKTOP-JRTUVHD\\SQLEXPRESS;Initial Catalog=dbDipnicox;Integrated Security=True");
+            //conexion = new SqlConnection("Data Source=DESKTOP-JRTUVHD\\SQLEXPRESS;Initial Catalog=dbDipnicox;Integrated Security=True");
 
             conexion.Open();
             return conexion;

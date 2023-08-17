@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Management;
 
 namespace WebAppDipnicox.Datos
 {
@@ -24,21 +25,30 @@ namespace WebAppDipnicox.Datos
         // Ejecuta Consulta en Forma Conectada
         public int mtdIUDConec(string consulta)
         {
-            ClConexion objConexion = new ClConexion();
-            SqlCommand comando = new SqlCommand(consulta, objConexion.mtdConexion());
-            int registro = comando.ExecuteNonQuery();
-            objConexion.mtdConexion().Close();
-            return registro;
+            try
+            {
+                ClConexion objConexion = new ClConexion();
+                SqlCommand comando = new SqlCommand(consulta, objConexion.mtdConexion());
+                int registro = comando.ExecuteNonQuery();
+                objConexion.mtdConexion().Close();
+                return registro;
+            }
+            catch (SqlException ex)
+            {
+                return 0;
+
+            }
+
         }
 
-        
+
         //Proceso almacenado
-        public SqlCommand mtdProcesoAlmacenado (string Proceso)
+        public SqlCommand mtdProcesoAlmacenado(string Proceso)
         {
             ClConexion objConexion = new ClConexion();
             SqlCommand comando = new SqlCommand(Proceso, objConexion.mtdConexion());
             comando.CommandType = CommandType.StoredProcedure;
-            
+
             return comando;
         }
         public SqlCommand mtdTrigger(string consult)

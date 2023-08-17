@@ -102,7 +102,31 @@
         function closeBtn() {
             document.getElementById("products-id").style.display = "none";
         }
+        function SumarCarr(mas) {
+            var lbcantidad = mas.parentElement.querySelector('.carrito-item-cantidad');
+            var cant = parseInt(lbcantidad.value, 10);
+            cant++;
+            lbcantidad.value = cant;
+            //ActTotal(mas, cant);
+        }
+        function RestarCarr(menos) {
+            var lbcantidad = menos.parentElement.querySelector('.carrito-item-cantidad');
+            var cant = parseInt(lbcantidad.value, 10);
+            cant--;
+            lbcantidad.value = cant;
+            //ActTotal(menos, cant);
+        }
+        
+        //function ActTotal(TipCan, Cantidad) {
+        //    var precioElemento = TipCan.closest('.carrito-item').querySelector('.carrito-item-precio');
+        //    var precioUnitario = parseFloat(precioElemento.textContent); // Obtener el precio unitario del elemento
 
+        //    var totalElemento = TipCan.closest('.carrito-item').querySelector('.carrito-item-total');
+        //    var totalActual = parseFloat(totalElemento.textContent); // Obtener el total actual del elemento
+
+        //    var NuevTotal = precioUnitario * Cantidad;
+        //    totalActual.textContent = NuevTotal;
+        //}
         function ListarCarro() {
             $.ajax({
                 type: "POST",
@@ -121,9 +145,9 @@
                                 <div class="carrito-item-detalles">
                                     <span class="carrito-item-titulo">${listProd[i].Nombre}</span>
                                     <div class="selector-cantidad">
-                                        <i class="bi bi-caret-left-fill" onclick="SumarCarr()"></i>
-                                        <input type="text" id="lblCantidad" value="${listProd[i].Cantidad}" class="carrito-item-cantidad" disabled>
-                                            <i class="bi bi-caret-right-fill" onclick="RestarCarr()""></i>
+                                        <i class="bi bi-caret-left-fill" onclick="RestarCarr(this)"></i>
+                                        <input type="text" value="${listProd[i].Cantidad}" class="carrito-item-cantidad" disabled>
+                                            <i class="bi bi-caret-right-fill" onclick="SumarCarr(this)""></i>
                                     </div>
 
                                     <span class="carrito-item-precio">${listProd[i].Total}</span>

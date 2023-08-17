@@ -34,7 +34,7 @@
                         <p class="close-btn" onclick="closeBtn()">X</p>
 
                         <div id="carComp" class="carrito-items">
-                            <ul id="listaCarrito" style="background-color: blue; border-radius: 10px;">
+                            <ul id="listaCarrito" style="background-color: #386eb3; border-radius: 10px;">
                             </ul>
                         </div>
                         <%--Pago--%>
@@ -102,7 +102,13 @@
                         <div class="col-md-5">
                             <div class="titlepage">
                                 <h2>Sobre <span class="green">Nosotros</span></h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humourThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                                <p>Somos una empresa dedicada a brindar soluciones en cámaras de seguridad y servicio técnico. Con años de experiencia en el mercado, nos enorgullece 
+                                    ofrecer productos y servicios de alta calidad para garantizar la seguridad de nuestros clientes.
+                                    
+                                    Nuestro equipo de profesionales altamente capacitados está comprometido en proporcionar las mejores soluciones y asesoramiento personalizado para
+                                    satisfacer las necesidades únicas de cada cliente. Ya sea para la instalación de sistemas de cámaras de seguridad o para la reparación y mantenimiento 
+                                    de equipos, estamos aquí para ayudarte.
+                                    En Dipnicox, nos esforzamos por superar las expectativas de nuestros clientes y brindar un servicio excepcional.</p>
 
                             </div>
                         </div>
@@ -201,14 +207,14 @@
                                 <div class="carrito-item-detalles">
                                     <span class="carrito-item-titulo">${listProd[i].Nombre}</span>
                                     <div class="selector-cantidad">
-                                        <i class="uil uil-angle-left-b restar-cantidad"></i>
-                                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                                            <i class="uil uil-angle-right sumar-cantidad"></i>
+                                        <i class="bi bi-caret-left-fill" onclick="RestarCarr(this)"></i>
+                                        <input type="text" value="${listProd[i].Cantidad}" class="carrito-item-cantidad" disabled>
+                                            <i class="bi bi-caret-right-fill" onclick="SumarCarr(this)""></i>
                                     </div>
 
                                     <span class="carrito-item-precio">${listProd[i].Total}</span>
                                 </div>
-                                <button class="ms-5 btn btn-$indigo-400 p-2" onclick="EliminarCarr(${listProd[i].idProductoVenta})">Eliminar</button>
+                                <button class="ms-5 btn btn-indigo-400 p-2" onclick="EliminarCarr(${listProd[i].idProductoVenta})">Eliminar</button>
                         </div>
                         <li>`;
                         TotalPagar = TotalPagar + listProd[i].Total;

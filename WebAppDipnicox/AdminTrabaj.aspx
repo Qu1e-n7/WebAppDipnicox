@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link href="Vista/Css/Cards.css" rel="stylesheet" />
+    <link href="Vista/Css/Cards1.css" rel="stylesheet" />
     <link href="Vista/Css/Buscar.css" rel="stylesheet" />
     <link href="Vista/Css/Carrito.css" rel="stylesheet" />
     <link href="Vista/Css/CSSDipnicox.css" rel="stylesheet" />
@@ -20,12 +20,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="CardCatego">
+    <div class="CardCatego" ">
         <header>
             <div class="header-section container">
                 <div>
-                    <img onclick="showCart(this)" class="cart" src="Vista/Imagenes/anadir-a-la-cesta.png" alt="">
-                    <asp:Label ID="lblcontador" class="count-product" runat="server" Text="0"></asp:Label>
+                    <img onclick="showCart()" class="cart" src="/Vista/Imagenes/anadir-a-la-cesta.png" alt="">
+                    <asp:Label ID="lblcontador" class="count-product" runat="server" Text="0" Style="color: white;"></asp:Label>
                     <%--<p id="contador"  runat="server" >0</p>--%>
                 </div>
                 <div class="cart-products" id="products-id">
@@ -38,8 +38,8 @@
                             </div>
                             <p class="close-btn" onclick="closeBtn()">X</p>
 
-                            <div id="carComp" class="carrito-items">
-                                <ul id="listaCarrito" style="background-color: blue; border-radius: 10px;">
+                            <div id="carComp" class="carrito-items" style="height: 350px; overflow: scroll;">
+                                <ul id="listaCarrito" style="background-color: #386eb3; border-radius: 10px;">
                                 </ul>
                             </div>
                             <%--Pago--%>
@@ -48,9 +48,21 @@
                                     <h2>Total A Pagar</h2>
                                     <asp:Label ID="lblcontPrecio" ClientIDMode="Static" CssClass="price-total" runat="server"></asp:Label>
                                     <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
-                                    <asp:DropDownList ID="ddlTipoVenta" runat="server" OnSelectedIndexChanged="ddlTipoVenta_SelectedIndexChanged" onchange="mostrarElemento()"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlTipoVenta" runat="server" onchange="mostrarElemento()"></asp:DropDownList>
                                     <asp:Button ID="btnPagar" runat="server" Text="Pagar" Style="display: none;" OnClick="btnPagar_Click" />
                                     <div id="panelContenedor" style="display: none;">
+                                        <section>
+                                            <div id="paypal-button-container"></div>
+
+                                            <div id="successMessage" style="display: none;">
+                                                !Pago Exitoso! El Pago Ha Sido Realizado Con Exito.
+                                            </div>
+
+                                            <div id="cancelMessage" style="display: none;">
+                                                ¡Pago Cancelado! El Pago Ha Sido Cancelado.
+                                            </div>
+
+                                        </section>
                                     </div>
                                 </div>
 
@@ -58,8 +70,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </header>
-         <div class="inner-header flex">
+        <div class="inner-header flex">
             <div class="animated-word">
                 <div class="letter">T</div>
                 <div class="letter">R</div>
@@ -95,7 +108,7 @@
                                     <div class="card-body">
                                         <div class="nft">
                                             <div class="main">
-                                                <img src="#" class="img-item tokenImage card-img-top" alt="nft">
+                                                <img src="Vista/Imagenes/Productos/<%# Eval("Image") %>" class="tokenImage card-img-top" alt="nft">
                                                 <h3 class="titulo-item" style="color: #AE87EC;"><%# Eval("Nombre") %> </h3>
                                                 <p class="card-body" style="color: #a89ec9;"><%# Eval("Descripcion") %></p>
                                                 <p class="precio-item" style="color: #a89ec9;"><%# Eval("Valor") %> </p>
@@ -126,6 +139,20 @@
     </div>
 
     <script>
+        function SumarCarr(mas) {
+            var lbcantidad = mas.parentElement.querySelector('.carrito-item-cantidad');
+            var cant = parseInt(lbcantidad.value, 10);
+            cant++;
+            lbcantidad.value = cant;
+            //ActTotal(mas, cant);
+        }
+        function RestarCarr(menos) {
+            var lbcantidad = menos.parentElement.querySelector('.carrito-item-cantidad');
+            var cant = parseInt(lbcantidad.value, 10);
+            cant--;
+            lbcantidad.value = cant;
+            //ActTotal(menos, cant);
+        }
         $(document).ready(function () {
             $.ajax({
                 type: "POST",
@@ -214,23 +241,23 @@
                                 <div class="carrito-item-detalles">
                                     <span class="carrito-item-titulo">${data[i].Nombre}</span>
                                     <div class="selector-cantidad">
-                                        <i class="uil uil-angle-left-b restar-cantidad"></i>
-                                        <input type="text" value="1" class="carrito-item-cantidad" disabled>
-                                            <i class="uil uil-angle-right sumar-cantidad"></i>
+                                        <i class="bi bi-caret-left-fill" onclick="RestarCarr(this)"></i>
+                                        <input type="text" value="${data[i].Cantidad}" class="carrito-item-cantidad" disabled>
+                                            <i class="bi bi-caret-right-fill" onclick="SumarCarr(this)""></i>
                                     </div>
 
                                     <span class="carrito-item-precio">${data[i].Total}</span>
                                 </div>
-                                <button class="ms-5 btn btn-$indigo-400 p-2" onclick="EliminarCarr(${data[i].idProductoVenta});">Eliminar</button>
+                                <button class="ms-5 btn btn-indigo-400 p-2" onclick="EliminarCarr(${data[i].idProductoVenta})">Eliminar</button>
                         </div>
                         <li>`;
                 TotalPagar = TotalPagar + data[i].Total;
             }
-            
+
             ListaCarr.innerHTML = rptDatos;
             actualizarContador(data.length);
             TotalPgar(TotalPagar);
-            
+
         }
         function TotalPgar(TotalP) {
             var lblTotal = document.getElementById("<%= lblcontPrecio.ClientID %>");
@@ -257,10 +284,10 @@
                 data: JSON.stringify({ idProVen: idProVent }),
                 success: function (response) {
                     var datos = response.d;
-                    if (datos=!null) {
+                    if (datos = !null) {
                         alert('se elimino');
                     }
-                    
+
                 }, error: function (xhr, textStatus, errorThrown) {
                     // Manejar cualquier error que ocurra durante la llamada AJvar rptListCarrito = document.getElementById('rptListCarrito');
                     console.error(errorThrown);

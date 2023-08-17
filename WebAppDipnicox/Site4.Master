@@ -44,7 +44,10 @@
                                 <a class="nav-link mr-10" href="../Vista/Servicio/Servicios.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Servicio</font></font></a>
                             </div>
                             <div class="nav-item">
-                                <a class="nav-link mr-10" href="Vista/Productos.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Productos</font></font></a>
+                                <a class="nav-link mr-10" href="../../Vista/Productos.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Productos</font></font></a>
+                            </div>
+                               <div class="nav-item">
+                                <a class="nav-link mr-10" href="../../Vista/Chat/ChatLinea.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chat</font></font></a>
                             </div>
                             <div class="nav-item">
                                 <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">

@@ -33,9 +33,9 @@ namespace WebAppDipnicox.Logica
             return lista;
         }
 
-        public ClHorarioDiaE MtdListHoraDia(int idDia)
+        public ClHorarioDiaE MtdListHoraDia(int idDia, int idHorario)
         {
-            List<ClHorarioDiaE> lista = obHorario.mtdListHora(idDia);
+            List<ClHorarioDiaE> lista = obHorario.mtdListHora(idHorario);
             ClHorarioDiaE obHorarioE = new ClHorarioDiaE();
             for (int i = 0; i < lista.Count; i++)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -64,6 +65,7 @@ namespace WebAppDipnicox.Vista
             if (Registrar != 0)
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Producto Registrado!', 'Su Producto ha Sido Registrado Con Exito', 'success')", true);
+                mtdlimpiar();
             }
             else
             {
@@ -71,6 +73,15 @@ namespace WebAppDipnicox.Vista
 
             }
 
+        }
+        public void mtdlimpiar()
+        {
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            txtValor.Text = "";
+            txtCantidad.Text = "";
+            txtMedidad.Text = "";
         }
     }
 }

@@ -40,9 +40,10 @@ namespace WebAppDipnicox.Vista
         [WebMethod]
         public static int mtdAgregarHor(string txtInicio, string txtFinal, string dia)
         {
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClHorarioL obHorario = new ClHorarioL();
+            int idHorario = obHorario.mtdidHorario(obPersonal.idPersonal);
             ClHorarioDiaE obDatos = new ClHorarioDiaE();
-            int idHorario = int.Parse(HttpContext.Current.Session["idHorario"].ToString());
             obDatos.idHorario = idHorario;
             List<ClDiaE> Dias = obHorario.mtdListaDias();
             for (int i = 0; i < Dias.Count; i++)

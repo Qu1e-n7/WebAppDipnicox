@@ -5,13 +5,14 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Administrador</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
     <link href="Vista/Css/StyleHome.css" rel="stylesheet" />
+    <link href="Vista/Css/Notificacion.css" rel="stylesheet" />
     <link href="Vista/Css/BotonSalir.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -58,13 +59,10 @@
                         <div class="navbar-nav ac">
                             <div class=" nav-item nav-">
 
-                                <a class="nav-link pr-10" href="../HomeAdmin.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
+                                <a class="nav-link pr-10" href="../../../HomeAdmi.aspx"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inicio</font></font></a>
                             </div>
                             <div class="nav-item">
                                 <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Categoría</font></font></a>
-                            </div>
-                            <div class="nav-item">
-                                <a class="nav-link mr-10" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso</font></font></a>
                             </div>
                             <div class="conten">
                                 <div id="notificac" class="notifica" data-count="0" runat="server">
@@ -96,10 +94,10 @@
                                     <i class="fs-4 bi-people" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Personal</span> </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="../../Vista/Administrador/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
+                                        <a href="../../../Vista/Administrador/RegTrabajadores.aspx" class="nav-link bi-person-fill-add px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Registrar Personal</span>  </a>
                                     </li>
                                     <li>
-                                        <a href="../../Vista/Administrador/ListarPersonal1.aspx" class="nav-link bi-person-lines-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Personal</span>  </a>
+                                        <a href="../../../Vista/Administrador/ListarPersonal1.aspx" class="nav-link bi-person-lines-fill px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Listar Personal</span>  </a>
                                     </li>
                                 </ul>
                             </li>
@@ -120,7 +118,7 @@
                                     <i class="fs-4 bi-grid" style="color: #24be24"></i><span class="ms-1 d-none d-sm-inline" style="color: #fff">Ventas</span> </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="../../../Vista/Ventas.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Lista de ventas</span></a>
+                                        <a href="../../../Vista/Administrador/Ventas.aspx" class="nav-link bi-node-plus px-2" style="color: #24be24"><span class="d-none d-sm-inline px-1" style="color: #fff">Lista de ventas</span></a>
                                     </li>
 
                                 </ul>

@@ -57,14 +57,26 @@ namespace WebAppDipnicox.Vista
             ClPersonalL objPersonalL = new ClPersonalL();
             int resultado = objPersonalL.mtdRegistrar(objDatosPersonal);
 
-            if (resultado == 1)
+            if (resultado != 1)
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Usuario Registrado!', 'Su usuario ha Sido Registrado Con Exito', 'success')", true);
+                mtdLimpiar();
             }
             else
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Usuario No Registrado!', 'Su usuario no ha Sido Registrado', 'warning')", true);
             }
+        }
+
+        public void mtdLimpiar()
+        {
+            txtDocumento.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtTelefono.Text = "";
+            txtEstado.Text = "";
+            txtEmail.Text = "";
+            txtContraseña.Text = "";
         }
     }
 }

@@ -28,7 +28,7 @@ namespace WebAppDipnicox
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
             Session["Usuario"] = "";
-            Response.Redirect("Home.aspx");
+            Response.Redirect("~/Home.aspx");
         }
     }
 

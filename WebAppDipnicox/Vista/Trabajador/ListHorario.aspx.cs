@@ -26,7 +26,6 @@ namespace WebAppDipnicox.Vista
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClHorarioL obHorario = new ClHorarioL();
             int idHorario = obHorario.mtdidHorario(obPersonal.idPersonal);
-            HttpContext.Current.Session["idHorario"]=idHorario;
             string ruta = "/Vista/Trabajador/HorarioDia.aspx";
             if (idHorario == 0)
             {
@@ -54,10 +53,11 @@ namespace WebAppDipnicox.Vista
         [WebMethod]
         public static ClHorarioDiaE mtdListHoraDia(int id)
         {
-            
+            ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClHorarioL obHorario = new ClHorarioL();
+            int idHorario = obHorario.mtdidHorario(obPersonal.idPersonal);
             ClHorarioDiaE obDatos = new ClHorarioDiaE();
-            obDatos = obHorario.MtdListHoraDia(id);
+            obDatos = obHorario.MtdListHoraDia(id,idHorario);
             return obDatos;   
         }
 

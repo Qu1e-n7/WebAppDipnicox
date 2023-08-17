@@ -44,8 +44,13 @@
                         <div class="col-md-5">
                             <div class="titlepage">
                                 <h2>Sobre <span class="green">Nosotros</span></h2>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humourThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-
+                                <p>Somos una empresa dedicada a brindar soluciones en cámaras de seguridad y servicio técnico. Con años de experiencia en el mercado, nos enorgullece 
+                                    ofrecer productos y servicios de alta calidad para garantizar la seguridad de nuestros clientes.
+                                    
+                                    Nuestro equipo de profesionales altamente capacitados está comprometido en proporcionar las mejores soluciones y asesoramiento personalizado para
+                                    satisfacer las necesidades únicas de cada cliente. Ya sea para la instalación de sistemas de cámaras de seguridad o para la reparación y mantenimiento 
+                                    de equipos, estamos aquí para ayudarte.
+                                    En Dipnicox, nos esforzamos por superar las expectativas de nuestros clientes y brindar un servicio excepcional.</p>
                             </div>
                         </div>
                         <div class="col-md-7">
