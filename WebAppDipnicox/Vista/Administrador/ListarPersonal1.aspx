@@ -10,7 +10,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-
     <link href="../Css/Actualiza.css" rel="stylesheet" />
     <script src="../SweetAlert/Scripts/sweetalert.min.js"></script>
     <link href="../SweetAlert/Styles/sweetalert.css" rel="stylesheet" />
@@ -38,19 +37,6 @@
                 </thead>
                 <tbody style="color: white">
                 </tbody>
-                <tfoot style="color: #0070ff">
-                    <tr>
-
-                        <th>Documento</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Telefono</th>
-                        <th>Estado</th>
-                        <th>Email</th>
-                        <th>Contraseña</th>
-                        <th>Detalles</th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>

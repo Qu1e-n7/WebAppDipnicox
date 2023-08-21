@@ -1,9 +1,8 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-    font-family: initial;
-    font-weight: 300;
-    line-height: 1.7;
+    font-family: 'Poppins' sans-serif;
+    line-height: revert;
     background: linear-gradient(to bottom, #1f2029, #001429);
     /* Gradiente lineal de verde a azul oscuro */
     color: #ffeba7;
@@ -96,7 +95,7 @@ input[type="email"] {
         border-radius: 50%;
         color: #ffeba7;
         background-color: #020305;
-        font-family: 'unicons';
+        font-family: 'Poppins' sans-serif;
         content: '\eb4f';
         z-index: 20;
         top: -10px;
@@ -221,7 +220,6 @@ input[type="email"] {
     display: inline-flex;
     align-items: center;
     background-color: #00ffdb91;
-    ;
     color: #fff
 }
 
