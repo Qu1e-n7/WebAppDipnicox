@@ -21,11 +21,12 @@ namespace WebAppDipnicox.Datos
             {
                 obDatos = new ClVentaE();
                 obDatos.idProductoVenta = rd.GetInt32(0);
-                obDatos.Nombre = rd.GetString(1);
-                obDatos.Valor = rd.GetInt32(2);
-                obDatos.Cantidad = rd.GetInt32(3); ;
-                obDatos.Total = rd.IsDBNull(4) ? 0 : rd.GetInt32(4);
-                obDatos.Estado = rd.GetString(5); ;
+                obDatos.Nombre = rd.GetString(2);
+                obDatos.Image = rd.GetString(1);
+                obDatos.Valor = rd.GetInt32(3);
+                obDatos.Cantidad = rd.GetInt32(4); ;
+                obDatos.Total = rd.IsDBNull(5) ? 0 : rd.GetInt32(5);
+                obDatos.Estado = rd.GetString(6); ;
                 Lista.Add(obDatos);
             }
             return Lista;

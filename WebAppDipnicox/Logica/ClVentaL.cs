@@ -48,16 +48,8 @@ namespace WebAppDipnicox.Logica
 
         public List<ClVentaE> mtdVentaConfirmadas()
         {
-            List<ClVentaE> Lista = objDatosVentaD.mtdListar();
-            List<ClVentaE> Confirmada=new List<ClVentaE>();
-            for (int i = 0; i < Lista.Count; i++)
-            {
-                if (Lista[i].Estado=="Confirmar")
-                {
-                    Confirmada.Add(Lista[i]);
-                }
-            }
-            return Confirmada;
+            List<ClVentaE> Lista = objDatosVentaD.mtdConfirma();
+            return Lista;
         }
 
     }
