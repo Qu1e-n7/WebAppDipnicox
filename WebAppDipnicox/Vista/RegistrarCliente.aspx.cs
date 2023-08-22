@@ -46,6 +46,7 @@ namespace WebAppDipnicox.Vista
             if (resultado == 1)
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Registrado Exitososamente! ', 'Su usuario ha Sido Registrado Con Exito', 'success')", true);
+                Response.Redirect("Login.aspx");
             }
             else
             {

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link href="Vista/Css/Cards.css" rel="stylesheet" />
+    <link href="Vista/Css/Cards1.css" rel="stylesheet" />
     <link href="Vista/Css/Buscar.css" rel="stylesheet" />
     <link href="Vista/Css/Carrito.css" rel="stylesheet" />
     <link href="Vista/Css/CSSDipnicox.css" rel="stylesheet" />

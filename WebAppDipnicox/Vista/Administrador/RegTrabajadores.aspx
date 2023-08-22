@@ -37,10 +37,7 @@
                                             <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-style" placeholder="Numero Telefonico"></asp:TextBox>
                                             <i class="input-icon uil uil-phone"></i>
                                         </div>
-                                        <div class="form-group mt-2">
-                                            <asp:TextBox ID="txtEstado" runat="server" CssClass="form-style" placeholder="Estado"></asp:TextBox>
-                                            <i class="input-icon uil uil-user-check"></i>
-                                        </div>
+                                       
                                         <div class="form-group mt-2">
                                             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-style" placeholder="Email"></asp:TextBox>
                                             <i class="input-icon uil uil-at"></i>

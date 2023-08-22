@@ -67,19 +67,6 @@
                         </thead>
                         <tbody>
                         </tbody>
-                        <tfoot>
-                            <tr>
-
-                                <th>Documento</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Telefono</th>
-                                <th>Estado</th>
-                                <th>Email</th>
-                                <th>Contraseña</th>
-                                <th>Detalles</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </div>
