@@ -24,8 +24,8 @@
                                 <figcaption>
                                     <img src="../Imagenes/88217.png" alt="profile-sample4" class="profile" />
                                     <asp:Label ID="nombreProducto" runat="server" Text='<%# Eval("Nombre")  %>'></asp:Label>
-                                    <p class="card-price">$<asp:Label ID="precio" runat="server" Text='<%# Eval("Valor")  %>'></asp:Label></p>
-                                    <p class="card-text">
+                                    <p class="card-price" style="color: white;">$<asp:Label ID="precio" runat="server" Text='<%# Eval("Valor")  %>'></asp:Label></p>
+                                    <p class="card-text" style="color: white;">
                                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("Descripcion")  %>'></asp:Label>
                                     </p>
                                     <%-- <asp:Label ID="Valor" runat="server" Text="<%# Eval("Valor") %>"></asp:Label>

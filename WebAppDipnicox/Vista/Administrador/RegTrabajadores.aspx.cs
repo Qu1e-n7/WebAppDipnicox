@@ -48,7 +48,7 @@ namespace WebAppDipnicox.Vista
             objDatosPersonal.Nombre = txtNombre.Text;
             objDatosPersonal.Apellido = txtApellido.Text;
             objDatosPersonal.Telefono = txtTelefono.Text;
-            objDatosPersonal.Estado = txtEstado.Text;
+            objDatosPersonal.Estado = "Activo";
             objDatosPersonal.Email = txtEmail.Text;
             objDatosPersonal.Contraseña = txtContraseña.Text;
             objDatosPersonal.idTipoPersonal = int.Parse(ddlTipoPersonal.SelectedValue.ToString());
