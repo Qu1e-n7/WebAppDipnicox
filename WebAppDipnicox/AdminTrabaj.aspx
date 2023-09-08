@@ -144,14 +144,23 @@
             var cant = parseInt(lbcantidad.value, 10);
             cant++;
             lbcantidad.value = cant;
-            //ActTotal(mas, cant);
+            ActTotal(mas, cant);
         }
         function RestarCarr(menos) {
             var lbcantidad = menos.parentElement.querySelector('.carrito-item-cantidad');
             var cant = parseInt(lbcantidad.value, 10);
             cant--;
             lbcantidad.value = cant;
-            //ActTotal(menos, cant);
+            ActTotal(menos, cant);
+        }
+        function ActTotal(TipCan, Cantidad) {
+            var precioElemento = TipCan.closest('.carrito-item').querySelector('#PreUni');
+            var precioUnitario = parseFloat(precioElemento.textContent); // Obtener el precio unitario del elemento
+
+            var totalElemento = TipCan.closest('.carrito-item').querySelector('.carrito-item-precio');
+
+            var NuevTotal = precioUnitario * Cantidad;
+            totalElemento.textContent = NuevTotal;
         }
         $(document).ready(function () {
             $.ajax({
@@ -195,9 +204,6 @@
                 boton.style.display = "none";
             }
         }
-    </script>
-
-    <script>
 
 
         // Variables globales
@@ -228,7 +234,6 @@
                 }
             });
         }
-
         function ListCarr(data) {
             var rptDatos = '';
             var ListaCarr = document.getElementById('listaCarrito');
@@ -237,7 +242,7 @@
             for (var i = 0; i < data.length; i++) {
                 rptDatos += `<li>
                         <div class="carrito-item">
-                            <img src="#" width="80px" alt="">
+                            <img src="Vista/Imagenes/Productos/${data[i].Image}" width="80px" alt="">
                                 <div class="carrito-item-detalles">
                                     <span class="carrito-item-titulo">${data[i].Nombre}</span>
                                     <div class="selector-cantidad">
@@ -245,7 +250,7 @@
                                         <input type="text" value="${data[i].Cantidad}" class="carrito-item-cantidad" disabled>
                                             <i class="bi bi-caret-right-fill" onclick="SumarCarr(this)""></i>
                                     </div>
-
+                                    <span id="PreUni" style="display:none">${data[i].Total}</span>
                                     <span class="carrito-item-precio">${data[i].Total}</span>
                                 </div>
                                 <button class="ms-5 btn btn-indigo-400 p-2" onclick="EliminarCarr(${data[i].idProductoVenta})">Eliminar</button>

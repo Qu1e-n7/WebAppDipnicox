@@ -94,7 +94,14 @@ namespace WebAppDipnicox.Datos
             Actualizar.Parameters.AddWithValue("@HoraFin", obDatos.HoraFinal);
             int Actualizado = Actualizar.ExecuteNonQuery();
             return Actualizado;
+        }
 
+        public int mtdEliHorarioDia(int idHorDia)
+        {
+            SqlCommand Eliminar = obSQL.mtdProcesoAlmacenado("Eliminar_HorarioDia");
+            Eliminar.Parameters.AddWithValue("@idHorarDia", idHorDia);
+            int eliminado = Eliminar.ExecuteNonQuery();
+            return eliminado;
         }
         
     }

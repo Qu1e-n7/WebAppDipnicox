@@ -205,6 +205,7 @@ end header
             width: 30px;
             padding: 5px;
             text-align: center;
+            color:black;
         }
 
         .carrito .carrito-item .selector-cantidad i {

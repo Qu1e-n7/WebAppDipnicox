@@ -24,9 +24,10 @@
                     <th>Codigo</th>
                     <th>Fecha</th>
                     <th>Total</th>
-                    <th>idCliente</th>
+                    <th>Cliente</th>
                     <th>Trabajador</th>
-                    <th>TipoVenta</th>
+                    <th>Tipo Venta</th>
+                    <th>Detalles</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -53,9 +54,10 @@
                             { data: "Codigo" },
                             { data: "Fecha" },
                             { data: "Total" },
-                            { data: "idCliente" },
-                            { data: "idPersonal" },
-                            { data: "idTipoVenta" },
+                            { data: "Cliente" },
+                            { data: "Personal" },
+                            { data: "TipVent" },
+                            { "data":null}
                         ]
                     });
                 },

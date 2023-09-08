@@ -80,5 +80,20 @@ namespace WebAppDipnicox.Vista
             }
 
         }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ClHorarioL obHorario = new ClHorarioL();
+            ClHorarioDiaE obDatos = new ClHorarioDiaE();
+            int eliminar = obHorario.mtdEliHorarioDia(int.Parse(txtid.Text));
+            if (eliminar!=0)
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Horas Dias!', 'Su dia ha sido eliminado exitosamente', 'success')", true);
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Horas Dias!', 'Su dia no se ha eliminado', 'success')", true);
+            }
+        }
     }
 }

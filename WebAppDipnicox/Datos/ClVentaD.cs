@@ -31,7 +31,7 @@ namespace WebAppDipnicox.Datos
                 obDatos = new ClVentaE();
                 obDatos.idVenta = rd.GetInt32(0);
                 obDatos.Codigo = rd.GetString(1) ;
-                obDatos.Fecha = rd.IsDBNull(2) ? null : rd.GetString(2); ;
+                obDatos.Fecha = rd.IsDBNull(2) ? null : rd.GetString(2); 
                 obDatos.Estado = rd.GetString(3);
                 obDatos.TotalVen = rd.IsDBNull(4) ? null : rd.GetString(4); ;
                 obDatos.idCliente = rd.IsDBNull(5) ? (int?)null : rd.GetInt32(5); 
@@ -63,11 +63,12 @@ namespace WebAppDipnicox.Datos
             {
                 obDatos = new ClVentaE();
                 obDatos.Codigo = rd.GetString(0);
-                obDatos.Fecha = rd.GetString(1);
-                obDatos.Total = rd.GetInt32(2);
-                obDatos.Cliente = rd.GetString(3);
-                obDatos.Personal = rd.GetString(4);
+                obDatos.Fecha = rd.IsDBNull(1) ? null : rd.GetString(1);
+                obDatos.TotalVen = rd.GetString(2);
+                obDatos.Cliente = rd.IsDBNull(3) ? null : rd.GetString(3);
+                obDatos.Personal = rd.IsDBNull(4) ? null : rd.GetString(4);
                 obDatos.TipVent = rd.GetString(5);
+                listaventa.Add(obDatos);
             }
             return listaventa;
         }

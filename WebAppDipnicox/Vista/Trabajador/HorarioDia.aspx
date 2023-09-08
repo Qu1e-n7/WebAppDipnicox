@@ -137,5 +137,22 @@
                 }
             });
         }
+        function selectHorDia() {
+            $.ajax({
+                type: "POST",
+                url: "HorarioDia.aspx/mtdSelect",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (dat) {
+                    var listar = dat.d;
+                    console.log(listar);
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJAX
+                    console.error(errorThrown);
+                    console.error(xhr);
+                }
+            });
+        }
+
     </script>
 </asp:Content>

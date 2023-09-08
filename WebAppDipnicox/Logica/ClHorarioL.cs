@@ -74,5 +74,11 @@ namespace WebAppDipnicox.Logica
             return idHorario;
 
         }
+
+        public int mtdEliHorarioDia(int idHorarDia)
+        {
+            int eliminar = obHorario.mtdEliHorarioDia(idHorarDia);
+            return eliminar;
+        }
     }
 }
