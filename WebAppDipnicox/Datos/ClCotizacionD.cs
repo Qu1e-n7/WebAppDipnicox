@@ -9,7 +9,7 @@ namespace WebAppDipnicox.Datos
 {
     public class ClCotizacionD
     {
-        public int mtdRegistrarCotizacion(ClCotizacionE objDatos)
+        public int mtdRegistrarCotizacion(ClCotizacionE objDatos,int idPersonal)
         {
             ClProcesarSQL objSQL = new ClProcesarSQL();
             string Proceso = "RegistrarCotizacion";
@@ -19,6 +19,7 @@ namespace WebAppDipnicox.Datos
             Registro.Parameters.AddWithValue("@Estado", objDatos.Estado);
             Registro.Parameters.AddWithValue("@Total", objDatos.Total);
             Registro.Parameters.AddWithValue("@idCliente", objDatos.idCliente);
+            Registro.Parameters.AddWithValue("@idPersonal", idPersonal);
             int Registar = Registro.ExecuteNonQuery();
             return Registar;
         }

@@ -9,10 +9,10 @@ namespace WebAppDipnicox.Logica
 {
     public class ClCotizacionL
     {
-        public int mtdRegistroVentas(ClCotizacionE objDatos)
+        public int mtdRegistroVentas(ClCotizacionE objDatos, int idPersonal)
         {
             ClCotizacionD objDatosD = new ClCotizacionD();
-            int registro = objDatosD.mtdRegistrarCotizacion(objDatos);
+            int registro = objDatosD.mtdRegistrarCotizacion(objDatos,idPersonal);
             return registro;
         }
     }

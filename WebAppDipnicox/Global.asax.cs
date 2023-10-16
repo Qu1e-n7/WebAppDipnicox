@@ -22,6 +22,7 @@ namespace WebAppDipnicox
             Session["Trabajador"] = "";
             Session["Usuario"] = "";
             Session["Tipo"] = 0;
+            Session["idSer"] = 0;
             Session["Total"] = 0;
             Session["TipProductos"] = 0;
         }

@@ -69,5 +69,11 @@ namespace WebAppDipnicox.Logica
             }
             return Nombre;
         }
+        public List<ClPersonalE> mtdListaServicio(int idServicio)
+        {
+            ClPersonalD obPersonal = new ClPersonalD();
+            List<ClPersonalE> ListaPersonal = obPersonal.mtdListarServicio(idServicio);
+            return ListaPersonal;
+        }
     }
 }

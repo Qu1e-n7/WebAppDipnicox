@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-     <link href="css/CardServicio.css" rel="stylesheet" />
+    <link href="css/CardServicio.css" rel="stylesheet" />
     <link href="css/Modal.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="../SweetAlert/Scripts/sweetalert.min.js"></script>
@@ -16,7 +16,7 @@
         <h3 style="text-align: center; padding: 20px;">Servicios Disponibles</h3>
         <div class="container">
             <div class="row">
-                <asp:Repeater ID="repcard" runat="server" OnItemDataBound="repcard_ItemDataBound">
+                <asp:Repeater ID="repcard" runat="server" OnItemDataBound="repcard_ItemDataBound" OnItemCommand="repcard_ItemCommand">
                     <ItemTemplate>
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <figure class="snip1336">
@@ -37,7 +37,8 @@
                                         <ContentTemplate>
                                             <asp:Label ID="idServicio" runat="server" Text='<%# Eval("idServicio")  %>' Visible="false"></asp:Label></h5>
                                              <h2 style="display: none;"><%# Eval("Valor")  %></h2>
-                                            <a href="#modal-1" class="follow" onclick="listar(this)">Quiero Pedir Este Servicio!!</a>
+                                            <a href="#modal-1" class="follow" onclick=" lista(this);listar(this)">Quiero Pedir Este Servicio!!</a>
+                                            <h2 style="display: none;"><%# Eval("idServicio")  %></h2>
                                             <asp:Button ID="btnAgregarValor" runat="server" Text="" OnClick="btnAgregarValor_Click" Style="display: none;" />
                                             <%--<asp:Button ID="agregarAlCarrito" runat="server" CssClass="add-to-cart-btn ocultar" Text="Agregar al carrito"  OnClick="agregarAlCarrito_Click" />--%>
                                         </ContentTemplate>
@@ -64,6 +65,17 @@
                 <asp:TextBox ID="name" name="user_name" TextMode="Date" runat="server" Style="background: none;"></asp:TextBox>
 
 
+            </fieldset>
+            <fieldset>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+
+                        <label for="name" style="color: white">Trabajadores Dsponibles: </label>
+                        <asp:Button ID="btnCargar" runat="server" Text="Cargar Trabajadores" OnClick="btnCargar_Click" OnCommand="btnCargar_Command" />
+                        <asp:DropDownList ID="ddlServicios" runat="server"></asp:DropDownList>
+
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </fieldset>
             <fieldset>
 
@@ -101,10 +113,31 @@
             });
             activarBoton();
         }
+
+        function lista(elementoB) {
+            var valor = elementoB.nextElementSibling.innerText;
+            $.ajax({
+                type: "POST",
+                url: "Servicios.aspx/Lista",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ idSer: valor }),
+                success: function (data) {
+                    console.log(valor);
+                }, error: function (xhr, textStatus, errorThrown) {
+                    // Manejar cualquier error que ocurra durante la llamada AJAX
+                    console.error(errorThrown);
+                }
+
+            });
+            activarBoton();
+
+        }
+
         function activarBoton() {
             // Obtiene una referencia al botón
             console.log("bvb");
-<%--            var boton = document.getElementById('<%= btnAgregarValor.ClientID %>');--%>
+            //var boton = document.getElementById('<%= btnAgregarValor.ClientID %>');
             console.log(boton);
             // Simula el clic en el botón
             if (boton) {

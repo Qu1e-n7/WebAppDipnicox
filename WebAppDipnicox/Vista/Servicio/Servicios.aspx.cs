@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -18,6 +19,8 @@ namespace WebAppDipnicox.Vista.Servicio
             List<ClServicioE> listaServicio = objServicioL.mtdListarServicio();
             repcard.DataSource = listaServicio;
             repcard.DataBind();
+
+
         }
 
         protected void repcard_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -38,6 +41,13 @@ namespace WebAppDipnicox.Vista.Servicio
             HttpContext.Current.Session["Tipo"] = tipo;
 
         }
+        [WebMethod]
+        public static void Lista(string idSer)
+        {
+            HttpContext.Current.Session["idSer"] = idSer;
+
+        }
+
 
         protected void btnAgregarValor_Click(object sender, EventArgs e)
         {
@@ -72,6 +82,9 @@ namespace WebAppDipnicox.Vista.Servicio
             }
 
             lblValor.Text = lista2[0].Valor.ToString();
+
+           
+
         }
 
         protected void btnConsignacion_Click(object sender, EventArgs e)
@@ -80,14 +93,16 @@ namespace WebAppDipnicox.Vista.Servicio
             ClCotizacionE obDatos = new ClCotizacionE();
             ClClienteE objDato = (ClClienteE)Session["Usuario"];
 
-            
+
 
             obDatos.Fecha = name.Text;
             obDatos.Descripcion = bio.Text;
             obDatos.Estado = "Pendiente";
             obDatos.Total = Session["Tipo"].ToString();
             obDatos.idCliente = objDato.idCliente;
-            int Registrar = obCoti.mtdRegistroVentas(obDatos);
+            int idPersonal = int.Parse(ddlServicios.SelectedValue.ToString());
+
+            int Registrar = obCoti.mtdRegistroVentas(obDatos, idPersonal);
             if (Registrar == 1)
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Cotizacion No Registrada!', 'Su Cotizacion no ha Sido Registrado Con Exito', 'warning')", true);
@@ -97,6 +112,32 @@ namespace WebAppDipnicox.Vista.Servicio
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Cotizacion Registrado!', 'Su Cotizacion ha Sido Registrado', 'success')", true);
 
             }
+        }
+
+       
+        protected void btnCargar_Click(object sender, EventArgs e)
+        {
+            int tipo1 = int.Parse(Session["idSer"].ToString());
+            ClPersonalL objServicio = new ClPersonalL();
+            List<ClPersonalE> listaServicio1 = new List<ClPersonalE>();
+            listaServicio1 = objServicio.mtdListaServicio(tipo1);
+
+            ddlServicios.DataSource = listaServicio1;
+            ddlServicios.DataTextField = "Nombre";
+            ddlServicios.DataValueField = "idPersonal";
+            ddlServicios.DataBind();
+            ddlServicios.Items.Insert(0, new ListItem("Trabajadores:", "0"));
+        }
+
+        protected void repcard_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            
+        }
+
+        protected void btnCargar_Command(object sender, CommandEventArgs e)
+        {
+            
+           
         }
     }
 }

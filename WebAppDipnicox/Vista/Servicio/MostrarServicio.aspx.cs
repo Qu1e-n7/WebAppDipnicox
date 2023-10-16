@@ -94,16 +94,16 @@ namespace WebAppDipnicox.Vista.Servicio
             obDatos.Estado = "Pendiente";
             obDatos.Total = Session["Tipo"].ToString();
             obDatos.idCliente = objDato.idCliente;
-            int Registrar = obCoti.mtdRegistroVentas(obDatos);
-            if (Registrar == 1)
-            {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Cotizacion No Registrada!', 'Su Cotizacion no ha Sido Registrado Con Exito', 'warning')", true);
-            }
-            else
-            {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Cotizacion Registrado!', 'Su Cotizacion ha Sido Registrado', 'success')", true);
+            //int Registrar = obCoti.mtdRegistroVentas(obDatos);
+            //if (Registrar == 1)
+            //{
+            //    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Cotizacion No Registrada!', 'Su Cotizacion no ha Sido Registrado Con Exito', 'warning')", true);
+            //}
+            //else
+            //{
+            //    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('¡Cotizacion Registrado!', 'Su Cotizacion ha Sido Registrado', 'success')", true);
 
-            }
+            //}
         }
     }
 

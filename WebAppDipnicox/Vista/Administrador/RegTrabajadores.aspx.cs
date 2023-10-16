@@ -74,7 +74,7 @@ namespace WebAppDipnicox.Vista
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtTelefono.Text = "";
-            txtEstado.Text = "";
+            //txtEstado.Text = "";
             txtEmail.Text = "";
             txtContraseña.Text = "";
         }
