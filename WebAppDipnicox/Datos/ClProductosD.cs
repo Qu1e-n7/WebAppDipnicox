@@ -50,11 +50,28 @@ namespace WebAppDipnicox.Datos
             int Actu = Actualizar.ExecuteNonQuery();
             return Actu;
         }
-        public List<ClNotificacionE> mtdTrMensa()
+        public List<ClNotificacionE> mtdTrMensa(int id )
         {
             List<ClNotificacionE> mensajes= new List<ClNotificacionE>();
             ClNotificacionE obNotifi =null;
-            string trigger = "select Titulo, Descripcion from Notificaciones";
+            string trigger = "(SELECT * FROM ( SELECT Titulo,Descripcion, SUBSTRING(Descripcion, CHARINDEX('Para:', Descripcion) + LEN('Para:'), CHARINDEX('Mensaje:', Descripcion) - CHARINDEX('Para:', Descripcion) - LEN('Para:')) AS id FROM Notificaciones WHERE Descripcion LIKE '%Para:%Mensaje:%COT:%') AS Subconsulta WHERE id = "+id+")";
+            SqlCommand TriggMensa = obSQL.mtdTrigger(trigger);
+            SqlDataReader reader = TriggMensa.ExecuteReader();
+            while (reader.Read())
+            {
+                obNotifi = new ClNotificacionE();
+                obNotifi.Titulo = reader.GetString(0);
+                obNotifi.Descripcion = reader.GetString(1);
+                mensajes.Add(obNotifi);
+            }
+
+            return mensajes;
+        }
+        public List<ClNotificacionE> mtdTrMensa1()
+        {
+            List<ClNotificacionE> mensajes = new List<ClNotificacionE>();
+            ClNotificacionE obNotifi = null;
+            string trigger = "  SELECT Titulo,Descripcion FROM Notificaciones";
             SqlCommand TriggMensa = obSQL.mtdTrigger(trigger);
             SqlDataReader reader = TriggMensa.ExecuteReader();
             while (reader.Read())

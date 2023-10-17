@@ -137,7 +137,7 @@
         function activarBoton() {
             // Obtiene una referencia al botón
             console.log("bvb");
-            //var boton = document.getElementById('<%= btnAgregarValor.ClientID %>');
+            var boton = document.getElementById('<%= btnAgregarValor.ClientID %>');
             console.log(boton);
             // Simula el clic en el botón
             if (boton) {

@@ -13,7 +13,7 @@
     <header>
         <div class="header-section container">
             <div>
-                <img onclick="showCart()" class="cart" src="Vista/Imagenes/anadir-a-la-cesta.png" alt="">
+                <img onclick="showCart()" class="cart" src="../Vista/Imagenes/anadir-a-la-cesta.png" alt="">
                 <asp:Label ID="lblcontador" class="count-product" runat="server" Text="0"></asp:Label>
                 <%--<p id="contador"  runat="server" >0</p>--%>
             </div>
@@ -61,9 +61,6 @@
             </div>
         </div>
     </header>
-    <div class="">
-        <asp:Label ID="lblProductos" runat="server" Text="Productos"></asp:Label>
-    </div>
     <div class="CardCatego">
         <div class="container">
             <div class="row">

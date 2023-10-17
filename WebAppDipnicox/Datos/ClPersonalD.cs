@@ -167,6 +167,7 @@ namespace WebAppDipnicox.Datos
             while (reader.Read())
             {
                 obDatos = new ClPersonalE();
+                obDatos.idPersonal = reader.GetInt32(0);
                 obDatos.Documento = reader.GetString(1);
                 obDatos.Nombre = reader.GetString(2);
                 obDatos.Apellido = reader.GetString(3);

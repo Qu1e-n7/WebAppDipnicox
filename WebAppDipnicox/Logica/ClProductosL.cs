@@ -23,9 +23,14 @@ namespace WebAppDipnicox.Logica
             int Actualizar = obProducto.mtdActualizar(obDatos);
             return Actualizar;
         }
-        public List<ClNotificacionE> mtdMensaje()
+        public List<ClNotificacionE> mtdMensaje(int id=0 )
         {
-            List<ClNotificacionE> msjTrigger = obProducto.mtdTrMensa();
+            List<ClNotificacionE> msjTrigger = obProducto.mtdTrMensa(id);
+            return msjTrigger;
+        }
+        public List<ClNotificacionE> mtdMensaje1()
+        {
+            List<ClNotificacionE> msjTrigger = obProducto.mtdTrMensa1();
             return msjTrigger;
         }
         public int mtdEliminar(int id)

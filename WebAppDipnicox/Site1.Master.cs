@@ -19,7 +19,7 @@ namespace WebAppDipnicox
             {
                   ClPersonalE obdatos=(ClPersonalE) Session["Administrador"];
                 ReDatos.Text = obdatos.Nombre + " " + obdatos.Apellido;
-                List<ClNotificacionE> list = obProductos.mtdMensaje();
+                List<ClNotificacionE> list = obProductos.mtdMensaje1();
                 if (list!=null)
                 {
                     repnotif.DataSource = list;

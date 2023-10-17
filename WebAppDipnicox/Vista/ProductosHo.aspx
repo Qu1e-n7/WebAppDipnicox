@@ -3,9 +3,7 @@
     <link href="Css/Cards1.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="">
-        <asp:Label ID="lblProductos" runat="server" Text="Productos"></asp:Label>
-    </div>
+    
     <div class="CardCatego">
         <div class="container">
             <div class="row">

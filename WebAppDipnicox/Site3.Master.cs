@@ -16,7 +16,8 @@ namespace WebAppDipnicox
         ClProductosL obProductos = new ClProductosL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<ClNotificacionE> list = obProductos.mtdMensaje();
+            ClPersonalE obPersonal = (ClPersonalE)Session["Trabajador"];
+            List<ClNotificacionE> list = obProductos.mtdMensaje(obPersonal.idPersonal);
             List<ClNotificacionE> NotifiServ = new List<ClNotificacionE>();
             ClNotificacionE obNotifi = null;
             for (int i = 0; i < list.Count; i++)
