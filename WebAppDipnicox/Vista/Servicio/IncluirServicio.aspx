@@ -146,13 +146,13 @@
                         <div class="d-flex">
                             <div class="inputbox ms-5">
                                 <div class="card__content">
-                                    <asp:DropDownList ID="ddlCiudad" runat="server" CssClass="input"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlCiudad" runat="server" CssClass="btn-primary"></asp:DropDownList>
                                 </div>
 
                             </div>
                             <div class="inputbox ms-5">
 
-                                <asp:DropDownList ID="ddlServicio" CssClass="input" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlServicio" CssClass="btn-primary" runat="server"></asp:DropDownList>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">

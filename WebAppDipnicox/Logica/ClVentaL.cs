@@ -51,6 +51,11 @@ namespace WebAppDipnicox.Logica
             List<ClVentaE> Lista = objDatosVentaD.mtdConfirma();
             return Lista;
         }
+        public List<ClVentaProductoE> mtdVentaProd(int idVenta)
+        {
+            List<ClVentaProductoE> Lista = objDatosVentaD.mtdListarCodigo(idVenta);
+            return Lista;
+        }
 
     }
 

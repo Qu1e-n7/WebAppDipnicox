@@ -16,7 +16,6 @@ namespace WebAppDipnicox.Entidades
         public string Cliente { get; set; }
         public int? idPersonal { get; set; }
         public string Personal { get; set; }
-
         public int? idTipoVenta { get; set; }
         public string TipVent { get; set; }
 

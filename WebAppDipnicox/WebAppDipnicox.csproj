@@ -213,6 +213,7 @@
     <Compile Include="Entidades\ClTipoProducE.cs" />
     <Compile Include="Entidades\ClTipoVentaE.cs" />
     <Compile Include="Entidades\ClVentaE.cs" />
+    <Compile Include="Entidades\ClVentaProductoE.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

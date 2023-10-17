@@ -62,16 +62,38 @@ namespace WebAppDipnicox.Datos
             while (rd.Read())
             {
                 obDatos = new ClVentaE();
-                obDatos.Codigo = rd.GetString(0);
-                obDatos.Fecha = rd.IsDBNull(1) ? null : rd.GetString(1);
-                obDatos.TotalVen = rd.GetString(2);
-                obDatos.Cliente = rd.IsDBNull(3) ? null : rd.GetString(3);
-                obDatos.Personal = rd.IsDBNull(4) ? null : rd.GetString(4);
-                obDatos.TipVent = rd.GetString(5);
+                obDatos.idVenta = rd.GetInt32(0);
+                obDatos.Codigo = rd.GetString(1);
+                obDatos.Fecha = rd.IsDBNull(2) ? null : rd.GetString(2);
+                obDatos.TotalVen = rd.GetString(3);
+                obDatos.Cliente = rd.IsDBNull(4) ? null : rd.GetString(4);
+                obDatos.Personal = rd.IsDBNull(5) ? null : rd.GetString(5);
+                obDatos.TipVent = rd.GetString(6);
+                
                 listaventa.Add(obDatos);
             }
             return listaventa;
         }
-        
+        public List<ClVentaProductoE> mtdListarCodigo(int idVenta)
+        {
+            SqlCommand Lista = objSQL.mtdProcesoAlmacenado("ListarCodigo");
+            Lista.Parameters.AddWithValue("@idVenta", idVenta);
+            SqlDataReader rd = Lista.ExecuteReader();
+            ClVentaProductoE obDatos = null;
+            List<ClVentaProductoE> listaventa = new List<ClVentaProductoE>();
+            while (rd.Read())
+            {
+                obDatos = new ClVentaProductoE();
+                obDatos.idVenta = rd.GetInt32(0);
+                obDatos.Nombre = rd.GetString(1);
+                obDatos.Codigo = rd.GetString(2);
+                obDatos.Total = rd.GetInt32(3);
+             
+
+                listaventa.Add(obDatos);
+            }
+            return listaventa;
+        }
+
     }
 }

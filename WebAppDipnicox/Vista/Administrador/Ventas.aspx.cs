@@ -12,6 +12,10 @@ namespace WebAppDipnicox.Vista
 {
     public partial class Ventas : System.Web.UI.Page
     {
+        ClVentaL obVentas = new ClVentaL();
+        private int idVenta;
+        int idVen=0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -27,5 +31,29 @@ namespace WebAppDipnicox.Vista
             
             return list;
         }
+
+        //[WebMethod]
+        //public static void GuardarIdPersonal(int idVenta)
+        //{
+
+        //    var page = HttpContext.Current.Handler as Ventas;
+        //    if (page != null)
+        //    {
+        //        page.idVenta = idVenta;
+        //        HttpContext.Current.Session["idVenta"] = idVenta;
+
+        //    }
+
+        //}
+        [WebMethod]
+        public static List<ClVentaProductoE> Lista()
+        {
+            //int idVenta = Convert.ToInt32(HttpContext.Current.Session["idVenta"]);
+            ClVentaL obVentas = new ClVentaL();
+            List<ClVentaProductoE> list = obVentas.mtdVentaProd(9);
+
+            return list;
+        }
+
     }
 }

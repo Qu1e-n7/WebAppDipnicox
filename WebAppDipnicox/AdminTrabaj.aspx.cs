@@ -53,7 +53,7 @@ namespace WebAppDipnicox
             var page = HttpContext.Current.Handler as AdminTrabaj;
             ClPersonalE obPersonal = HttpContext.Current.Session["Trabajador"] as ClPersonalE;
             ClVentaL obVenta = new ClVentaL();
-            int idcliente=0;
+            int idcliente=1;
             ClVentaE obDatos = obVenta.mtdListarXid(obPersonal.idPersonal,idcliente);
             int idVenta = obDatos.idVenta;
             List<ClVentaE> ListaCarrito = new List<ClVentaE>();

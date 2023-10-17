@@ -154,11 +154,11 @@ namespace WebAppDipnicox.Datos
                 obDatos.Codigo = BuscarDatos.GetString(1);
                 obDatos.Nombre = BuscarDatos.GetString(2);
                 obDatos.Descripcion = BuscarDatos.GetString(3);
-                //obDatos.Image = BuscarDatos.GetString(4);
-                obDatos.Valor = BuscarDatos.GetInt32(4);
-                obDatos.Cantidad = BuscarDatos.GetInt32(5);
-                obDatos.UnidadMed = BuscarDatos.GetString(6);
-                obDatos.idTipoProducto = BuscarDatos.GetInt32(7);
+                obDatos.Image = BuscarDatos.GetString(4);
+                obDatos.Valor = BuscarDatos.GetInt32(5);
+                obDatos.Cantidad = BuscarDatos.GetInt32(6);
+                obDatos.UnidadMed = BuscarDatos.GetString(7);
+                obDatos.idTipoProducto = BuscarDatos.GetInt32(8);
                 listaProd.Add(obDatos);
             }
             return listaProd;

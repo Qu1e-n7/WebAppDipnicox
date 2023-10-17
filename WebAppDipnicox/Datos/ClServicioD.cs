@@ -52,7 +52,7 @@ namespace WebAppDipnicox.Datos
 
             Actualizar.Parameters.AddWithValue("@idPersonal", objDatos1.idPersonal);
             Actualizar.Parameters.AddWithValue("@idServicio", objDatos.idServicio);
-            Actualizar.Parameters.AddWithValue("@idCiudad", objDatos1.idCiudad);
+            //Actualizar.Parameters.AddWithValue("@idCiudad", objDatos1.idCiudad);
 
 
             int Actualiza = Actualizar.ExecuteNonQuery();
